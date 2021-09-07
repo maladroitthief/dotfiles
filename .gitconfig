@@ -1,0 +1,40 @@
+[user]
+  name = Ian Weller
+  email = maladroitthief@gmail.com
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[core]
+  editor = code --wait
+	# global gitignore
+  excludesfile = ~/.gitignore
+	# auto crlf to lf
+  autocrlf = input
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[init]
+  defaultBranch = main
+[web]
+  browser = google-chrome
+[push]
+  default = simple
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[alias]
+  c = commit
+  ca = commit -a
+  cm = commit -m
+  cam = commit -am
+  d = diff
+  dc = diff --cached
+  l = log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
+[pull]
+	rebase = true
