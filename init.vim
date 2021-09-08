@@ -24,7 +24,7 @@ filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
 
 " column-width visual indication
-let &colorcolumn=join(range(81,999),",")
+set colorcolumn=80
 highlight ColorColumn ctermbg=235 guibg=#001D2F
 
 " tabs and indenting
