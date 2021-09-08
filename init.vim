@@ -26,7 +26,12 @@ filetype plugin on      " enable filetype-specific plugins
 
 " set whitespace characters to be visible
 set list
-set listchars=tab:›\ ,eol:¬,trail:⋅
+set listchars=
+set listchars+=tab:░\
+set listchars+=trail:·
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
 
 " column-width visual indication
 set colorcolumn=80
