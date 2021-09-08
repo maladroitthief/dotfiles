@@ -10,6 +10,7 @@ set nobackup            " don't create pointless backup files; Use VCS instead
 set nowritebackup
 set noswapfile
 set ruler
+set number relativenumber
 set autoread            " watch for file changes
 set number              " show line numbers
 set showcmd             " show selection metadata
