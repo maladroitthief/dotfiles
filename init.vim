@@ -24,6 +24,10 @@ filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
 
+" set whitespace characters to be visible
+set list
+set listchars=tab:›\ ,eol:¬,trail:⋅
+
 " column-width visual indication
 set colorcolumn=80
 highlight ColorColumn ctermbg=235 guibg=#001D2F
