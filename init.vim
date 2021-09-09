@@ -74,6 +74,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader><Leader> <C-^> " Switch between the last two files
+nnoremap <C-P> :Files<CR>
 
 
 call plug#begin()
