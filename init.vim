@@ -27,11 +27,19 @@ filetype plugin on      " enable filetype-specific plugins
 " set whitespace characters to be visible
 set list
 set listchars=
-set listchars+=tab:░\
+set listchars+=tab:\│\
 set listchars+=trail:·
+set listchars+=space:·
 set listchars+=extends:»
 set listchars+=precedes:«
 set listchars+=nbsp:⣿
+set listchars+=eol:↲
+set showbreak=↪\
+
+highlight Whitespace ctermfg=Grey guifg=Grey
+highlight NonText ctermfg=Grey guifg=Grey
+highlight SpecialKey ctermfg=Grey guifg=Grey
+highlight Todo ctermbg=DarkYellow guibg=DarkYellow
 
 " column-width visual indication
 set colorcolumn=80
@@ -60,8 +68,8 @@ set splitbelow
 set splitright
 
 " key mappings
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader><Leader> <C-^> " Switch between the last two files
