@@ -83,10 +83,25 @@ call plug#begin()
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " indentLine
 " Disable override of colors
 let g:indentLine_char = "│"
 let g:indentLine_setColors = 0
+
+" gitgutter
+let g:gitgutter_grep                    = 'ag'
+let g:gitgutter_map_keys                = 0
+nmap <C-Up> <Plug>GitGutterPrevHunkzz
+nmap <C-Down> <Plug>GitGutterNextHunkzz
+nmap <C-Right> <Plug>GitGutterPreviewHunk
+nmap <Leader>+ <Plug>GitGutterStageHunk
+nmap <Leader>- <Plug>GitGutterUndoHunk
+highlight SignColumn guibg=none ctermbg=none
+highlight GitGutterAdd    guifg=Green ctermfg=Green
+highlight GitGutterChange guifg=Yellow ctermfg=Yellow
+highlight GitGutterDelete guifg=Red ctermfg=Red
+set updatetime=100
+
