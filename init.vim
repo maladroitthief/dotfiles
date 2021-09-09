@@ -25,7 +25,7 @@ filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
 
 " set whitespace characters to be visible
-set list
+" set list
 set listchars=
 set listchars+=tab:\│\
 set listchars+=trail:·
@@ -36,10 +36,11 @@ set listchars+=nbsp:⣿
 set listchars+=eol:↲
 set showbreak=↪\
 
-highlight Whitespace ctermfg=Grey guifg=Grey
-highlight NonText ctermfg=Grey guifg=Grey
-highlight SpecialKey ctermfg=Grey guifg=Grey
-highlight Todo ctermbg=DarkYellow guibg=DarkYellow
+"highlight Whitespace ctermfg=Grey guifg=Grey
+"highlight NonText ctermfg=Grey guifg=Grey
+"highlight SpecialKey ctermfg=Grey guifg=Grey
+"highlight Todo ctermbg=DarkYellow guibg=DarkYellow
+highlight Conceal ctermfg=Grey guifg=Grey ctermbg=none guibg=none
 
 " column-width visual indication
 set colorcolumn=80
@@ -73,3 +74,19 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader><Leader> <C-^> " Switch between the last two files
+
+
+call plug#begin()
+
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+" indentLine
+" Disable override of colors
+let g:indentLine_char = "│"
+let g:indentLine_setColors = 0
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
