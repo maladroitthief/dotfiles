@@ -44,7 +44,7 @@ highlight Todo ctermbg=DarkYellow guibg=DarkYellow
 highlight Conceal ctermfg=Grey guifg=Grey ctermbg=none guibg=none
 
 " column-width visual indication
-set colorcolumn=80
+set colorcolumn=81
 highlight ColorColumn ctermbg=235 guibg=#001D2F
 
 " tabs and indenting
