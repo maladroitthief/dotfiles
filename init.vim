@@ -75,8 +75,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader><Leader> <C-^> " Switch between the last two files
-nnoremap <C-P> :Files<CR>
-
 
 call plug#begin()
 
@@ -84,6 +82,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " indentLine
@@ -96,7 +95,7 @@ let g:gitgutter_grep                    = 'ag'
 let g:gitgutter_map_keys                = 0
 nmap <C-Up> <Plug>GitGutterPrevHunkzz
 nmap <C-Down> <Plug>GitGutterNextHunkzz
-nmap <C-Right> <Plug>GitGutterPreviewHunk
+nmap <C-Right> <Plug>(GitGutterPreviewHunk)
 nmap <Leader>+ <Plug>GitGutterStageHunk
 nmap <Leader>- <Plug>GitGutterUndoHunk
 highlight SignColumn guibg=none ctermbg=none
@@ -104,4 +103,8 @@ highlight GitGutterAdd    guifg=Green ctermfg=Green
 highlight GitGutterChange guifg=Yellow ctermfg=Yellow
 highlight GitGutterDelete guifg=Red ctermfg=Red
 set updatetime=100
+
+" fzf
+nnoremap <C-P> :Files<CR>
+nmap <C-F> :Ag<CR>
 
