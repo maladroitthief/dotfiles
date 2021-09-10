@@ -4,7 +4,7 @@
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 [core]
-  editor = vim
+  editor = nvim
 	# global gitignore
   excludesfile = ~/.gitignore
 	# auto crlf to lf
