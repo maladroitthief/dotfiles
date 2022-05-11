@@ -19,11 +19,13 @@ set showmatch           " show matching brackets
 set autoindent smartindent  " auto/smart indent
 set smarttab            " better backspace and tab functionality
 set scrolloff=5         " show at least 5 lines above/below
-set termguicolors
 set timeoutlen=1000 ttimeoutlen=0
 filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
+
+" Colorscheme
+highlight Normal guibg=none guifg=none
 
 " set whitespace characters to be visible
 set list
@@ -36,7 +38,6 @@ set listchars+=precedes:«
 set listchars+=nbsp:⣿
 set listchars+=eol:↲
 set showbreak=↪\
-
 highlight Whitespace ctermfg=Grey guifg=Grey
 highlight NonText ctermfg=Grey guifg=Grey
 highlight SpecialKey ctermfg=Grey guifg=Grey

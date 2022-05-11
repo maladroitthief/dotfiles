@@ -4,7 +4,7 @@
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 [core]
-  editor = nvim
+  editor = code --wait
 	# global gitignore
   excludesfile = ~/.gitignore
 	# auto crlf to lf
@@ -21,12 +21,13 @@
 [push]
   default = simple
 [merge]
-  tool = vimdiff
-  conflictstyle = diff3
-[mergetool]
-  prompt = false
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
 [diff]
-  tool = vimdiff
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 [alias]
   c = commit
   ca = commit -a
@@ -35,8 +36,6 @@
   d = diff
   dc = diff --cached
   l = log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
-[pull]
-  rebase = true
 [pager]
   diff = delta
   log = delta
