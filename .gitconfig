@@ -4,10 +4,8 @@
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 [core]
-  editor = code --wait
-	# global gitignore
+  editor = nvim
   excludesfile = ~/.gitignore
-	# auto crlf to lf
   autocrlf = input
 [color]
   branch = auto
@@ -20,42 +18,3 @@
   browser = google-chrome
 [push]
   default = simple
-[merge]
-  tool = vscode
-[mergetool "vscode"]
-  cmd = code --wait $MERGED
-[diff]
-  tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
-[alias]
-  c = commit
-  ca = commit -a
-  cm = commit -m
-  cam = commit -am
-  d = diff
-  dc = diff --cached
-  l = log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
-[pager]
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
-
-[interactive]
-  diffFilter = delta --color-only --features=interactive
-
-[delta]
-  features = decorations
-
-[delta "interactive"]
-  keep-plus-minus-markers = false
-
-[delta "decorations"]
-  commit-decoration-style = blue ol
-  commit-style = raw
-  file-style = omit
-  hunk-header-decoration-style = blue box
-  hunk-header-file-style = red
-  hunk-header-line-number-style = "#067a00"
-  hunk-header-style = file line-number syntax

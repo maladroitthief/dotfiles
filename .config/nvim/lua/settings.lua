@@ -44,12 +44,12 @@ vim.o.formatoptions = 'qnj1'
 vim.o.expandtab = true
 vim.o.list = true
 vim.opt.listchars = {
-  tab = '\\│\\'
-  trail = '·'
-  space = '·'
-  extends = '»'
-  precedes = '«'
-  nbsp = '⣿'
+  tab = '\\│\\',
+  trail = '·',
+  space = '·',
+  extends = '»',
+  precedes = '«',
+  nbsp = '⣿',
   eol = '↲'
 }
 
