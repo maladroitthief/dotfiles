@@ -62,3 +62,5 @@ vim.o.swapfile = false
 vim.o.wildmenu = true
 vim.o.wildignore = 'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc'
 
+vim.cmd('colorscheme tokyonight')
+vim.api.nvim_set_hl(0, 'Normal', { fg = 'none', bg = 'none' })
