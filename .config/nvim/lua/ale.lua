@@ -26,8 +26,13 @@ nmap('<F12>', ':ALEGoToDefinition<CR>')
 
 vim.g.ale_fix_on_save = 0
 
+vim.g.ale_linters = {
+  ['go'] = {'gopls'}
+}
+
 vim.g.ale_fixers = {
   ['ruby'] = 'rubocop',
-  ['sql'] = 'pgformatter'
+  ['sql'] = 'pgformatter',
+  ['go'] = {'gofmt', 'goimports'}
 }
 
