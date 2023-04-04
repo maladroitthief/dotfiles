@@ -4,6 +4,7 @@ require('utility')
 require('indent-line')
 require('gitgutter')
 require('ale')
-require('telescope')
+require('telescope-config')
 require('mappings')
 require('fugitive')
+

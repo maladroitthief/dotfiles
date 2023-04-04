@@ -7,8 +7,8 @@ vim.g.ale_lint_on_save = 1
 vim.g.ale_sign_error = '🔥'
 vim.g.ale_sign_warning = '⚡'
 
-vim.g.ale_floating_preview = 1
-vim.g.ale_floating_window_border = {'│', '─', '╭', '╮', '╯', '╰', '│', '─'}
+--vim.g.ale_floating_preview = 1
+--vim.g.ale_floating_window_border = {'│', '─', '╭', '╮', '╯', '╰', '│', '─'}
 vim.g.ale_hover_cursor = 1
 
 nmap('<F1>', ':ALEDetail<CR>')
