@@ -7,69 +7,32 @@ local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {
   extensions = {
     file_browser = {
-      -- path
-      -- cwd
-      cwd_to_path = false,
-      grouped = false,
-      files = true,
-      add_dirs = true,
-      depth = 1,
-      auto_depth = false,
-      select_buffer = false,
       hidden = true,
-      -- respect_gitignore
-      -- browse_files
-      -- browse_folders
-      hide_parent_dir = false,
-      collapse_dirs = false,
-      prompt_path = false,
-      quiet = false,
-      dir_icon = "📁",
+      dir_icon = ">",
       dir_icon_hl = "Default",
+      use_fd = true,
       display_stat = {
         date = true,
         size = true,
         mode = false
       },
       hijack_netrw = false,
-      use_fd = true,
       git_status = true,
       mappings = {
         ["i"] = {
           ["<C-n>"] = fb_actions.create,
-          ["<C-N>"] = fb_actions.create_from_prompt,
           ["<F2>"] = fb_actions.rename,
-          ["<C-m>"] = fb_actions.move,
-          ["<C-c>"] = fb_actions.copy,
           ["<C-x>"] = fb_actions.remove,
-          ["<C-o>"] = fb_actions.open,
-          ["<C-g>"] = fb_actions.goto_parent_dir,
-          ["<C-~>"] = fb_actions.goto_home_dir,
-          ["<C-w>"] = fb_actions.goto_cwd,
-          ["<C-t>"] = fb_actions.change_cwd,
-          ["<C-f>"] = fb_actions.toggle_browser,
-          ["<C-h>"] = fb_actions.toggle_hidden,
-          ["<C-a>"] = fb_actions.toggle_all,
-          ["<bs>"] = fb_actions.backspace,
         },
         ["n"] = {
-          ["<C-n>"] = fb_actions.create,
-          ["<C-N>"] = fb_actions.create_from_prompt,
+          ["<n>"] = fb_actions.create,
           ["<F2>"] = fb_actions.rename,
-          ["<C-m>"] = fb_actions.move,
-          ["<C-c>"] = fb_actions.copy,
-          ["<C-x>"] = fb_actions.remove,
-          ["<C-o>"] = fb_actions.open,
-          ["<C-g>"] = fb_actions.goto_parent_dir,
-          ["<C-~>"] = fb_actions.goto_home_dir,
-          ["<C-w>"] = fb_actions.goto_cwd,
-          ["<C-t>"] = fb_actions.change_cwd,
-          ["<C-f>"] = fb_actions.toggle_browser,
-          ["<C-h>"] = fb_actions.toggle_hidden,
-          ["<C-a>"] = fb_actions.toggle_all,
+          ["<x>"] = fb_actions.remove,
         },
       },
     },
   },
 }
+
+require("telescope").load_extension "file_browser"
 
