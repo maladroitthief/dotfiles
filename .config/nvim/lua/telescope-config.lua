@@ -1,7 +1,16 @@
 nmap('<C-P>', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
 nmap('<C-F>', ':Telescope live_grep<CR>')
-nmap('<C-B>', ':Telescope file_browser<CR>')
+nmap('<C-O>', ':Telescope file_browser<CR>')
 nmap('<C-G>', ':Telescope git_status<CR>')
+nmap('<C-B>', ':Telescope git_branches<CR>')
+nmap('<C-C>', ':Telescope git_commits<CR>')
+nmap('<C-M>', ':Telescope lsp_document_symbols<CR>')
+nmap('<C-S>', ':Telescope lsp_dynamic_workspace_symbols<CR>')
+nmap('<F8>', ':Telescope diagnostics<CR>')
+nmap('<F9>', ':Telescope lsp_incoming_calls<CR>')
+nmap('<F10>', ':Telescope lsp_outgoing_calls<CR>')
+nmap('<F11>', ':Telescope lsp_references<CR>')
+nmap('<F12>', ':Telescope lsp_definitions<CR>')
 
 local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {

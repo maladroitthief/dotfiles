@@ -14,18 +14,11 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', '<F1>', vim.lsp.buf.signature_help, bufopts)
+  -- vim.keymap.set('n', '<F1>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<F3>', vim.lsp.buf.format, bufopts)
-  vim.keymap.set('n', '<F4>', vim.lsp.buf.format, bufopts)
   vim.keymap.set('n', '<F5>', vim.lsp.buf.format, bufopts)
-  vim.keymap.set('n', '<F6>', vim.lsp.buf.format, bufopts)
-  vim.keymap.set('n', '<F7>', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<F8>', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', '<F9>', vim.lsp.diagnostic.goto_prev, bufopts)
-  vim.keymap.set('n', '<F10>', vim.lsp.diagnostic.goto_next, bufopts)
-  vim.keymap.set('n', '<F11>', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, bufopts)
+  -- vim.keymap.set('n', '<F7>', vim.lsp.buf.references, bufopts)
+  -- vim.keymap.set('n', '<F8>', vim.lsp.buf.hover, bufopts)
   vim.api.nvim_create_autocmd("BufWritePost", {
     callback = function()
       vim.lsp.buf.format()
