@@ -33,6 +33,7 @@ vim.g.ale_linters = {
 vim.g.ale_fixers = {
   ['ruby'] = 'rubocop',
   ['sql'] = 'pgformatter',
-  ['go'] = {'gofmt', 'goimports'}
+  ['go'] = {'gofmt', 'goimports'},
+  ['json'] = 'jq'
 }
 

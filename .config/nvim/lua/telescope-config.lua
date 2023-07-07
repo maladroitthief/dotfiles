@@ -1,10 +1,22 @@
-nmap('<C-P>', ':Telescope find_files<CR>')
+nmap('<C-P>', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
 nmap('<C-F>', ':Telescope live_grep<CR>')
 nmap('<C-B>', ':Telescope file_browser<CR>')
 nmap('<C-G>', ':Telescope git_status<CR>')
 
 local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+    },
+  },
   extensions = {
     file_browser = {
       hidden = true,

@@ -100,4 +100,7 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 vim.cmd[[colorscheme tokyonight]]
--- vim.api.nvim_set_hl(0, 'Normal', { fg = 'none', bg = 'none' })
+
+-- Spelling
+vim.o.spell = true
+vim.o.spelllang = 'en_us'

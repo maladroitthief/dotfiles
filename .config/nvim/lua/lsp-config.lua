@@ -1,6 +1,5 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
+
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -15,21 +14,23 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<F1>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<F3>', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', '<F4>', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', '<F5>', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', '<F6>', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', '<F7>', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<F8>', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', '<F9>', vim.lsp.diagnostic.goto_prev, bufopts)
+  vim.keymap.set('n', '<F10>', vim.lsp.diagnostic.goto_next, bufopts)
+  vim.keymap.set('n', '<F11>', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, bufopts)
+  vim.api.nvim_create_autocmd("BufWritePost", {
+    callback = function()
+      vim.lsp.buf.format()
+    end
+  })
 end
 
 local lsp_flags = {
@@ -37,12 +38,20 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+-- Python
 require('lspconfig')['pyright'].setup{
   on_attach = on_attach,
   flags = lsp_flags,
 }
 
-require('lspconfig')['solargrapgh'].setup{
+-- Ruby
+-- require('lspconfig')['solargrapgh'].setup{
+--   on_attach = on_attach,
+--   flags = lsp_flags,
+-- }
+
+-- Go
+require('lspconfig')['gopls'].setup{
   on_attach = on_attach,
   flags = lsp_flags,
 }

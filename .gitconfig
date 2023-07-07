@@ -1,8 +1,6 @@
 [user]
   name = Ian Weller
   email = maladroitthief@gmail.com
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
@@ -14,7 +12,11 @@
   status = auto
 [init]
   defaultBranch = main
-[web]
-  browser = google-chrome
 [push]
   default = simple
+  autoSetupRemote = true
+[pull]
+  rebase = true
+[fetch]
+  prune = true
+
