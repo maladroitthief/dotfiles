@@ -8,4 +8,5 @@ require('lsp-config')
 require('telescope-config')
 require('mappings')
 require('fugitive')
-
+require('treesitter')
+require('harpoon')
