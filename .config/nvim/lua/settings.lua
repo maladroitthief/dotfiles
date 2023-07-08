@@ -13,11 +13,11 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.timeout = false
 vim.o.ttimeout = true
 vim.o.ttimeoutlen = 100
-vim.g.updatetime = 750
+vim.g.updatetime = 50
 
 -- Display
 vim.o.showmatch = true
-vim.o.scrolloff = 5
+vim.o.scrolloff = 10
 vim.o.synmaxcol = 300
 vim.o.laststatus = 2
 vim.o.foldenable = true
@@ -27,9 +27,10 @@ vim.o.numberwidth = 3
 vim.o.signcolumn = 'yes'
 vim.o.modelines = 0
 vim.o.showcmd = true
-vim.o.colorcolumn = '81'
+vim.o.colorcolumn = '80'
 
 -- Search
+vim.o.hlsearch = false
 vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -41,6 +42,7 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
+vim.o.wrap = false
 vim.o.formatoptions = 'qnj1'
 vim.o.expandtab = true
 vim.o.list = true
@@ -58,6 +60,8 @@ vim.opt.listchars = {
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true
 
 -- Command mode
 vim.o.wildmenu = true

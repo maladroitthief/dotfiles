@@ -10,3 +10,15 @@ nmap('<Leader>re', ':Rex<CR>')
 nmap('<C-_>', '<Plug>Commentary')
 nmap('<C-_><C-_>', '<Plug>CommentaryLine<CR>')
 vmap('<C-_>', '<Plug>Commentary<CR>')
+
+-- sorcery with moving blocks in visual mode
+vmap('J', ":m '>+1<CR>gv=gv")
+vmap('K', ":m '<-2<CR>gv=gv")
+
+nmap('J', "mzJ`z")
+
+nmap('<C-d>', "<C-d>zz")
+nmap('<C-u>', "<C-u>zz")
+
+nmap("n", "nzzzv")
+nmap("N", "Nzzzv")
