@@ -1,50 +1,59 @@
-local opts = { noremap=true, silent=true }
+local lsp = require("lsp-zero")
 
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+lsp.preset("recommended")
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+lsp.ensure_installed({
+  'pyright',
+  'gopls',
+  'solargraph',
+  'jsonls',
+  'sqlls',
+  'docker_compose_language_service',
+  'dockerls',
+  'ansiblels',
+  'marksman',
+  'yamlls'
+})
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  -- vim.keymap.set('n', '<F1>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<F5>', vim.lsp.buf.format, bufopts)
-  -- vim.keymap.set('n', '<F7>', vim.lsp.buf.references, bufopts)
-  -- vim.keymap.set('n', '<F8>', vim.lsp.buf.hover, bufopts)
-  vim.api.nvim_create_autocmd("BufWritePost", {
-    callback = function()
-      vim.lsp.buf.format()
-    end
-  })
-end
+lsp.nvim_workspace()
 
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
+local cmp = require('cmp')
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_mappings = lsp.defaults.cmp_mappings({
+  ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-l>'] = cmp.mapping.confirm({ select = true }),
+  ['<CR>'] = cmp.mapping.confirm({ select = true }), 
+  ['<Tab>'] = cmp.mapping.confirm({ select = true }), 
+  ["<C-Space>"] = cmp.mapping.complete(),
+})
 
--- Python
-require('lspconfig')['pyright'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+cmp_mappings['<S-Tab>'] = nil
 
--- Ruby
--- require('lspconfig')['solargrapgh'].setup{
---   on_attach = on_attach,
---   flags = lsp_flags,
--- }
+lsp.setup_nvim_cmp({
+  mapping = cmp_mappings
+})
 
--- Go
-require('lspconfig')['gopls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+lsp.set_preferences({
+  suggest_lsp_servers = false
+})
+
+lsp.on_attach(function(client, bufnr)
+  local opts = {buffer = bufnr, remap = false}
+
+  vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("i", "<F3>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set('n', '<F5>', function()
+    vim.lsp.buf.format { async = true }
+  end, opts)
+  vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end, opts)
+end)
+
+lsp.setup()
+
+vim.diagnostic.config({
+  virtual_text = true
+})
+
