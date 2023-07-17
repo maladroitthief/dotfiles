@@ -24,5 +24,6 @@ Plug('hrsh7th/cmp-nvim-lsp')
 Plug('L3MON4D3/LuaSnip')
 Plug('VonHeikemen/lsp-zero.nvim', {branch = 'v2.x'})
 Plug('mbbill/undotree')
+Plug('vim-test/vim-test')
 
 vim.call('plug#end')

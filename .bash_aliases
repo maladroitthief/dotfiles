@@ -11,3 +11,6 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gr='git remote'
 alias gs='git status'
+
+bind -x '"\C-f": cd $(find * -type d | fzf)'
+bind -x '"\C-p": cd $(find * -type d | fzf) && vim .'
