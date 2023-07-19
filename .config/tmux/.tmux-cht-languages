@@ -4,9 +4,9 @@ tmux
 zsh
 lua
 python
+python3
 bash
 ruby
 sql
 psql
-rails
-
+redis

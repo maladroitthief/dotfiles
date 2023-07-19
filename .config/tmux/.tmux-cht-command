@@ -22,7 +22,6 @@ jq
 cat
 ssh
 git
-git-worktree
 git-status
 git-commit
 git-rebase
@@ -30,5 +29,6 @@ docker
 docker-compose
 stow
 chmod
-chown
 make
+curl
+nmap
