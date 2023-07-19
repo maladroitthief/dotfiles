@@ -30,7 +30,6 @@ vim.o.showcmd = true
 vim.o.colorcolumn = '80'
 
 -- Search
-vim.o.hlsearch = false
 vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true

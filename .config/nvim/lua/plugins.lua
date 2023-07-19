@@ -14,6 +14,7 @@ Plug('nvim-telescope/telescope.nvim', { tag = '0.1.0' })
 Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 Plug('nvim-telescope/telescope-file-browser.nvim')
 Plug('tpope/vim-fugitive')
+Plug('tpope/vim-abolish')
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug('ThePrimeagen/harpoon')
 
