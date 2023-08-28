@@ -5,6 +5,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'pyright',
   'gopls',
+  'rust_analyzer',
   'solargraph',
   'jsonls',
   'sqlls',
@@ -12,19 +13,20 @@ lsp.ensure_installed({
   'dockerls',
   'ansiblels',
   'marksman',
+  'lua_ls',
   'yamlls'
 })
 
 lsp.nvim_workspace()
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-l>'] = cmp.mapping.confirm({ select = true }),
-  ['<CR>'] = cmp.mapping.confirm({ select = true }), 
-  ['<Tab>'] = cmp.mapping.confirm({ select = true }), 
+  ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
@@ -46,7 +48,7 @@ lsp.set_sign_icons({
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)

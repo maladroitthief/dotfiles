@@ -26,5 +26,6 @@ Plug('L3MON4D3/LuaSnip')
 Plug('VonHeikemen/lsp-zero.nvim', {branch = 'v2.x'})
 Plug('mbbill/undotree')
 Plug('vim-test/vim-test')
+Plug('maladroitthief/telescope-rtfm.nvim')
 
 vim.call('plug#end')

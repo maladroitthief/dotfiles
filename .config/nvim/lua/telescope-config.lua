@@ -1,6 +1,7 @@
 nmap('<C-P>', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
 nmap('<C-F>', ':Telescope live_grep<CR>')
 nmap('<C-O>', ':Telescope file_browser<CR>')
+nmap('<leader>h', ':Telescope rtfm<CR>')
 nmap('<leader>gs', ':Telescope git_status<CR>')
 nmap('<leader>gb', ':Telescope git_branches<CR>')
 nmap('<leader>gc', ':Telescope git_commits<CR>')
@@ -56,4 +57,5 @@ require("telescope").setup {
 }
 
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension "rtfm"
 

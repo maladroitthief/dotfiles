@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 config_dir="$HOME/.config/tmux"
 selected=`cat $config_dir/.tmux-cht-languages $config_dir/.tmux-cht-command | fzf`
 
