@@ -27,5 +27,10 @@ Plug('VonHeikemen/lsp-zero.nvim', {branch = 'v2.x'})
 Plug('mbbill/undotree')
 Plug('vim-test/vim-test')
 Plug('maladroitthief/telescope-rtfm.nvim')
+Plug('jose-elias-alvarez/null-ls.nvim')
+
+Plug('mfussenegger/nvim-dap')
+Plug('rcarriga/nvim-dap-ui')
+Plug('folke/neodev.nvim')
 
 vim.call('plug#end')
