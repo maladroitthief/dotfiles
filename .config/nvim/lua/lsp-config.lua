@@ -1,8 +1,8 @@
-local lsp = require("lsp-zero")
+local lsp_zero = require("lsp-zero")
 
-lsp.preset("recommended")
+lsp_zero.preset("recommended")
 
-lsp.ensure_installed({
+lsp_zero.ensure_installed({
   'pyright',
   'gopls',
   'rust_analyzer',
@@ -14,14 +14,17 @@ lsp.ensure_installed({
   'ansiblels',
   'marksman',
   'lua_ls',
-  'yamlls'
+  'yamlls',
+  'cssls',
+  'tsserver',
+  'html'
 })
 
-lsp.nvim_workspace()
+lsp_zero.nvim_workspace()
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
+local cmp_mappings = lsp_zero.defaults.cmp_mappings({
   ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-l>'] = cmp.mapping.confirm({ select = true }),
@@ -32,22 +35,22 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 cmp_mappings['<S-Tab>'] = nil
 
-lsp.setup_nvim_cmp({
+lsp_zero.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
-lsp.set_preferences({
+lsp_zero.set_preferences({
   suggest_lsp_servers = false
 })
 
-lsp.set_sign_icons({
+lsp_zero.set_sign_icons({
   error = '🦀',
   warn = '🫠',
   hint = '🐢',
   info = '👀'
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end, opts)
@@ -60,7 +63,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end, opts)
 end)
 
-lsp.setup()
+lsp_zero.setup()
 
 vim.diagnostic.config({
   virtual_text = true
@@ -72,3 +75,5 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
   end
 })
+
+
