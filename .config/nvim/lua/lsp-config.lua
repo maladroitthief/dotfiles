@@ -1,79 +1,110 @@
-local lsp_zero = require("lsp-zero")
-
-lsp_zero.preset("recommended")
-
-lsp_zero.ensure_installed({
-  'pyright',
-  'gopls',
-  'rust_analyzer',
-  'solargraph',
-  'jsonls',
-  'sqlls',
-  'docker_compose_language_service',
-  'dockerls',
-  'ansiblels',
-  'marksman',
-  'lua_ls',
-  'yamlls',
-  'cssls',
-  'tsserver',
-  'html'
-})
-
-lsp_zero.nvim_workspace()
-
+local lspconfig = require('lspconfig')
+local lsp_defaults = lspconfig.util.default_config
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp_zero.defaults.cmp_mappings({
-  ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-l>'] = cmp.mapping.confirm({ select = true }),
-  ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
+-------------------------------------------------------------------------------
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lsp_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-l>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ['<S-Tab>'] = nil,
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' }, -- For luasnip users.
+  }, {
+    { name = 'buffer' },
+  })
 })
+-------------------------------------------------------------------------------
+local signs = {
+  Error = '🦀',
+  Warn = '🫠',
+  Hint = '🐢',
+  Info = '👀'
+}
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+-------------------------------------------------------------------------------
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = { buffer = event.buf }
 
-cmp_mappings['<S-Tab>'] = nil
-
-lsp_zero.setup_nvim_cmp({
-  mapping = cmp_mappings
+    vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("i", "<F3>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set('n', '<F5>', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+    vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end, opts)
+    vim.diagnostic.enable(opts.buffer)
+  end
 })
-
-lsp_zero.set_preferences({
-  suggest_lsp_servers = false
-})
-
-lsp_zero.set_sign_icons({
-  error = '🦀',
-  warn = '🫠',
-  hint = '🐢',
-  info = '👀'
-})
-
-lsp_zero.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-
-  vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<F3>", function() vim.lsp.buf.signature_help() end, opts)
-  vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set('n', '<F5>', function()
-    vim.lsp.buf.format { async = true }
-  end, opts)
-  vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end, opts)
-end)
-
-lsp_zero.setup()
-
+-------------------------------------------------------------------------------
+require('mason').setup()
+require('mason-lspconfig').setup()
+-------------------------------------------------------------------------------
 vim.diagnostic.config({
-  virtual_text = true
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
 })
-
+-------------------------------------------------------------------------------
+lspconfig.pyright.setup({})
+lspconfig.gopls.setup({})
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.go',
   callback = function()
-    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+    vim.lsp.buf.code_action({
+      context = {
+        only = { 'source.organizeImports' }
+      },
+      apply = true,
+    })
   end
 })
-
-
+lspconfig.rust_analyzer.setup({})
+lspconfig.solargraph.setup({})
+lspconfig.jsonls.setup({})
+lspconfig.sqlls.setup({})
+lspconfig.docker_compose_language_service.setup({})
+lspconfig.dockerls.setup({})
+lspconfig.ansiblels.setup({})
+lspconfig.marksman.setup({})
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      workspace = {
+        checkThirdParty = false,
+      },
+    },
+  },
+})
+lspconfig.yamlls.setup({})
+lspconfig.cssls.setup({})
+lspconfig.tsserver.setup({})
+lspconfig.html.setup({})
