@@ -1,3 +1,5 @@
+local builtin = require('telescope.builtin')
+
 nmap('<C-P>', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
 nmap('<C-F>', ':Telescope live_grep<CR>')
 nmap('<C-O>', ':Telescope file_browser<CR>')
@@ -12,6 +14,9 @@ nmap('<F9>', ':Telescope lsp_incoming_calls<CR>')
 nmap('<F10>', ':Telescope lsp_outgoing_calls<CR>')
 nmap('<F11>', ':Telescope lsp_references<CR>')
 nmap('<F12>', ':Telescope lsp_definitions<CR>')
+
+vim.keymap.set("n", "<Leader>vtj", builtin.jumplist)
+vim.keymap.set("n", "<Leader>vts", builtin.spell_suggest)
 
 local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {

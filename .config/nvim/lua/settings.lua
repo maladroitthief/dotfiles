@@ -9,6 +9,13 @@ vim.o.dictionary = '/usr/share/dict/words'
 vim.o.startofline = true
 vim.o.clipboard = 'unnamedplus'
 
+vim.o.guicursor = "n-v-c:block," ..
+    "i-ci-ve:block," ..
+    "r-cr:hor20," ..
+    "o:hor50," ..
+    "i-ci-ve:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor," ..
+    "sm:block-blinkwait175-blinkoff150-blinkon175"
+
 -- Mapping wait time
 vim.o.timeout = false
 vim.o.ttimeout = true
@@ -20,7 +27,6 @@ vim.o.showmatch = true
 vim.o.scrolloff = 10
 vim.o.synmaxcol = 300
 vim.o.laststatus = 2
-vim.o.foldenable = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.numberwidth = 3
@@ -108,3 +114,4 @@ vim.cmd [[colorscheme tokyonight]]
 -- Spelling
 vim.o.spell = true
 vim.o.spelllang = 'en_us'
+
