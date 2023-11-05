@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/workspace/maladroitthief ~/workspace/consider ~/workspace/go/src/github.com/iweller-consider -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/workspace/maladroitthief ~/workspace/go/src/github.com/maladroitthief -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

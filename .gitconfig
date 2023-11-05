@@ -1,6 +1,6 @@
 [user]
   name = Ian Weller
-  email = iweller@consider.com
+  email = maladroitthief@gmail.com
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
