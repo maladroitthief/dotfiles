@@ -27,3 +27,4 @@ dap.configurations.python = {
   },
 }
 
+require('dap-go').setup()
