@@ -1,12 +1,12 @@
 -- Check nvim's parent process
 local function launched_by_user()
-	local parent_process = vim.fn.system(
-		string.format(
-			"ps -o ppid= -p %s | xargs ps -o comm= -p | tr -d '\n'",
-			vim.fn.getpid()
-		)
-	)
-	return parent_process == "nvim"
+  local parent_process = vim.fn.system(
+    string.format(
+      "ps -o ppid= -p %s | xargs ps -o comm= -p | tr -d '\n'",
+      vim.fn.getpid()
+    )
+  )
+  return parent_process == "nvim"
 end
 
 ---Get the name of the current branch

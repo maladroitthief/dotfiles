@@ -1,3 +1,5 @@
+require("neodev").setup({})
+
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 local cmp = require('cmp')
@@ -105,11 +107,11 @@ lspconfig.marksman.setup({})
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      },
       workspace = {
         checkThirdParty = false,
+      },
+      diagnostics = {
+        globals = { 'vim' }
       },
     },
   },

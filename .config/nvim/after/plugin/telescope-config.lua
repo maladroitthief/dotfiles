@@ -1,19 +1,19 @@
 local builtin = require('telescope.builtin')
 
-nmap('<C-P>', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
-nmap('<C-F>', ':Telescope live_grep<CR>')
-nmap('<C-O>', ':Telescope file_browser<CR>')
-nmap('<leader>h', ':Telescope rtfm<CR>')
-nmap('<leader>gs', ':Telescope git_status<CR>')
-nmap('<leader>gb', ':Telescope git_branches<CR>')
-nmap('<leader>gc', ':Telescope git_commits<CR>')
-nmap('<C-M>', ':Telescope lsp_document_symbols<CR>')
-nmap('<C-S>', ':Telescope lsp_dynamic_workspace_symbols<CR>')
-nmap('<F8>', ':Telescope diagnostics<CR>')
-nmap('<F9>', ':Telescope lsp_incoming_calls<CR>')
-nmap('<F10>', ':Telescope lsp_outgoing_calls<CR>')
-nmap('<F11>', ':Telescope lsp_references<CR>')
-nmap('<F12>', ':Telescope lsp_definitions<CR>')
+vim.keymap.set('n', '<C-P>', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
+vim.keymap.set('n', '<C-F>', ':Telescope live_grep<CR>')
+vim.keymap.set('n', '<C-O>', ':Telescope file_browser<CR>')
+vim.keymap.set('n', '<leader>h', ':Telescope rtfm<CR>')
+vim.keymap.set('n', '<leader>gs', ':Telescope git_status<CR>')
+vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<CR>')
+vim.keymap.set('n', '<leader>gc', ':Telescope git_commits<CR>')
+vim.keymap.set('n', '<C-M>', ':Telescope lsp_document_symbols<CR>')
+vim.keymap.set('n', '<C-S>', ':Telescope lsp_dynamic_workspace_symbols<CR>')
+vim.keymap.set('n', '<F8>', ':Telescope diagnostics<CR>')
+vim.keymap.set('n', '<F9>', ':Telescope lsp_incoming_calls<CR>')
+vim.keymap.set('n', '<F10>', ':Telescope lsp_outgoing_calls<CR>')
+vim.keymap.set('n', '<F11>', ':Telescope lsp_references<CR>')
+vim.keymap.set('n', '<F12>', ':Telescope lsp_definitions<CR>')
 
 vim.keymap.set("n", "<Leader>vtj", builtin.jumplist)
 vim.keymap.set("n", "<Leader>vts", builtin.spell_suggest)
@@ -63,4 +63,3 @@ require("telescope").setup {
 
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "rtfm"
-
