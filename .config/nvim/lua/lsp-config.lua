@@ -79,6 +79,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or "rounded"
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
 -------------------------------------------------------------------------------
 lspconfig.pyright.setup({})
 lspconfig.gopls.setup({})
@@ -104,6 +105,9 @@ lspconfig.marksman.setup({})
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      },
       workspace = {
         checkThirdParty = false,
       },

@@ -7,9 +7,10 @@ vim.keymap.set("n", "<Leader>vdt", dapui.toggle)
 
 vim.keymap.set("n", "<Leader>vdb", dap.toggle_breakpoint)
 vim.keymap.set("n", "<Leader>vdc", dap.continue)
-vim.keymap.set("n", "<Leader>vdj", dap.step_over)
-vim.keymap.set("n", "<Leader>vdl", dap.step_into)
-vim.keymap.set("n", "<Leader>vdh", dap.step_out)
+vim.keymap.set("n", "<Leader>vdl", dap.step_over)
+vim.keymap.set("n", "<Leader>vdj", dap.step_into)
+vim.keymap.set("n", "<Leader>vdk", dap.step_out)
+vim.keymap.set("n", "<Leader>vdh", dap.step_back)
 
 local hl = "DapBreakpoint"
 vim.fn.sign_define(hl, { text = "", texthl = 'DiagnosticError', numhl = 'DiagnosticError' })
