@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<Leader>gd', ':Gvdiffsplit!<CR>')
-vim.keymap.set('n', 'gdh', ':diffget //2<CR>')
-vim.keymap.set('n', 'gdl', ':diffget //3<CR>')
-vim.keymap.set('n', 'gdq', ':only<CR>')
+vim.keymap.set('n', '<leader>gds', ':Gvdiffsplit!<CR>')
+vim.keymap.set('n', '<leader>ggh', ':diffget //2<CR>')
+vim.keymap.set('n', '<leader>ggl', ':diffget //3<CR>')
+vim.keymap.set('n', '<leader>ggq', ':only<CR>')
