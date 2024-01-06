@@ -1,3 +1,5 @@
+require("neodev").setup({})
+
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 local cmp = require('cmp')
@@ -79,6 +81,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or "rounded"
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
 -------------------------------------------------------------------------------
 lspconfig.pyright.setup({})
 lspconfig.gopls.setup({})
@@ -106,6 +109,9 @@ lspconfig.lua_ls.setup({
     Lua = {
       workspace = {
         checkThirdParty = false,
+      },
+      diagnostics = {
+        globals = { 'vim' }
       },
     },
   },

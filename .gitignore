@@ -2,3 +2,7 @@
 *.LSOverride
 Thumbs.db
 .bundle
+
+# nvim plugins
+.config/nvim/plugin
+
