@@ -51,13 +51,13 @@ vim.o.wrap = true
 vim.o.formatoptions = 'qnj1'
 vim.o.list = true
 vim.opt.listchars = {
-    tab = '->',
+    tab = '┊ ',
     trail = '·',
     space = '·',
     extends = '»',
     precedes = '«',
     nbsp = '⣿',
-    eol = '↲'
+    eol = '↲',
 }
 
 -- Backup

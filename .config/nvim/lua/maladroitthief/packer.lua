@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 
     ----- Visual ---
     use('lukas-reineke/indent-blankline.nvim')
+    use "lukas-reineke/indent-blankline.nvim"
     use('lewis6991/gitsigns.nvim')
     use('mechatroner/rainbow_csv')
     use('folke/neodev.nvim')
