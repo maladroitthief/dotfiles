@@ -51,7 +51,7 @@ vim.o.wrap = true
 vim.o.formatoptions = 'qnj1'
 vim.o.list = true
 vim.opt.listchars = {
-    tab = '┊ ',
+    tab = '┃ ',
     trail = '·',
     space = '·',
     extends = '»',
@@ -70,7 +70,7 @@ vim.o.undofile = true
 -- Command mode
 vim.o.wildmenu = true
 vim.o.wildignore =
-'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc'
+'dep,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc'
 
 -- Spelling
 vim.o.spell = true
