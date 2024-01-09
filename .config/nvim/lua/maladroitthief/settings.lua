@@ -52,6 +52,7 @@ vim.o.formatoptions = 'qnj1'
 vim.o.list = true
 vim.opt.listchars = {
     tab = '┃ ',
+    leadmultispace = '┃ ',
     trail = '·',
     space = '·',
     extends = '»',
