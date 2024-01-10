@@ -23,7 +23,6 @@ return require('packer').startup(function(use)
 
     ----- Visual ---
     use('lukas-reineke/indent-blankline.nvim')
-    use "lukas-reineke/indent-blankline.nvim"
     use('lewis6991/gitsigns.nvim')
     use('mechatroner/rainbow_csv')
     use('folke/neodev.nvim')
@@ -52,4 +51,6 @@ return require('packer').startup(function(use)
     use('kevinhwang91/nvim-ufo')
     use('luukvbaal/statuscol.nvim')
     use({ "ellisonleao/glow.nvim", config = function() require("glow").setup() end })
+
+    use('hyiltiz/vim-plugins-profile')
 end)
