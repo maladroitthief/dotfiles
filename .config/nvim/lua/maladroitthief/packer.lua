@@ -52,6 +52,5 @@ return require('packer').startup(function(use)
     use('kevinhwang91/nvim-ufo')
     use('luukvbaal/statuscol.nvim')
     use({ "ellisonleao/glow.nvim", config = function() require("glow").setup() end })
-
-    use('hyiltiz/vim-plugins-profile')
+    use({ 'norcalli/nvim-colorizer.lua' })
 end)
