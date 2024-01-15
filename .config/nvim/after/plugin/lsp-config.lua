@@ -181,3 +181,10 @@ lspconfig.yamlls.setup({})
 lspconfig.cssls.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.html.setup({})
+lspconfig.terraformls.setup({})
+lspconfig.metals.setup({
+    filetypes = {
+        "scala",
+        "sbt"
+    }
+})

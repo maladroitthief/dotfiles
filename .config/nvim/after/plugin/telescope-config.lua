@@ -22,7 +22,7 @@ vim.keymap.set("n", "<Leader>ts", builtin.spell_suggest)
 local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {
     defaults = {
-        vimgrep_arguments = {
+        vimgrep_arguments    = {
             'rg',
             '--color=never',
             '--no-heading',
@@ -32,14 +32,14 @@ require("telescope").setup {
             '--smart-case',
             '--hidden',
         },
-        prompt_prefix = "> ",
-        selection_caret = "> ",
-        entry_prefix = "  ",
-        initial_mode = "insert",
-        selection_strategy = "reset",
-        sorting_strategy = "descending",
-        layout_strategy = "horizontal",
-        layout_config = {
+        prompt_prefix        = "  ",
+        selection_caret      = " ",
+        entry_prefix         = "  ",
+        initial_mode         = "insert",
+        selection_strategy   = "reset",
+        sorting_strategy     = "descending",
+        layout_strategy      = "horizontal",
+        layout_config        = {
             horizontal = {
                 mirror = false,
             },
@@ -47,24 +47,24 @@ require("telescope").setup {
                 mirror = false,
             },
         },
-        file_sorter = require 'telescope.sorters'.get_fuzzy_file,
+        file_sorter          = require 'telescope.sorters'.get_fuzzy_file,
         file_ignore_patterns = {},
-        generic_sorter = require 'telescope.sorters'.get_generic_fuzzy_sorter,
-        winblend = 0,
-        border = {},
-        borderchars = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
-        color_devicons = true,
-        use_less = true,
-        path_display = {},
-        set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-        file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
-        grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
-        qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
+        generic_sorter       = require 'telescope.sorters'.get_generic_fuzzy_sorter,
+        winblend             = 0,
+        border               = {},
+        borderchars          = { "▔", "▕", "▁", "▏", "🭽", "🭾", "🭿", "🭼" },
+        color_devicons       = true,
+        use_less             = true,
+        path_display         = {},
+        set_env              = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+        file_previewer       = require 'telescope.previewers'.vim_buffer_cat.new,
+        grep_previewer       = require 'telescope.previewers'.vim_buffer_vimgrep.new,
+        qflist_previewer     = require 'telescope.previewers'.vim_buffer_qflist.new,
     },
     extensions = {
         file_browser = {
             hidden = true,
-            dir_icon = ">",
+            dir_icon = "",
             dir_icon_hl = "Default",
             use_fd = true,
             display_stat = {
