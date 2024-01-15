@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
     use({
         'folke/tokyonight.nvim', branch = 'main'
     })
+    use("rebelot/kanagawa.nvim")
 
     --- LSP ---
     use('neovim/nvim-lspconfig')
