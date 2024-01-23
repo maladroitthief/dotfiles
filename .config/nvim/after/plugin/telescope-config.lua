@@ -1,4 +1,5 @@
 local builtin = require('telescope.builtin')
+local trouble = require("trouble.providers.telescope")
 
 vim.keymap.set('n', '<leader>tp', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
 vim.keymap.set('n', '<leader>tf', ':Telescope live_grep<CR>')
@@ -10,7 +11,8 @@ vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<CR>')
 vim.keymap.set('n', '<leader>gc', ':Telescope git_commits<CR>')
 vim.keymap.set('n', '<leader>tds', ':Telescope lsp_document_symbols<CR>')
 vim.keymap.set('n', '<leader>tws', ':Telescope lsp_dynamic_workspace_symbols<CR>')
-vim.keymap.set('n', '<F8>', ':Telescope diagnostics<CR>')
+vim.keymap.set('n', '<leader>t?', ':Telescope keymaps<CR>')
+-- vim.keymap.set('n', '<F8>', ':Telescope diagnostics<CR>')
 vim.keymap.set('n', '<F9>', ':Telescope lsp_incoming_calls<CR>')
 vim.keymap.set('n', '<F10>', ':Telescope lsp_outgoing_calls<CR>')
 vim.keymap.set('n', '<F11>', ':Telescope lsp_references<CR>')
@@ -32,8 +34,8 @@ require("telescope").setup {
             '--smart-case',
             '--hidden',
         },
-        prompt_prefix        = "  ",
-        selection_caret      = " ",
+        prompt_prefix        = "󰱽  ",
+        selection_caret      = " ",
         entry_prefix         = "  ",
         initial_mode         = "insert",
         selection_strategy   = "reset",
@@ -60,21 +62,34 @@ require("telescope").setup {
         file_previewer       = require 'telescope.previewers'.vim_buffer_cat.new,
         grep_previewer       = require 'telescope.previewers'.vim_buffer_vimgrep.new,
         qflist_previewer     = require 'telescope.previewers'.vim_buffer_qflist.new,
+        mappings             = {
+            i = { ["<F8>"] = trouble.open_with_trouble },
+            n = { ["<F8>"] = trouble.open_with_trouble },
+        },
+    },
+    pickers = {
+        find_files = {
+            prompt_prefix = "󰱽  ",
+        },
+        live_grep = {
+            prompt_prefix = "󱎸  ",
+        },
     },
     extensions = {
         file_browser = {
-            hidden = true,
-            dir_icon = "",
-            dir_icon_hl = "Default",
-            use_fd = true,
-            display_stat = {
+            prompt_prefix = "󰥩  ",
+            hidden        = true,
+            -- dir_icon = "",
+            dir_icon_hl   = "Default",
+            use_fd        = true,
+            display_stat  = {
                 date = true,
                 size = true,
                 mode = false
             },
-            hijack_netrw = false,
-            git_status = true,
-            mappings = {
+            hijack_netrw  = false,
+            git_status    = true,
+            mappings      = {
                 ["i"] = {
                     ["<C-n>"] = fb_actions.create,
                     ["<F2>"] = fb_actions.rename,
@@ -88,6 +103,7 @@ require("telescope").setup {
             },
         },
     },
+
 }
 
 require("telescope").load_extension "file_browser"

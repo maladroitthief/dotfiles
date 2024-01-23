@@ -8,33 +8,42 @@ return require('packer').startup(function(use)
     use('wbthomason/packer.nvim')
 
     --- Theme ---
-    use({
-        'folke/tokyonight.nvim', branch = 'main'
-    })
     use("rebelot/kanagawa.nvim")
 
     --- LSP ---
-    use('neovim/nvim-lspconfig')
-    use({ 'williamboman/mason.nvim', run = ":MasonUpdate" })
-    use('williamboman/mason-lspconfig.nvim')
-    use('hrsh7th/nvim-cmp')
-    use('hrsh7th/cmp-nvim-lsp')
-    use('L3MON4D3/LuaSnip')
-    use('jose-elias-alvarez/null-ls.nvim')
-
+    use({
+        'neovim/nvim-lspconfig',
+        requires = {
+            { 'williamboman/mason.nvim',          run = ":MasonUpdate" },
+            { 'williamboman/mason-lspconfig.nvim' },
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+            { 'jose-elias-alvarez/null-ls.nvim' },
+        }
+    })
+    use({
+        "folke/trouble.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" }
+    })
     ----- Visual ---
     use('lukas-reineke/indent-blankline.nvim')
     use('lewis6991/gitsigns.nvim')
-    use('mechatroner/rainbow_csv')
     use('folke/neodev.nvim')
+    use('norcalli/nvim-colorizer.lua')
 
     ----- Navigation ---
     use('christoomey/vim-tmux-navigator')
     use({
         'nvim-telescope/telescope.nvim',
         tag = '0.1.5',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = { 'nvim-lua/plenary.nvim' },
+
     })
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
     use('nvim-telescope/telescope-file-browser.nvim')
@@ -49,8 +58,9 @@ return require('packer').startup(function(use)
     use('tpope/vim-commentary')
     use('tpope/vim-abolish')
     use('kevinhwang91/promise-async')
-    use('kevinhwang91/nvim-ufo')
-    use('luukvbaal/statuscol.nvim')
+    use({
+        'kevinhwang91/nvim-ufo',
+        requires = 'luukvbaal/statuscol.nvim'
+    })
     use({ "ellisonleao/glow.nvim", config = function() require("glow").setup() end })
-    use({ 'norcalli/nvim-colorizer.lua' })
 end)

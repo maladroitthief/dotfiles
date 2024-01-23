@@ -12,28 +12,28 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 -- Neovim hasn't added foldingRange to default capabilities, users must add it manually
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true
+    dynamicRegistration = false,
+    lineFoldingOnly = true
 }
 local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
 for _, ls in ipairs(language_servers) do
-  require('lspconfig')[ls].setup({
-    capabilities = capabilities
-    -- you can add other fields for setting up lsp server in this table
-  })
+    require('lspconfig')[ls].setup({
+        capabilities = capabilities
+        -- you can add other fields for setting up lsp server in this table
+    })
 end
 
-local builtin = require("statuscol.builtin")
-require("statuscol").setup({
-  segments = {
-    { text = { "%s" },             click = "v:lua.ScSa" },
-    { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
-    {
-      text = { " ", builtin.foldfunc, " " },
-      condition = { builtin.not_empty, true, builtin.not_empty },
-      click = "v:lua.ScFa"
-    },
-  }
-})
+-- local builtin = require("statuscol.builtin")
+-- require("statuscol").setup({
+--     segments = {
+--         { text = { "%s" },             click = "v:lua.ScSa" },
+--         { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
+--         {
+--             text = { " ", builtin.foldfunc, " " },
+--             condition = { builtin.not_empty, true, builtin.not_empty },
+--             click = "v:lua.ScFa"
+--         },
+--     }
+-- })
 
 require('ufo').setup()
