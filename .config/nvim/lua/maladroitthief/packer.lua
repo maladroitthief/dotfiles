@@ -69,4 +69,14 @@ return require('packer').startup(function(use)
             "rcarriga/nvim-notify",
         }
     })
+    use({
+        "tpope/vim-dadbod",
+        requires = {
+            "kristijanhusak/vim-dadbod-ui",
+            "kristijanhusak/vim-dadbod-completion",
+        },
+        config = function()
+            require("config.dadbod").setup()
+        end,
+    })
 end)
