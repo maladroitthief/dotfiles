@@ -1,12 +1,14 @@
 local builtin = require('telescope.builtin')
 local extensions = require('telescope').extensions
 local trouble = require("trouble.providers.telescope")
+require("telescope").load_extension("notify")
 
 vim.keymap.set('n', '<leader>tp', builtin.find_files, {})
 vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>te', extensions.file_browser.file_browser, {})
 vim.keymap.set('n', '<leader>tr',
     function() extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" }) end, {})
+vim.keymap.set('n', '<leader>tm', function() extensions.notify.notify() end, {})
 vim.keymap.set('n', '<leader>th', ':Telescope rtfm<CR>')
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
