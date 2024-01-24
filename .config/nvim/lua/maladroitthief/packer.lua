@@ -79,4 +79,5 @@ return require('packer').startup(function(use)
             require("config.dadbod").setup()
         end,
     })
+    use("ThePrimeagen/git-worktree.nvim")
 end)

@@ -25,6 +25,8 @@ vim.keymap.set('n', '<leader>tr',
 vim.keymap.set('n', '<leader>tm', function() extensions.notify.notify() end, {})
 vim.keymap.set('n', '<leader>th', ':Telescope rtfm<CR>')
 vim.keymap.set('n', '<leader>he', extensions.harpoon.marks, {})
+vim.keymap.set('n', '<leader>gw', extensions.git_worktree.git_worktrees, {})
+vim.keymap.set('n', '<leader>gnw', extensions.git_worktree.create_git_worktree, {})
 
 
 local fb_actions = require "telescope._extensions.file_browser.actions"
@@ -119,3 +121,4 @@ require("telescope").load_extension "rtfm"
 require("telescope").load_extension("noice")
 require("telescope").load_extension('harpoon')
 require("telescope").load_extension("notify")
+require("telescope").load_extension("git_worktree")
