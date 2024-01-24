@@ -1,22 +1,24 @@
 local builtin = require('telescope.builtin')
+local extensions = require('telescope').extensions
 local trouble = require("trouble.providers.telescope")
 
-vim.keymap.set('n', '<leader>tp', ':Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>')
-vim.keymap.set('n', '<leader>tf', ':Telescope live_grep<CR>')
-vim.keymap.set('n', '<leader>te', ':Telescope file_browser<CR>')
-vim.keymap.set('n', '<leader>tr', ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set('n', '<leader>tp', builtin.find_files, {})
+vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>te', extensions.file_browser.file_browser, {})
+vim.keymap.set('n', '<leader>tr',
+    function() extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" }) end, {})
 vim.keymap.set('n', '<leader>th', ':Telescope rtfm<CR>')
-vim.keymap.set('n', '<leader>gs', ':Telescope git_status<CR>')
-vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<CR>')
-vim.keymap.set('n', '<leader>gc', ':Telescope git_commits<CR>')
-vim.keymap.set('n', '<leader>tds', ':Telescope lsp_document_symbols<CR>')
-vim.keymap.set('n', '<leader>tws', ':Telescope lsp_dynamic_workspace_symbols<CR>')
-vim.keymap.set('n', '<leader>t?', ':Telescope keymaps<CR>')
+vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>tds', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>tws', builtin.lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', '<leader>t?', builtin.keymaps, {})
 -- vim.keymap.set('n', '<F8>', ':Telescope diagnostics<CR>')
-vim.keymap.set('n', '<F9>', ':Telescope lsp_incoming_calls<CR>')
-vim.keymap.set('n', '<F10>', ':Telescope lsp_outgoing_calls<CR>')
-vim.keymap.set('n', '<F11>', ':Telescope lsp_references<CR>')
-vim.keymap.set('n', '<F12>', ':Telescope lsp_definitions<CR>')
+vim.keymap.set('n', '<F9>', builtin.lsp_incoming_calls, {})
+vim.keymap.set('n', '<F10>', builtin.lsp_outgoing_calls, {})
+vim.keymap.set('n', '<F11>', builtin.lsp_references, {})
+vim.keymap.set('n', '<F12>', builtin.lsp_definitions, {})
 
 vim.keymap.set("n", "<Leader>tj", builtin.jumplist)
 vim.keymap.set("n", "<Leader>ts", builtin.spell_suggest)
@@ -70,6 +72,8 @@ require("telescope").setup {
     pickers = {
         find_files = {
             prompt_prefix = "󰱽  ",
+            hidden        = true,
+            no_ignore     = true,
         },
         live_grep = {
             prompt_prefix = "󱎸  ",
@@ -108,3 +112,4 @@ require("telescope").setup {
 
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "rtfm"
+require("telescope").load_extension("noice")

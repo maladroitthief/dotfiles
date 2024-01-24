@@ -11,26 +11,18 @@ return require('packer').startup(function(use)
     use("rebelot/kanagawa.nvim")
 
     --- LSP ---
-    use({
-        'neovim/nvim-lspconfig',
-        requires = {
-            { 'williamboman/mason.nvim',          run = ":MasonUpdate" },
-            { 'williamboman/mason-lspconfig.nvim' },
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
-            { 'L3MON4D3/LuaSnip' },
-            { 'rafamadriz/friendly-snippets' },
-            { 'jose-elias-alvarez/null-ls.nvim' },
-        }
-    })
-    use({
-        "folke/trouble.nvim",
-        requires = { "nvim-tree/nvim-web-devicons" }
-    })
+    use('neovim/nvim-lspconfig')
+    use({ 'williamboman/mason.nvim', run = ":MasonUpdate" })
+    use('williamboman/mason-lspconfig.nvim')
+    use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-buffer')
+    use('hrsh7th/cmp-path')
+    use('saadparwaiz1/cmp_luasnip')
+    use('hrsh7th/cmp-nvim-lsp')
+    use('hrsh7th/cmp-nvim-lua')
+    use('L3MON4D3/LuaSnip')
+    use('rafamadriz/friendly-snippets')
+    use('jose-elias-alvarez/null-ls.nvim')
     ----- Visual ---
     use('lukas-reineke/indent-blankline.nvim')
     use('lewis6991/gitsigns.nvim')
@@ -63,4 +55,18 @@ return require('packer').startup(function(use)
         requires = 'luukvbaal/statuscol.nvim'
     })
     use({ "ellisonleao/glow.nvim", config = function() require("glow").setup() end })
+    use({
+        "folke/trouble.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" }
+    })
+    use({
+        "folke/noice.nvim",
+        opts = {
+            -- add any options here
+        },
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    })
 end)

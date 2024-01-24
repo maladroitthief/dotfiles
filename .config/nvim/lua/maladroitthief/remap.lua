@@ -7,6 +7,7 @@ vim.keymap.set('n', '<Leader>re', vim.cmd.Rexplore)
 vim.keymap.set('n', '<Leader><Leader>', '<C-^>')
 
 -- sorcery with moving blocks in visual mode
+-- TODO replace with lua api
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('n', 'K', ":m '<-2<CR>gv=gv")
 
@@ -27,7 +28,7 @@ vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
 vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 
 -- remove find highlights
-vim.keymap.set('n', '<ESC>', ':noh<CR>')
+vim.keymap.set('n', '<ESC>', function() vim.cmd("noh") end, {})
 
 -- unmaps
 vim.keymap.set('n', "Q", "<nop>")
