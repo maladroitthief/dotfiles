@@ -28,7 +28,7 @@ require('kanagawa').setup({
         local palette = colors.palette
         return {
             NormalFloat             = { bg = theme.ui.bg_p1 },
-            FloatBorder             = { bg = "none" },
+            FloatBorder             = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
             FloatTitle              = { bg = theme.ui.bg_p1 },
             StatusLine              = { bg = "none" },
             StatusLineNC            = { bg = "none" },
