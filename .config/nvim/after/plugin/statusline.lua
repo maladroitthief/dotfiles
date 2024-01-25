@@ -9,6 +9,17 @@ local function launched_by_user()
     return parent_process == "nvim"
 end
 
+---Get the name of the current worktree
+---@return string | nil
+local function get_worktree_name()
+    local branch = vim.fn.system("git branch --show-current 2> /dev/null")
+    if branch ~= "" and launched_by_user() then
+        return branch:gsub("\n", "")
+    else
+        return nil
+    end
+end
+
 ---Get the name of the current branch
 ---@return string | nil
 local function get_branch_name()

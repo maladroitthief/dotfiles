@@ -2,15 +2,26 @@ local builtin = require('telescope.builtin')
 local extensions = require('telescope').extensions
 local trouble = require("trouble.providers.telescope")
 
-vim.keymap.set('n', '<leader>tp', builtin.find_files, {})
+vim.keymap.set(
+    'n',
+    '<leader>tp',
+    function()
+        builtin.find_files({ no_ignore = false, hidden = true })
+    end,
+    {}
+)
+
 vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>tg', function()
+    builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+vim.keymap.set('n', '<leader>tt', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>tds', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>tws', builtin.lsp_dynamic_workspace_symbols, {})
 vim.keymap.set('n', '<leader>t?', builtin.keymaps, {})
--- vim.keymap.set('n', '<F8>', ':Telescope diagnostics<CR>')
 vim.keymap.set('n', '<F9>', builtin.lsp_incoming_calls, {})
 vim.keymap.set('n', '<F10>', builtin.lsp_outgoing_calls, {})
 vim.keymap.set('n', '<F11>', builtin.lsp_references, {})
@@ -23,7 +34,7 @@ vim.keymap.set('n', '<leader>te', extensions.file_browser.file_browser, {})
 vim.keymap.set('n', '<leader>tr',
     function() extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" }) end, {})
 vim.keymap.set('n', '<leader>tm', function() extensions.notify.notify() end, {})
-vim.keymap.set('n', '<leader>th', ':Telescope rtfm<CR>')
+vim.keymap.set('n', '<leader>th', function() extensions.rtfm.rtfm({}) end, {})
 vim.keymap.set('n', '<leader>he', extensions.harpoon.marks, {})
 vim.keymap.set('n', '<leader>gw', extensions.git_worktree.git_worktrees, {})
 vim.keymap.set('n', '<leader>gnw', extensions.git_worktree.create_git_worktree, {})
@@ -52,10 +63,18 @@ require("telescope").setup {
         layout_config        = {
             horizontal = {
                 mirror = false,
+                height = 0.9,
+                preview_cutoff = 40,
+                prompt_position = "bottom",
+                width = 0.9
             },
             vertical = {
                 mirror = false,
-            },
+                height = 0.9,
+                preview_cutoff = 10,
+                prompt_position = "bottom",
+                width = 0.9
+            }
         },
         file_sorter          = require 'telescope.sorters'.get_fuzzy_file,
         file_ignore_patterns = {},
@@ -116,9 +135,9 @@ require("telescope").setup {
 
 }
 
-require("telescope").load_extension "file_browser"
-require("telescope").load_extension "rtfm"
+require("telescope").load_extension("file_browser")
+require("telescope").load_extension("rtfm")
 require("telescope").load_extension("noice")
-require("telescope").load_extension('harpoon')
+require("telescope").load_extension("harpoon")
 require("telescope").load_extension("notify")
 require("telescope").load_extension("git_worktree")

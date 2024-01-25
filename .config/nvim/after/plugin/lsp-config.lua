@@ -1,5 +1,3 @@
-require("neodev").setup({})
-
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 local cmp = require('cmp')
@@ -179,18 +177,7 @@ lspconfig.docker_compose_language_service.setup({})
 lspconfig.dockerls.setup({})
 lspconfig.ansiblels.setup({})
 lspconfig.marksman.setup({})
-lspconfig.lua_ls.setup({
-    settings = {
-        Lua = {
-            workspace = {
-                checkThirdParty = false,
-            },
-            diagnostics = {
-                globals = { 'vim' }
-            },
-        },
-    },
-})
+lspconfig.lua_ls.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.cssls.setup({})
 lspconfig.tsserver.setup({})
