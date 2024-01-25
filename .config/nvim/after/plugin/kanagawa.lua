@@ -27,11 +27,17 @@ require('kanagawa').setup({
         local theme = colors.theme
         local palette = colors.palette
         return {
-            NormalFloat             = { bg = "none" },
-            FloatBorder             = { bg = "none" },
-            FloatTitle              = { bg = "none" },
+            NormalFloat             = { bg = theme.ui.bg_p1 },
+            FloatBorder             = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+            FloatTitle              = { bg = theme.ui.bg_p1 },
             StatusLine              = { bg = "none" },
             StatusLineNC            = { bg = "none" },
+            MasonNormal             = { bg = theme.ui.bg_p1, fg = theme.ui.fg_dim },
+            Pmenu                   = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+            PmenuSel                = { fg = "NONE", bg = theme.ui.bg_p2 },
+            PmenuSbar               = { bg = theme.ui.bg_m1 },
+            PmenuThumb              = { bg = theme.ui.bg_p2 },
+
             -- Telescope
             TelescopeTitle          = { fg = palette.autumnRed, bg = "none", bold = true },
             TelescopeSelection      = { fg = palette.autumnGreen, gui = bold },
@@ -47,6 +53,35 @@ require('kanagawa').setup({
             TelescopePromptBorder   = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
             TelescopeResultsBorder  = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
             TelescopePreviewBorder  = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
+            -- Notify
+            NotifyBackground        = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+            NotifyERRORBorder       = { link = "NotifyBackground" },
+            NotifyWARNBorder        = { link = "NotifyBackground" },
+            NotifyINFOBorder        = { link = "NotifyBackground" },
+            NotifyHINTBorder        = { link = "NotifyBackground" },
+            NotifyDEBUGBorder       = { link = "NotifyBackground" },
+            NotifyTRACEBorder       = { link = "NotifyBackground" },
+
+            NotifyERRORIcon         = { link = "DiagnosticError" },
+            NotifyWARNIcon          = { link = "DiagnosticWarn" },
+            NotifyINFOIcon          = { link = "DiagnosticInfo" },
+            NotifyHINTIcon          = { link = "DiagnosticHint" },
+            NotifyDEBUGIcon         = { link = "Debug" },
+            NotifyTRACEIcon         = { link = "Comment" },
+
+            NotifyERRORTitle        = { link = "DiagnosticError" },
+            NotifyWARNTitle         = { link = "DiagnosticWarn" },
+            NotifyINFOTitle         = { link = "DiagnosticInfo" },
+            NotifyHINTTitle         = { link = "DiagnosticHint" },
+            NotifyDEBUGTitle        = { link = "Debug" },
+            NotifyTRACETitle        = { link = "Comment" },
+
+            NotifyERRORBody         = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
+            NotifyWARNBody          = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
+            NotifyINFOBody          = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
+            NotifyHINTBody          = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
+            NotifyDEBUGBody         = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
+            NotifyTRACEBody         = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
         }
     end,
     theme = "wave",    -- Load "wave" theme when 'background' option is not set

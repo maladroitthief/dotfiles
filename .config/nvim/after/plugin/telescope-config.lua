@@ -4,10 +4,6 @@ local trouble = require("trouble.providers.telescope")
 
 vim.keymap.set('n', '<leader>tp', builtin.find_files, {})
 vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>te', extensions.file_browser.file_browser, {})
-vim.keymap.set('n', '<leader>tr',
-    function() extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" }) end, {})
-vim.keymap.set('n', '<leader>th', ':Telescope rtfm<CR>')
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
@@ -22,6 +18,16 @@ vim.keymap.set('n', '<F12>', builtin.lsp_definitions, {})
 
 vim.keymap.set("n", "<Leader>tj", builtin.jumplist)
 vim.keymap.set("n", "<Leader>ts", builtin.spell_suggest)
+
+vim.keymap.set('n', '<leader>te', extensions.file_browser.file_browser, {})
+vim.keymap.set('n', '<leader>tr',
+    function() extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" }) end, {})
+vim.keymap.set('n', '<leader>tm', function() extensions.notify.notify() end, {})
+vim.keymap.set('n', '<leader>th', ':Telescope rtfm<CR>')
+vim.keymap.set('n', '<leader>he', extensions.harpoon.marks, {})
+vim.keymap.set('n', '<leader>gw', extensions.git_worktree.git_worktrees, {})
+vim.keymap.set('n', '<leader>gnw', extensions.git_worktree.create_git_worktree, {})
+
 
 local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {
@@ -113,3 +119,6 @@ require("telescope").setup {
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "rtfm"
 require("telescope").load_extension("noice")
+require("telescope").load_extension('harpoon')
+require("telescope").load_extension("notify")
+require("telescope").load_extension("git_worktree")
