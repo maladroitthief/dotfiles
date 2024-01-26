@@ -1,1 +1,1 @@
-[{"url": "mongodb://127.0.0.1:27017", "name": "mongodb.local"}]
+[{"url": "mongodb://127.0.0.1:27017/boarddb", "name": "mongodb.local.boarddb"}, {"url": "mongodb://localhost:27017/atsdb", "name": "mongodb.local.atsdb"}]

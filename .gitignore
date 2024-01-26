@@ -6,3 +6,4 @@ Thumbs.db
 # nvim plugins
 .config/nvim/plugin
 
+.config/nvim/db_ui

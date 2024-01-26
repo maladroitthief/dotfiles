@@ -121,7 +121,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<F3>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("i", "<F1>", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end, opts)
         vim.keymap.set('n', '<F5>', function()
             vim.lsp.buf.format { async = true }
