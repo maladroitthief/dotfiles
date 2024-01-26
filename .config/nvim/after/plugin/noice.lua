@@ -29,8 +29,14 @@ require("noice").setup({
         },
     },
     lsp = {
+        -- hover = {
+        --     view = "hover",
+        -- },
+        signature = {
+            enabled = false,
+        },
         hover = {
-            view = "hover",
+            enabled = false,
         },
         override = {
             -- override the default lsp markdown formatter with Noice
