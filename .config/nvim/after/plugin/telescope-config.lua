@@ -34,7 +34,6 @@ vim.keymap.set("n", "<Leader>ts", builtin.spell_suggest)
 vim.keymap.set('n', '<leader>te', extensions.file_browser.file_browser, {})
 vim.keymap.set('n', '<leader>tr',
     function() extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" }) end, {})
-vim.keymap.set('n', '<leader>tm', function() extensions.notify.notify() end, {})
 vim.keymap.set('n', '<leader>th', function() extensions.rtfm.rtfm({}) end, {})
 vim.keymap.set('n', '<leader>he', extensions.harpoon.marks, {})
 vim.keymap.set('n', '<leader>gw', extensions.git_worktree.git_worktrees, {})
