@@ -60,16 +60,6 @@ return require('packer').startup(function(use)
         requires = { "nvim-tree/nvim-web-devicons" }
     })
     use({
-        "folke/noice.nvim",
-        opts = {
-            -- add any options here
-        },
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
-        }
-    })
-    use({
         "tpope/vim-dadbod",
         requires = {
             "kristijanhusak/vim-dadbod-ui",
