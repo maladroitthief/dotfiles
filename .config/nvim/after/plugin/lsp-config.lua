@@ -52,6 +52,7 @@ cmp.setup({
         ['<S-Tab>'] = nil,
     }),
     formatting = {
+        expandable_indicator = true,
         fields = { "abbr", "menu", "kind" },
         format = function(entry, item)
             -- Define menu shorthand for different completion sources.
@@ -165,7 +166,9 @@ lspconfig.yamlls.setup({})
 lspconfig.cssls.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.html.setup({})
-lspconfig.terraformls.setup({})
+lspconfig.terraformls.setup({
+    filetypes = { "terraform" }
+})
 lspconfig.metals.setup({
     filetypes = {
         "scala",

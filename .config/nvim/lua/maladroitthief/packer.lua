@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     use('L3MON4D3/LuaSnip')
     use('rafamadriz/friendly-snippets')
     use('jose-elias-alvarez/null-ls.nvim')
+
     ----- Visual ---
     use('lukas-reineke/indent-blankline.nvim')
     use('lewis6991/gitsigns.nvim')
@@ -70,4 +71,17 @@ return require('packer').startup(function(use)
         end,
     })
     use("ThePrimeagen/git-worktree.nvim")
+    use({
+        "gaoDean/autolist.nvim",
+        ft = {
+            "markdown",
+            "text",
+            "tex",
+            "plaintex",
+            "norg"
+        },
+        config = function()
+            require("config.autolist").setup()
+        end,
+    })
 end)
