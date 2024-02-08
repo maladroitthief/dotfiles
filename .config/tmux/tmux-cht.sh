@@ -17,7 +17,7 @@ main() {
         exit 0
     fi
 
-    tmux neww bash -c "nvim -mRc \":terminal curl -s cht.sh/$selected\" -"
+    tmux neww -n "$selected" bash -c "nvim -mRc \":terminal curl -s cht.sh/$selected\" -"
 }
 
 main "$@"
