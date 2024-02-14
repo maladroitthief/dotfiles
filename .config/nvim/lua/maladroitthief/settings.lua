@@ -31,7 +31,7 @@ vim.o.numberwidth = 3
 vim.o.signcolumn = 'yes'
 vim.o.modelines = 0
 vim.o.showcmd = true
-vim.o.colorcolumn = '100'
+vim.o.colorcolumn = '80'
 vim.o.termguicolors = true
 
 -- Search

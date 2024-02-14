@@ -71,17 +71,4 @@ return require('packer').startup(function(use)
         end,
     })
     use("ThePrimeagen/git-worktree.nvim")
-    use({
-        "gaoDean/autolist.nvim",
-        ft = {
-            "markdown",
-            "text",
-            "tex",
-            "plaintex",
-            "norg"
-        },
-        config = function()
-            require("config.autolist").setup()
-        end,
-    })
 end)

@@ -9,6 +9,7 @@ null_ls.setup({
         "100",
       },
     }),
-    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.deno_fmt,
+    -- null_ls.builtins.formatting.prettierd,
   },
 })
