@@ -1,0 +1,15 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+right_format = "$time"
+
+[character]
+success_symbol = '[➜](bold green)'
+
+[time]
+disabled = false
+style = "bold bright-black"
+format = "[$time]($style)"
+
+[line_break]
+disabled = true
