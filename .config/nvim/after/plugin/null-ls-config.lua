@@ -10,6 +10,6 @@ null_ls.setup({
       },
     }),
     null_ls.builtins.formatting.deno_fmt,
-    -- null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.shellharden,
   },
 })
