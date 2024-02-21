@@ -2,16 +2,29 @@ local builtin = require('telescope.builtin')
 local extensions = require('telescope').extensions
 local trouble = require("trouble.providers.telescope")
 
-vim.keymap.set(
-    'n',
-    '<leader>tp',
-    function()
-        builtin.find_files({ no_ignore = false, hidden = true })
-    end,
-    {}
-)
+vim.keymap.set('n', '<leader>tp', function()
+    builtin.find_files({
+        no_ignore = false,
+        no_ignore_parent = false,
+        hidden = true,
+    })
+end, {})
+vim.keymap.set('n', '<leader>tP', function()
+    builtin.find_files({
+        no_ignore = true,
+        no_ignore_parent = true,
+        hidden = true,
+    })
+end, {})
 
 vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>tF', function()
+    builtin.live_grep({
+        additional_args = {
+            "-u",
+        }
+    })
+end, {})
 vim.keymap.set('n', '<leader>tg', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
@@ -77,7 +90,9 @@ require("telescope").setup {
             }
         },
         file_sorter          = require 'telescope.sorters'.get_fuzzy_file,
-        file_ignore_patterns = {},
+        file_ignore_patterns = {
+            ".git/*",
+        },
         generic_sorter       = require 'telescope.sorters'.get_generic_fuzzy_sorter,
         winblend             = 0,
         border               = {},
