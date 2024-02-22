@@ -23,7 +23,7 @@ for _, ls in ipairs(language_servers) do
     })
 end
 
--- local builtin = require("statuscol.builtin")
+local builtin = require("statuscol.builtin")
 -- require("statuscol").setup({
 --     segments = {
 --         { text = { "%s" },             click = "v:lua.ScSa" },
@@ -35,5 +35,13 @@ end
 --         },
 --     }
 -- })
+require("statuscol").setup({
+    relculright = true,
+    segments = {
+        { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+        { text = { "%s" },                  click = "v:lua.ScSa" },
+        { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+    },
+})
 
 require('ufo').setup()

@@ -44,10 +44,10 @@ return require('packer').startup(function(use)
 
     --- Functionallity ---
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use("nvim-treesitter/nvim-treesitter-context");
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
-    use("nvim-treesitter/nvim-treesitter-context");
     use('tpope/vim-commentary')
     use('tpope/vim-abolish')
     use('kevinhwang91/promise-async')
@@ -71,4 +71,5 @@ return require('packer').startup(function(use)
         end,
     })
     use("ThePrimeagen/git-worktree.nvim")
+    use("folke/zen-mode.nvim")
 end)
