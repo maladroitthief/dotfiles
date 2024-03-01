@@ -2,14 +2,14 @@ local builtin = require('telescope.builtin')
 local extensions = require('telescope').extensions
 local trouble = require("trouble.providers.telescope")
 
-vim.keymap.set('n', '<leader>tp', function()
+vim.keymap.set('n', '<leader>tf', function()
     builtin.find_files({
         no_ignore = false,
         no_ignore_parent = false,
         hidden = true,
     })
 end, {})
-vim.keymap.set('n', '<leader>tP', function()
+vim.keymap.set('n', '<leader>tF', function()
     builtin.find_files({
         no_ignore = true,
         no_ignore_parent = true,
@@ -17,17 +17,14 @@ vim.keymap.set('n', '<leader>tP', function()
     })
 end, {})
 
-vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>tF', function()
+vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>tG', function()
     builtin.live_grep({
         additional_args = {
             "-u",
         }
     })
 end, {})
-vim.keymap.set('n', '<leader>tg', function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") })
-end)
 vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>tt', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
