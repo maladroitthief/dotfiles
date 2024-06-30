@@ -23,6 +23,11 @@ require('kanagawa').setup({
             }
         },
     },
+    theme = "wave", -- Load "wave" theme when 'background' option is not set
+    background = {
+        dark = "lotus",
+        light = "lotus"
+    },
     overrides = function(colors) -- add/modify highlights
         local theme = colors.theme
         local palette = colors.palette
@@ -38,12 +43,12 @@ require('kanagawa').setup({
             PmenuSbar                      = { bg = theme.ui.pmenu.bg_sbar },
             PmenuThumb                     = { bg = theme.ui.pmenu.bg_thumb },
             -- Telescope
-            TelescopeTitle                 = { fg = palette.autumnRed, bg = "none", bold = true },
-            TelescopeSelection             = { fg = palette.autumnGreen },
-            TelescopeSelectionCaret        = { fg = palette.roninYellow },
-            TelescopeMultiSelection        = { fg = palette.oniViolet },
-            TelescopeMatching              = { fg = palette.crystalBlue },
-            TelescopePromptPrefix          = { fg = palette.roninYellow },
+            TelescopeTitle                 = { fg = theme.ui.special, bg = "none", bold = true },
+            TelescopeSelection             = { fg = "none", bg = theme.ui.pmenu.bg_sel },
+            TelescopeSelectionCaret        = { fg = theme.ui.pmenu.bg_thumb },
+            TelescopeMultiSelection        = { fg = theme.ui.bg_visual },
+            TelescopeMatching              = { fg = theme.ui.bg_search },
+            TelescopePromptPrefix          = { fg = theme.ui.fg },
             TelescopePromptNormal          = { bg = theme.ui.bg_p1 },
             TelescopeResultsNormal         = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
             TelescopePreviewNormal         = { bg = theme.ui.bg_dim },
@@ -62,25 +67,20 @@ require('kanagawa').setup({
             ["@markup.emphasis"]           = { italic = true },
             ["@markup.strikethrough"]      = { strikethrough = true },
             ["@markup.underline"]          = { underline = true },
-            ["@markup.heading.1.markdown"] = { bold = true, fg = colors.palette.autumnRed },
-            ["@markup.heading.2.markdown"] = { bold = true, fg = colors.palette.autumnYellow },
-            ["@markup.heading.3.markdown"] = { bold = true, fg = colors.palette.springBlue },
-            ["@markup.heading.4.markdown"] = { bold = true, fg = colors.palette.springGreen },
-            ["@markup.heading.5.markdown"] = { bold = true, fg = colors.palette.oniViolet },
-            ["@markup.heading.6.markdown"] = { bold = true, fg = colors.palette.surimiOrange },
+            ["@markup.heading.1.markdown"] = { bold = true, fg = colors.theme.syn.special2 },
+            ["@markup.heading.2.markdown"] = { bold = true, fg = colors.theme.syn.identifier },
+            ["@markup.heading.3.markdown"] = { bold = true, fg = colors.theme.syn.fun },
+            ["@markup.heading.4.markdown"] = { bold = true, fg = colors.theme.syn.string },
+            ["@markup.heading.5.markdown"] = { bold = true, fg = colors.theme.syn.keyword },
+            ["@markup.heading.6.markdown"] = { bold = true, fg = colors.theme.syn.constant },
             ["@markup.link.url"]           = { link = "Underlined" },
-            ["@markup.list"]               = { fg = colors.palette.springBlue },
-            ["@markup.list.markdown"]      = { fg = colors.palette.surimiOrange, bold = true },
-            ["@markup.list.unchecked"]     = { fg = colors.palette.springBlue },
-            ["@markup.list.checked"]       = { fg = colors.palette.springGreen },
+            ["@markup.list"]               = { fg = colors.theme.syn.fun },
+            ["@markup.list.markdown"]      = { fg = colors.theme.syn.constant, bold = true },
+            ["@markup.list.unchecked"]     = { fg = colors.theme.syn.fun },
+            ["@markup.list.checked"]       = { fg = colors.theme.syn.string },
             ["@markup.spell"]              = { undercurl = true, underline = false, sp = theme.diag.error },
         }
     end,
-    theme = "wave",    -- Load "wave" theme when 'background' option is not set
-    background = {     -- map the value of 'background' option to a theme
-        dark = "wave", -- try "dragon" !
-        light = "lotus"
-    },
 })
 
 -- setup must be called before loading
