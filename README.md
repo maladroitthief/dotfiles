@@ -13,6 +13,8 @@ ln -sf $(pwd)/.ignore ~
 ln -sf $(pwd)/.gitignore ~
 ln -sf $(pwd)/.gitconfig ~
 ln -sf $(pwd)/.bash_aliases ~
+ln -sf $(pwd)/.wezterm.lua ~
+ln -sf $(pwd)/.config/wezterm ~/.config
 ln -sf $(pwd)/.config/kitty ~/.config
 ln -sf $(pwd)/.config/tmux ~/.config
 ln -sf $(pwd)/.config/nvim ~/.config
