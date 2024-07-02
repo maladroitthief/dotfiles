@@ -1,4 +1,5 @@
 -- Default options:
+
 require('kanagawa').setup({
     compile = false,  -- enable compiling the colorscheme
     undercurl = true, -- enable undercurls
@@ -15,7 +16,29 @@ require('kanagawa').setup({
         theme = {
             wave = {},
             dragon = {},
-            lotus = {},
+            lotus = {
+                syn = {
+                    string     = "#6f894e",
+                    variable   = "none",
+                    number     = "#b35b79",
+                    constant   = "#cc6d00",
+                    identifier = "#545464",
+                    parameter  = "#5d57a3",
+                    fun        = "#4d699b",
+                    statement  = "#624c83",
+                    keyword    = "#624c83",
+                    operator   = "#43436c",
+                    preproc    = "#c84053",
+                    type       = "#597b75",
+                    regex      = "#e98a00",
+                    deprecated = "#8a8980",
+                    comment    = "#8a8980",
+                    punct      = "#4e8ca2",
+                    special1   = "#6693bf",
+                    special2   = "#c84053",
+                    special3   = "#c84053",
+                },
+            },
             all = {
                 ui = {
                     bg_gutter = "none"
@@ -23,7 +46,6 @@ require('kanagawa').setup({
             }
         },
     },
-    theme = "wave", -- Load "wave" theme when 'background' option is not set
     background = {
         dark = "lotus",
         light = "lotus"
