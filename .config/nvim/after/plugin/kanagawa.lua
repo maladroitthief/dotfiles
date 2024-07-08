@@ -18,7 +18,7 @@ require('kanagawa').setup({
             dragon = {},
             lotus = {
                 syn = {
-                    string     = "#6f894e",
+                    string     = "#98BB6C",
                     variable   = "none",
                     number     = "#b35b79",
                     constant   = "#cc6d00",

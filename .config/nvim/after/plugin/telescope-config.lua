@@ -1,6 +1,6 @@
 local builtin = require('telescope.builtin')
 local extensions = require('telescope').extensions
-local trouble = require("trouble.providers.telescope")
+local trouble = require("trouble.sources.telescope")
 
 vim.keymap.set('n', '<leader>tf', function()
     builtin.find_files({
@@ -42,8 +42,7 @@ vim.keymap.set("n", "<Leader>tj", builtin.jumplist)
 vim.keymap.set("n", "<Leader>ts", builtin.spell_suggest)
 
 vim.keymap.set('n', '<leader>te', extensions.file_browser.file_browser, {})
-vim.keymap.set('n', '<leader>tr',
-    function() extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" }) end, {})
+vim.keymap.set('n', '<leader>tr', builtin.registers )
 vim.keymap.set('n', '<leader>th', function() extensions.rtfm.rtfm({}) end, {})
 vim.keymap.set('n', '<leader>he', extensions.harpoon.marks, {})
 vim.keymap.set('n', '<leader>gw', extensions.git_worktree.git_worktrees, {})
@@ -102,8 +101,8 @@ require("telescope").setup {
         grep_previewer       = require 'telescope.previewers'.vim_buffer_vimgrep.new,
         qflist_previewer     = require 'telescope.previewers'.vim_buffer_qflist.new,
         mappings             = {
-            i = { ["<F8>"] = trouble.open_with_trouble },
-            n = { ["<F8>"] = trouble.open_with_trouble },
+            i = { ["<F8>"] = trouble.open },
+            n = { ["<F8>"] = trouble.open },
         },
     },
     pickers = {
