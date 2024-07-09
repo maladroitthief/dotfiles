@@ -357,7 +357,6 @@ return {
                 ["wasm"] = { icon = code },
             },
         }
-
         devicons.refresh()
     end,
 }

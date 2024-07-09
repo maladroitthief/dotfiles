@@ -3,4 +3,5 @@ return {
     config = function()
         vim.keymap.set('n', '<C-Z>', vim.cmd.UndotreeToggle)
     end,
+    opts = {},
 }

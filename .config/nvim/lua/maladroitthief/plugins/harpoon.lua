@@ -17,4 +17,5 @@ return {
         vim.keymap.set("n", "<leader>h8", function() ui.nav_file(8) end)
         vim.keymap.set("n", "<leader>h9", function() ui.nav_file(9) end)
     end,
+    opts = {},
 }

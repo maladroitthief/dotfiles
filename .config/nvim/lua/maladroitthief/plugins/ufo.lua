@@ -50,7 +50,6 @@ return {
                 { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
             },
         })
-
-        require('ufo').setup()
     end,
+    opts = {},
 }
