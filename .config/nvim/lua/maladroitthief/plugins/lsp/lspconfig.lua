@@ -80,7 +80,17 @@ return {
         lspconfig.dockerls.setup({})
         lspconfig.ansiblels.setup({})
         lspconfig.marksman.setup({})
-        lspconfig.lua_ls.setup({})
+        lspconfig.lua_ls.setup({
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = {
+                            "vim"
+                        }
+                    }
+                }
+            }
+        })
         lspconfig.yamlls.setup({})
         lspconfig.cssls.setup({})
         lspconfig.tsserver.setup({})

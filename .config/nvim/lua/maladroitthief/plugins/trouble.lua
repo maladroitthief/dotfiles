@@ -5,8 +5,7 @@ return {
         position = "bottom",
         height = 10,
         width = 50,
-        icons = true,
-        mode = "workspace_diagnostics",
+        mode = "diagnostics",
         severity = nil,
         fold_open = "",
         fold_closed = "",
@@ -53,11 +52,10 @@ return {
         },
         use_diagnostic_signs = true
     },
-    config = function()
-        vim.keymap.set("n", "<F8>", function() require("trouble").toggle() end)
-        vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
-        vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
-        vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
-        vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-    end,
+    cmd = "Trouble",
+    keys = {
+        { "<leader>xx", function() require("trouble").toggle("diagnostics") end, },
+        { "<leader>xq", function() require("trouble").toggle("quickfix") end, },
+        { "<leader>xl", function() require("trouble").toggle("loclist") end, },
+    },
 }
