@@ -120,6 +120,13 @@ return {
                 live_grep = {
                     prompt_prefix = "󱎸  ",
                 },
+                buffers = {
+                    mappings = {
+                        n = {
+                            ["dd"] = "delete_buffer",
+                        },
+                    },
+                }
             },
             extensions = {
                 file_browser = {

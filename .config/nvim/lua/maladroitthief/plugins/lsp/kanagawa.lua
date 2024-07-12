@@ -2,17 +2,17 @@ return {
     "rebelot/kanagawa.nvim",
     config = function()
         require('kanagawa').setup({
-            compile = false, -- enable compiling the colorscheme
+            compile = false,  -- enable compiling the colorscheme
             undercurl = true, -- enable undercurls
             commentStyle = { italic = true },
             functionStyle = {},
             keywordStyle = { italic = true },
             statementStyle = { bold = true },
             typeStyle = {},
-            transparent = true, -- do not set background color
-            dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+            transparent = true,    -- do not set background color
+            dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
             terminalColors = true, -- define vim.g.terminal_color_{0,17}
-            colors = {     -- add/modify theme and palette colors
+            colors = {             -- add/modify theme and palette colors
                 palette = {},
                 theme = {
                     wave = {},
@@ -67,11 +67,10 @@ return {
                     PmenuThumb                     = { bg = theme.ui.pmenu.bg_thumb },
                     -- Telescope
                     TelescopeTitle                 = { fg = theme.ui.special, bg = "none", bold = true },
-                    --TelescopeSelection             = { fg = "none", bg = theme.ui.pmenu.bg_sel },
                     TelescopeSelection             = { fg = theme.ui.fg, bg = theme.ui.bg_p2 },
-                    TelescopeSelectionCaret        = { fg = theme.ui.pmenu.bg_thumb },
+                    TelescopeSelectionCaret        = { fg = theme.ui.bg_special },
                     TelescopeMultiSelection        = { fg = theme.ui.bg_visual },
-                    TelescopeMatching              = { fg = theme.ui.bg_search },
+                    TelescopeMatching              = { bg = theme.ui.bg_search },
                     TelescopePromptPrefix          = { fg = theme.ui.fg },
                     TelescopePromptNormal          = { bg = theme.ui.bg_p1 },
                     TelescopeResultsNormal         = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
