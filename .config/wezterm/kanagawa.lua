@@ -20,6 +20,7 @@ function module.wave(config)
     ansi = { "#090618", "#c34043", "#76946a", "#c0a36e", "#7e9cd8", "#957fb8", "#6a9589", "#c8c093" },
     brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
     indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
+    visual_bell = '#dcd7ba',
   }
 end
 
@@ -46,6 +47,7 @@ function module.lotus(config)
     tab_bar = {
       inactive_tab_edge = '#dcd5ac',
     },
+    visual_bell = '#545464',
   }
   config.window_frame = {
     active_titlebar_bg = '#e7dba0',
