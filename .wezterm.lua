@@ -6,15 +6,15 @@ local config = wezterm.config_builder()
 config.enable_tab_bar = false
 config.scrollback_lines = 8000
 
-config.cursor_blink_rate = 800
+config.cursor_blink_rate = 750
 config.cursor_blink_ease_in = 'Constant'
 config.cursor_blink_ease_out = 'Constant'
 
 config.visual_bell = {
-  fade_in_function = 'EaseIn',
-  fade_in_duration_ms = 250,
-  fade_out_function = 'EaseOut',
-  fade_out_duration_ms = 250,
+  fade_in_function = 'Constant',
+  fade_in_duration_ms = 0,
+  fade_out_function = 'Constant',
+  fade_out_duration_ms = 0,
 }
 
 config.font_size = 20.0
