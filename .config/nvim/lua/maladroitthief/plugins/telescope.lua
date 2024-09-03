@@ -9,6 +9,7 @@ return {
         'maladroitthief/telescope-rtfm.nvim',
         "ThePrimeagen/harpoon",
         "ThePrimeagen/git-worktree.nvim",
+        "folke/todo-comments.nvim",
     },
     config = function()
         local builtin = require('telescope.builtin')
@@ -59,6 +60,7 @@ return {
         vim.keymap.set('n', '<leader>he', extensions.harpoon.marks, {})
         vim.keymap.set('n', '<leader>gw', extensions.git_worktree.git_worktrees, {})
         vim.keymap.set('n', '<leader>gnw', extensions.git_worktree.create_git_worktree, {})
+        vim.keymap.set('n', '<leader>to', "<cmd>TodoTelescope<cr>")
 
         require("telescope").setup {
             defaults = {
