@@ -93,7 +93,7 @@ return {
         })
         lspconfig.yamlls.setup({})
         lspconfig.cssls.setup({})
-        lspconfig.tsserver.setup({})
+        lspconfig.ts_ls.setup({})
         lspconfig.html.setup({})
         lspconfig.terraformls.setup({
             filetypes = { "terraform" }

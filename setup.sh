@@ -25,9 +25,11 @@ main() {
   ln -sf $(pwd)/.gitignore ~
   ln -sf $(pwd)/.gitconfig ~
   ln -sf $(pwd)/.bash_aliases ~
+  ln -sf $(pwd)/.config/starship.toml ~/.config
   ln -sf $(pwd)/.config/kitty ~/.config
   ln -sf $(pwd)/.config/tmux ~/.config
   ln -sf $(pwd)/.config/nvim ~/.config
+  ln -sf $(pwd)/.config/wezterm ~/.config
 }
 
 main "$@"
