@@ -70,7 +70,12 @@ return {
         end
 
         -------------------------------------------------------------------------------
-        lspconfig.pyright.setup({})
+        lspconfig.pyright.setup({
+            before_init = function(_, config)
+                config.settings.python.analysis.stubPath = vim.fs.joinpath(vim.fn.stdpath "data", "lazy",
+                    "python-type-stubs")
+            end,
+        })
         lspconfig.gopls.setup({})
         lspconfig.rust_analyzer.setup({})
         lspconfig.solargraph.setup({})
