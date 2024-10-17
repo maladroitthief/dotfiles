@@ -54,8 +54,16 @@ return {
     },
     cmd = "Trouble",
     keys = {
-        { "<leader>xx", function() require("trouble").toggle("diagnostics") end, },
-        { "<leader>xq", function() require("trouble").toggle("quickfix") end, },
-        { "<leader>xl", function() require("trouble").toggle("loclist") end, },
+        {
+            "<leader>xx",
+            function() require("trouble").toggle("diagnostics") end,
+            desc = "Trouble: Diagnostics",
+        },
+        { "<leader>xq",  function() require("trouble").toggle("quickfix") end,             desc = "Trouble: Quickfix", },
+        { "<leader>xl",  function() require("trouble").toggle("loclist") end,              desc = "Trouble: LocList", },
+        { "<leader>xds", function() require("trouble").toggle("lsp_document_symbols") end, desc = "Trouble: Symbols", },
+        { "<leader>xi",  function() require("trouble").toggle("lsp_incoming_calls") end,   desc = "Trouble: Incoming", },
+        { "<leader>xo",  function() require("trouble").toggle("lsp_outgoing_calls") end,   desc = "Trouble: Outgoing", },
+        { "<leader>xr",  function() require("trouble").toggle("lsp_references") end,       desc = "Trouble: References", },
     },
 }

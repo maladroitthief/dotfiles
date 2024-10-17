@@ -1,3 +1,5 @@
+export CLICOLOR=1
+
 # Keep zshrc clean
 for config (~/.config/zsh/*.zsh) source $config
 
