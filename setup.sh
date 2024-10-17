@@ -19,17 +19,14 @@ fi
 cd "$(dirname "$0")"
 
 main() {
-  ln -sf $(pwd)/.tmux.conf ~
-  ln -sf $(pwd)/.inputrc ~
+  ln -sf $(pwd)/.zshrc ~
   ln -sf $(pwd)/.ignore ~
   ln -sf $(pwd)/.gitignore ~
   ln -sf $(pwd)/.gitconfig ~
-  ln -sf $(pwd)/.bash_aliases ~
-  ln -sf $(pwd)/.zshrc ~
-  ln -sf $(pwd)/.config/starship.toml ~/.config
-  ln -sf $(pwd)/.config/kitty ~/.config
-  ln -sf $(pwd)/.config/tmux ~/.config
+  ln -sf $(pwd)/.tmux.conf ~
   ln -sf $(pwd)/.config/nvim ~/.config
+  ln -sf $(pwd)/.config/starship.toml ~/.config
+  ln -sf $(pwd)/.config/tmux ~/.config
   ln -sf $(pwd)/.config/wezterm ~/.config
   ln -sf $(pwd)/.config/zsh ~/.config
 }
