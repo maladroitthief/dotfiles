@@ -70,6 +70,7 @@ return {
         end
 
         -------------------------------------------------------------------------------
+        lspconfig.ruff.setup({})
         lspconfig.pyright.setup({
             before_init = function(_, config)
                 config.settings.python.analysis.stubPath = vim.fs.joinpath(vim.fn.stdpath "data", "lazy",
@@ -102,12 +103,6 @@ return {
         lspconfig.html.setup({})
         lspconfig.terraformls.setup({
             filetypes = { "terraform" }
-        })
-        lspconfig.metals.setup({
-            filetypes = {
-                "scala",
-                "sbt"
-            }
         })
         lspconfig.clangd.setup({})
         lspconfig.zls.setup({})
