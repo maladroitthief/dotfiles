@@ -47,6 +47,7 @@ return {
                 vim.keymap.set("i", "<F1>", function() vim.lsp.buf.signature_help() end, opts)
                 vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end, opts)
                 vim.keymap.set('n', '<F5>', function()
+                    require("conform").format({ async = true, lsp_format = "fallback"})
                     vim.lsp.buf.format { async = true }
                 end, opts)
                 vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end, opts)
