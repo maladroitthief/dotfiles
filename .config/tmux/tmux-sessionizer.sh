@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/workspace/maladroitthief ~/workspace/tools -mindepth 1 -maxdepth 1 -type d | fzf --tmux 80%)
+    selected=$(find ~/workspace/maladroitthief ~/workspace/tools ~/workspace/BloomfieldRobotics -mindepth 1 -maxdepth 1 -type d | fzf --tmux 80%)
 fi
 
 if [[ -z $selected ]]; then

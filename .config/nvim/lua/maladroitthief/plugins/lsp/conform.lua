@@ -2,7 +2,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
         formatters_by_ft = {
-            python = { "isort" },
+            python = { "ruff_fix", "ruff_format" },
             markdown = { "deno_fmt" },
         },
         format_on_save = {

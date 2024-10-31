@@ -63,7 +63,7 @@ local function get_search_count()
         local search_count = vim.fn.searchcount({ maxcount = 0 })
         return ("%d/%d"):format(search_count.current, search_count.total)
     else
-        return nil
+        return "0"
     end
 end
 

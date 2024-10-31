@@ -1,1 +1,1 @@
-export BUNDLE_PATH=~/.gems
+export BUNDLE_PATH="$HOME/.gems"
