@@ -79,11 +79,11 @@ return {
                     TelescopeResultsBorder         = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
                     TelescopePreviewBorder         = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
                     -- todo comments
-                    DiagnosticSignOk               = { fg = theme.diag.ok },
-                    DiagnosticError                = { fg = theme.diag.error },
-                    DiagnosticWarn                 = { fg = theme.vcs.changed },
-                    DiagnosticInfo                 = { fg = theme.term[5] },
-                    DiagnosticHint                 = { fg = theme.term[2] },
+                    DiagnosticSignOk               = { fg = palette.oniViolet },
+                    DiagnosticError                = { fg = palette.autumnRed },
+                    DiagnosticWarn                 = { fg = palette.autumnYellow },
+                    DiagnosticInfo                 = { fg = palette.autumnGreen },
+                    DiagnosticHint                 = { fg = palette.crystalBlue },
                     -- Treesitter
                     ["@markup.link.label"]         = { link = "SpecialChar" },
                     ["@markup.link.label.symbol"]  = { link = "Identifier" },
