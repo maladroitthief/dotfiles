@@ -5,7 +5,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.history = 1000
 vim.o.dictionary = '/usr/share/dict/words'
 vim.o.startofline = true
-vim.o.clipboard = 'unnamed'
+vim.o.clipboard = 'unnamedplus'
 
 vim.o.guicursor = "n-v-c:block," ..
     "i-ci-ve:block," ..
