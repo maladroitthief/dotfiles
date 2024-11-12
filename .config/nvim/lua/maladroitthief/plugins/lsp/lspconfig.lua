@@ -49,8 +49,8 @@ return {
                 vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end,
                     { buffer = event.buf, desc = "LSP: open float" })
                 vim.keymap.set('n', '<F5>', function()
-                    -- require("conform").format({ async = true, lsp_format = "fallback"})
-                    vim.lsp.buf.format { async = true }
+                    require("conform").format({ async = true, lsp_format = "fallback" })
+                    -- vim.lsp.buf.format { async = true }
                 end, { buffer = event.buf, desc = "LSP: format" })
                 vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end,
                     { buffer = event.buf, desc = "LSP: code action" })
