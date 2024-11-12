@@ -40,18 +40,21 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = 'LSP actions',
             callback = function(event)
-                local opts = { buffer = event.buf }
-
-                vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end, opts)
-                vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
-                vim.keymap.set("i", "<F1>", function() vim.lsp.buf.signature_help() end, opts)
-                vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end, opts)
+                vim.keymap.set("n", "<F1>", function() vim.lsp.buf.hover() end,
+                    { buffer = event.buf, desc = "LSP: hover" })
+                vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end,
+                    { buffer = event.buf, desc = "LSP: rename" })
+                vim.keymap.set("i", "<F1>", function() vim.lsp.buf.signature_help() end,
+                    { buffer = event.buf, desc = "LSP: signature help" })
+                vim.keymap.set("n", "<F4>", function() vim.diagnostic.open_float() end,
+                    { buffer = event.buf, desc = "LSP: open float" })
                 vim.keymap.set('n', '<F5>', function()
-                    require("conform").format({ async = true, lsp_format = "fallback"})
+                    -- require("conform").format({ async = true, lsp_format = "fallback"})
                     vim.lsp.buf.format { async = true }
-                end, opts)
-                vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end, opts)
-                vim.diagnostic.enable(opts.buffer)
+                end, { buffer = event.buf, desc = "LSP: format" })
+                vim.keymap.set("n", "<F6>", function() vim.lsp.buf.code_action() end,
+                    { buffer = event.buf, desc = "LSP: code action" })
+                vim.diagnostic.enable(event.buf)
             end
         })
         -------------------------------------------------------------------------------

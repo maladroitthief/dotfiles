@@ -6,20 +6,20 @@ return {
     },
     event = "UIEnter",
     keys = {
-        { "zm", function() require("ufo").closeAllFolds() end, desc = "󱃄 Close All Folds" },
+        { "zm", function() require("ufo").closeAllFolds() end,         desc = "ufo: close all folds" },
         {
             "zr",
             function()
                 require("ufo").openFoldsExceptKinds { "comment", "imports" }
                 vim.opt.scrolloff = vim.g.baseScrolloff -- fix scrolloff setting sometimes being off
             end,
-            desc = "󱃄 Open All Regular Folds"
+            desc = "ufo: open all regular folds"
         },
-        { "zR", function() require("ufo").openFoldsExceptKinds {} end, desc = "󱃄 Open All Folds" },
-        { "z1", function() require("ufo").closeFoldsWith(1) end, desc = "󱃄 Close L1 Folds" },
-        { "z2", function() require("ufo").closeFoldsWith(2) end, desc = "󱃄 Close L2 Folds" },
-        { "z3", function() require("ufo").closeFoldsWith(3) end, desc = "󱃄 Close L3 Folds" },
-        { "z4", function() require("ufo").closeFoldsWith(4) end, desc = "󱃄 Close L4 Folds" },
+        { "zR", function() require("ufo").openFoldsExceptKinds {} end, desc = "ufo: open all folds" },
+        { "z1", function() require("ufo").closeFoldsWith(1) end,       desc = "ufo: close l1 folds" },
+        { "z2", function() require("ufo").closeFoldsWith(2) end,       desc = "ufo: close l2 folds" },
+        { "z3", function() require("ufo").closeFoldsWith(3) end,       desc = "ufo: close l3 folds" },
+        { "z4", function() require("ufo").closeFoldsWith(4) end,       desc = "ufo: close l4 folds" },
     },
     init = function()
         -- INFO fold commands usually change the foldlevel, which fixes folds, e.g.
@@ -75,59 +75,3 @@ return {
         end,
     },
 }
-
--- return {
---     'kevinhwang91/nvim-ufo',
---     dependencies = {
---         'kevinhwang91/promise-async',
---         'luukvbaal/statuscol.nvim'
---     },
---     config = function()
---         vim.o.foldcolumn = '1' -- '0' is not bad
---         vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
---         vim.o.foldlevelstart = 99
---         vim.o.foldenable = true
---         vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
---         -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
---         vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
---         vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-
---         -- Tell the server the capability of foldingRange,
---         -- Neovim hasn't added foldingRange to default capabilities, users must add it manually
---         local capabilities = vim.lsp.protocol.make_client_capabilities()
---         capabilities.textDocument.foldingRange = {
---             dynamicRegistration = false,
---             lineFoldingOnly = true
---         }
---         local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
---         for _, ls in ipairs(language_servers) do
---             require('lspconfig')[ls].setup({
---                 capabilities = capabilities
---                 -- you can add other fields for setting up lsp server in this table
---             })
---         end
-
---         local builtin = require("statuscol.builtin")
---         -- require("statuscol").setup({
---         --     segments = {
---         --         { text = { "%s" },             click = "v:lua.ScSa" },
---         --         { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
---         --         {
---         --             text = { " ", builtin.foldfunc, " " },
---         --             condition = { builtin.not_empty, true, builtin.not_empty },
---         --             click = "v:lua.ScFa"
---         --         },
---         --     }
---         -- })
---         require("statuscol").setup({
---             relculright = true,
---             segments = {
---                 { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
---                 { text = { "%s" },                  click = "v:lua.ScSa" },
---                 { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
---             },
---         })
---     end,
---     opts = {},
--- }

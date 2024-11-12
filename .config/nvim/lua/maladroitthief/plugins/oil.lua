@@ -2,10 +2,10 @@ return {
     'stevearc/oil.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-        { '<Leader>oo', function() require("oil").open() end, },
-        { '<Leader>op', function() require("oil").open_preview() end, },
-        { '<Leader>of', function() require("oil").toggle_float() end, },
-        { '<Leader>oh', function() require("oil").toggle_hidden() end, },
+        { '<Leader>oo', function() require("oil").open() end,          desc = "oil: open" },
+        { '<Leader>op', function() require("oil").open_preview() end,  desc = "oil: open preview" },
+        { '<Leader>of', function() require("oil").toggle_float() end,  desc = "oil: toggle float" },
+        { '<Leader>oh', function() require("oil").toggle_hidden() end, desc = "oil: toggle hidden" },
     },
     config = function()
         require("oil").setup({
@@ -18,7 +18,7 @@ return {
             },
             keymaps = {
                 ["<Leader>ol"] = {
-                    desc = "Toggle file detail view",
+                    desc = "oil: toggle file details",
                     callback = function()
                         detail = not detail
                         if detail then
