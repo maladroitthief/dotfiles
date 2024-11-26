@@ -4,7 +4,6 @@ return {
     dependencies = {
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
-        'jose-elias-alvarez/null-ls.nvim',
     },
     config = function()
         local lspconfig = require('lspconfig')
@@ -70,6 +69,7 @@ return {
         function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
             opts = opts or {}
             opts.border = opts.border or border
+            opts.max_width = opts.max_width or 80
             return orig_util_open_floating_preview(contents, syntax, opts, ...)
         end
 
@@ -104,6 +104,7 @@ return {
         lspconfig.yamlls.setup({})
         lspconfig.cssls.setup({})
         lspconfig.ts_ls.setup({})
+        lspconfig.eslint.setup({})
         lspconfig.html.setup({})
         lspconfig.terraformls.setup({
             filetypes = { "terraform" }

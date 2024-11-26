@@ -37,3 +37,10 @@ vim.keymap.set('n', "Q", "<nop>")
 vim.keymap.set("n", "<leader>so", function()
     vim.cmd("so")
 end, { desc = "nvim: source current file" })
+
+-- overriding .tf filetype
+vim.filetype.add({
+    extension = {
+        tf = "terraform"
+    }
+})

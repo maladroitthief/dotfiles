@@ -14,7 +14,10 @@ return {
     config = function()
         local builtin = require('telescope.builtin')
         local extensions = require('telescope').extensions
-        -- local trouble = require("trouble.sources.telescope")
+        local trouble = require("trouble.sources.telescope")
+
+        local open_with_trouble = trouble.open
+        local add_to_trouble = trouble.add
 
         vim.keymap.set('n', '<leader>tf', function()
             builtin.find_files({
@@ -66,6 +69,16 @@ return {
 
         require("telescope").setup {
             defaults = {
+                mappings             = {
+                    i = {
+                        ["<C-t>"] = open_with_trouble,
+                        ["<C-a>"] = add_to_trouble,
+                    },
+                    n = {
+                        ["<C-t>"] = open_with_trouble,
+                        ["<C-a>"] = add_to_trouble,
+                    },
+                },
                 vimgrep_arguments    = {
                     'rg',
                     '--color=never',
@@ -126,7 +139,13 @@ return {
                 },
                 buffers = {
                     mappings = {
+                        i = {
+                            ["<C-t>"] = open_with_trouble,
+                            ["<C-a>"] = add_to_trouble,
+                        },
                         n = {
+                            ["<C-t>"] = open_with_trouble,
+                            ["<C-a>"] = add_to_trouble,
                             ["dd"] = "delete_buffer",
                         },
                     },
