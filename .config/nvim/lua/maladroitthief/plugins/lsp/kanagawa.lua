@@ -113,6 +113,9 @@ return {
                     ["@comment.note"]              = { bg = "none", fg = palette.autumnGreen },
                     ["@comment.error"]             = { bg = "none", fg = palette.autumnRed },
                     zshTodo                        = { bg = "none", fg = palette.crystalBlue },
+                    Search                         = { bg = "none", bold = true, fg = palette.autumnRed },
+                    IncSearch                      = { bg = "none", bold = true, fg = palette.autumnRed },
+                    CurSearch                      = { bg = "none", bold = true, fg = palette.autumnRed },
                 }
             end,
         })
