@@ -108,6 +108,11 @@ return {
                     ["@markup.list.unchecked"]     = { fg = colors.theme.syn.fun },
                     ["@markup.list.checked"]       = { fg = colors.theme.syn.string },
                     ["@markup.spell"]              = { undercurl = true, underline = false, sp = theme.diag.error },
+                    ["@comment.warning"]           = { bg = "none", fg = palette.autumnYellow },
+                    ["@comment.todo"]              = { bg = "none", fg = palette.crystalBlue },
+                    ["@comment.note"]              = { bg = "none", fg = palette.autumnGreen },
+                    ["@comment.error"]             = { bg = "none", fg = palette.autumnRed },
+                    zshTodo                        = { bg = "none", fg = palette.crystalBlue },
                 }
             end,
         })
