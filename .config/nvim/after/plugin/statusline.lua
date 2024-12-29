@@ -59,12 +59,12 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter", "FocusGained" }, {
 ---Get instance and count of search matches
 ---@return string | nil
 local function get_search_count()
-    if vim.v.hlsearch == 1 and vim.api.nvim_get_mode().mode:match("n") then
+    if vim.v.hljearch == 1 and vim.api.nvim_get_mode().mode:match("n") then
         local search_count = vim.fn.searchcount({ maxcount = 0 })
         return ("%d/%d"):format(search_count.current, search_count.total)
-    else
-        return "0"
     end
+
+    return "0"
 end
 
 ---Get formatted and highlighted string of diagnostic counts

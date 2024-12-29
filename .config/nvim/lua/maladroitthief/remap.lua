@@ -44,3 +44,5 @@ vim.filetype.add({
         tf = "terraform"
     }
 })
+
+vim.keymap.set("n", "<F8>", function() vim.cmd("make") end, { desc = "nvim: make" })

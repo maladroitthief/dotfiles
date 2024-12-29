@@ -24,6 +24,7 @@ main() {
   ln -sf $(pwd)/.gitignore ~
   ln -sf $(pwd)/.gitconfig ~
   ln -sf $(pwd)/.tmux.conf ~
+  ln -sf $(pwd)/.config/ghostty ~/.config
   ln -sf $(pwd)/.config/nvim ~/.config
   ln -sf $(pwd)/.config/starship.toml ~/.config
   ln -sf $(pwd)/.config/tmux ~/.config
