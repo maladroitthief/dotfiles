@@ -116,7 +116,7 @@ return {
                     Search                         = { bg = "none", bold = true, fg = palette.autumnRed },
                     IncSearch                      = { bg = "none", bold = true, fg = palette.surimiOrange },
                     CurSearch                      = { bg = "none", bold = true, fg = palette.surimiOrange },
-                    Folded                         = { fg = theme.ui.bg_p1, bg = "none", underdashed = true },
+                    Folded                         = { fg = palette.springViolet2, bg = "none", underdashed = true },
                 }
             end,
         })
