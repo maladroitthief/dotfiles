@@ -1,3 +1,6 @@
+shell-integration-features = no-cursor
+cursor-style = block
+
 font-family = "Fira Code"
 font-family-bold = "Fira Code"
 font-family-italic = "Fira Code"

@@ -15,6 +15,7 @@ return {
         local builtin = require('telescope.builtin')
         local extensions = require('telescope').extensions
         local trouble = require("trouble.sources.telescope")
+        local utils = require("telescope.utils")
 
         local open_with_trouble = trouble.open
         local add_to_trouble = trouble.add
@@ -26,7 +27,15 @@ return {
                 hidden = true,
             })
         end, { desc = "telescope: find files" })
-        vim.keymap.set('n', '<leader>tF', function()
+        vim.keymap.set('n', '<leader>tif', function()
+            builtin.find_files({
+                cwd = utils.buffer_dir(),
+                no_ignore = false,
+                no_ignore_parent = false,
+                hidden = true,
+            })
+        end, { desc = "telescope: find files in current directory" })
+        vim.keymap.set('n', '<leader>taf', function()
             builtin.find_files({
                 no_ignore = true,
                 no_ignore_parent = true,
@@ -35,7 +44,19 @@ return {
         end, { desc = "telescope: find files, no ignore" })
 
         vim.keymap.set('n', '<leader>tg', builtin.live_grep, { desc = "telescope: grep files" })
-        vim.keymap.set('n', '<leader>tG', function()
+        vim.keymap.set('v', '<leader>tg', builtin.grep_string, { desc = "telescope: grep selection" })
+
+        vim.keymap.set('n', '<leader>tig', function()
+            builtin.live_grep({
+                cwd = utils.buffer_dir(),
+            })
+        end, { desc = "telescope: grep files in current directory" })
+        vim.keymap.set('v', '<leader>tig', function()
+            builtin.grep_string({
+                cwd = utils.buffer_dir(),
+            })
+        end, { desc = "telescope: grep selection in current directory" })
+        vim.keymap.set('n', '<leader>tag', function()
             builtin.live_grep({
                 additional_args = {
                     "-u",

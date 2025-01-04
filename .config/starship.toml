@@ -17,46 +17,63 @@ disabled = true
 
 [c]
 symbol = " "
+disabled = true
 
 [dart]
 symbol = " "
+disabled = true
 
 [docker_context]
 symbol = "󰡨 "
+disabled = true
 
 [golang]
 symbol = "󰟓 "
 
 [helm]
 symbol = "󱃾 "
+disabled = true
 
 [kubernetes]
 symbol = "󱃾 "
+disabled = true
 
 [lua]
 symbol = " "
+disabled = true
 
 [nodejs]
 symbol = "󰎙 "
+disabled = true
 
 [ocaml]
 symbol = " "
+disabled = true
 
 [python]
 symbol = " "
+disabled = true
+
+[package]
+disabled = true
 
 [ruby]
 symbol = " "
+disabled = true
 
 [rust]
 symbol = " "
+disabled = true
 
 [scala]
 symbol = " "
+disabled = true
 
 [swift]
 symbol = " "
+disabled = true
 
 [terraform]
 symbol = "󱁢 "
+disabled = true
 
