@@ -20,6 +20,10 @@ return {
         local open_with_trouble = trouble.open
         local add_to_trouble = trouble.add
 
+        local get_visual_selection = function()
+          return table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
+        end
+
         vim.keymap.set('n', '<leader>tf', function()
             builtin.find_files({
                 no_ignore = false,
@@ -29,6 +33,7 @@ return {
         end, { desc = "telescope: find files" })
         vim.keymap.set('n', '<leader>tif', function()
             builtin.find_files({
+                prompt_title = "Find Files: Current Directory",
                 cwd = utils.buffer_dir(),
                 no_ignore = false,
                 no_ignore_parent = false,
@@ -37,28 +42,42 @@ return {
         end, { desc = "telescope: find files in current directory" })
         vim.keymap.set('n', '<leader>taf', function()
             builtin.find_files({
+                prompt_title = "Find Files: No Ignore",
                 no_ignore = true,
                 no_ignore_parent = true,
                 hidden = true,
             })
         end, { desc = "telescope: find files, no ignore" })
 
-        vim.keymap.set('n', '<leader>tg', builtin.live_grep, { desc = "telescope: grep files" })
-        vim.keymap.set('v', '<leader>tg', builtin.grep_string, { desc = "telescope: grep selection" })
+        vim.keymap.set('n', '<leader>tg', function()
+            builtin.live_grep({
+                prompt_title = "Grep",
+            })
+        end, { desc = "telescope: grep files" })
+        vim.keymap.set('v', '<leader>tg', function()
+            builtin.live_grep({
+                prompt_title = "Grep",
+                default_text = get_visual_selection(),
+            })
+        end, { desc = "telescope: grep selection" })
 
         vim.keymap.set('n', '<leader>tig', function()
             builtin.live_grep({
+                prompt_title = "Grep: Current Directory",
                 cwd = utils.buffer_dir(),
             })
         end, { desc = "telescope: grep files in current directory" })
         vim.keymap.set('v', '<leader>tig', function()
-            builtin.grep_string({
+            builtin.live_grep({
+                prompt_title = "Grep: Current Directory",
+                default_text = get_visual_selection(),
                 cwd = utils.buffer_dir(),
             })
         end, { desc = "telescope: grep selection in current directory" })
         vim.keymap.set('n', '<leader>tag', function()
             builtin.live_grep({
                 additional_args = {
+                    prompt_title = "Grep: No Ignore",
                     "-u",
                 }
             })
