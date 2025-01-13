@@ -46,3 +46,7 @@ vim.filetype.add({
 })
 
 vim.keymap.set("n", "<F8>", function() vim.cmd("make") end, { desc = "nvim: make" })
+
+-- splits
+vim.keymap.set("n","<leader>s", function() vim.cmd("split") end, {desc = "nvim: split" })
+vim.keymap.set("n","<leader>v", function() vim.cmd("vsplit") end, {desc = "nvim: vertical split" })
