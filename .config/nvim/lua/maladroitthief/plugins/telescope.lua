@@ -6,7 +6,6 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
 		"folke/todo-comments.nvim",
-		"maladroitthief/telescope-rtfm.nvim",
 		"ThePrimeagen/harpoon",
 		"ThePrimeagen/git-worktree.nvim",
 		"folke/todo-comments.nvim",
@@ -18,6 +17,7 @@ return {
 		local extensions = require("telescope").extensions
 		local trouble = require("trouble.sources.telescope")
 		local utils = require("telescope.utils")
+        local actions = require("telescope.actions")
 
 		local open_with_trouble = trouble.open
 		local add_to_trouble = trouble.add
@@ -99,7 +99,6 @@ return {
 			})
 		end, { desc = "telescope: grep files, no ignore" })
 		vim.keymap.set("n", "<leader>tb", builtin.buffers, { desc = "telescope: buffers" })
-		vim.keymap.set("n", "<leader>tt", builtin.help_tags, { desc = "telescope: help" })
 		vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "telescope: git status" })
 		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "telescope: git branches" })
 		vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "telescope: git commits" })
@@ -120,9 +119,8 @@ return {
 		vim.keymap.set("n", "<Leader>ts", builtin.spell_suggest, { desc = "telescope: spelling suggest" })
 
 		vim.keymap.set("n", "<leader>tr", builtin.registers, { desc = "telescope: registers" })
-		vim.keymap.set("n", "<leader>th", function()
-			extensions.rtfm.rtfm({})
-		end, { desc = "telescope: rtfm" })
+		vim.keymap.set("n", "<leader>th", builtin.help_tags, { desc = "telescope: help" })
+		vim.keymap.set("n", "<leader>tt", builtin.man_pages, { desc = "telescope: man pages" })
 		vim.keymap.set("n", "<leader>he", extensions.harpoon.marks, { desc = "telescope: harpoon" })
 		vim.keymap.set("n", "<leader>gw", extensions.git_worktree.git_worktrees, { desc = "telescope: git worktrees" })
 		vim.keymap.set(
@@ -400,6 +398,26 @@ return {
 						},
 					},
 				},
+                help_tags = {
+                    mappings = {
+                        i = {
+                            ["<CR>"] = actions.select_tab,
+                        },
+                        n = {
+                            ["<CR>"] = actions.select_tab,
+                        },
+                    },
+                },
+                man_pages = {
+                    mappings = {
+                        i = {
+                            ["<CR>"] = actions.select_tab,
+                        },
+                        n = {
+                            ["<CR>"] = actions.select_tab,
+                        },
+                    },
+                },
 			},
 			extensions = {
 				file_browser = {

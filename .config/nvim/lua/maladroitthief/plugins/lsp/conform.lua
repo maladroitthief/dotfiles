@@ -29,8 +29,8 @@ return {
 			yaml = { "prettier" },
 			lua = { "stylua" },
 			zig = { "zigfmt" },
-            json = { "jq" },
-            terraform = { "terraform_fmt" },
+			json = { "jq" },
+			terraform = { "terraform_fmt" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
