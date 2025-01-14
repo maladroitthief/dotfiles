@@ -47,9 +47,27 @@ return {
 				hidden = true,
 			})
 		end, { desc = "telescope: find files" })
+		vim.keymap.set("v", "<leader>tf", function()
+			builtin.find_files({
+				default_text = get_visual_selection(),
+				no_ignore = false,
+				no_ignore_parent = false,
+				hidden = true,
+			})
+		end, { desc = "telescope: find files" })
 		vim.keymap.set("n", "<leader>tif", function()
 			builtin.find_files({
 				prompt_title = "Find Files: Current Directory",
+				cwd = utils.buffer_dir(),
+				no_ignore = false,
+				no_ignore_parent = false,
+				hidden = true,
+			})
+		end, { desc = "telescope: find files in current directory" })
+		vim.keymap.set("v", "<leader>tif", function()
+			builtin.find_files({
+				prompt_title = "Find Files: Current Directory",
+				default_text = get_visual_selection(),
 				cwd = utils.buffer_dir(),
 				no_ignore = false,
 				no_ignore_parent = false,
