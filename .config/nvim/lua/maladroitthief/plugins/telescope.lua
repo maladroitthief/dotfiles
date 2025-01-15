@@ -17,7 +17,7 @@ return {
 		local extensions = require("telescope").extensions
 		local trouble = require("trouble.sources.telescope")
 		local utils = require("telescope.utils")
-        local actions = require("telescope.actions")
+		local actions = require("telescope.actions")
 
 		local open_with_trouble = trouble.open
 		local add_to_trouble = trouble.add
@@ -82,6 +82,15 @@ return {
 				hidden = true,
 			})
 		end, { desc = "telescope: find files, no ignore" })
+		vim.keymap.set("v", "<leader>taf", function()
+			builtin.find_files({
+				prompt_title = "Find Files: No Ignore",
+				default_text = get_visual_selection(),
+				no_ignore = true,
+				no_ignore_parent = true,
+				hidden = true,
+			})
+		end, { desc = "telescope: find files, no ignore" })
 
 		vim.keymap.set("n", "<leader>tg", function()
 			builtin.live_grep({
@@ -110,10 +119,15 @@ return {
 		end, { desc = "telescope: grep selection in current directory" })
 		vim.keymap.set("n", "<leader>tag", function()
 			builtin.live_grep({
-				additional_args = {
-					prompt_title = "Grep: No Ignore",
-					"-u",
-				},
+				prompt_title = "Grep: No Ignore",
+				additional_args = { "-u" },
+			})
+		end, { desc = "telescope: grep files, no ignore" })
+		vim.keymap.set("v", "<leader>tag", function()
+			builtin.live_grep({
+				default_text = get_visual_selection(),
+				prompt_title = "Grep: No Ignore",
+				additional_args = { "-u" },
 			})
 		end, { desc = "telescope: grep files, no ignore" })
 		vim.keymap.set("n", "<leader>tb", builtin.buffers, { desc = "telescope: buffers" })
@@ -416,26 +430,26 @@ return {
 						},
 					},
 				},
-                help_tags = {
-                    mappings = {
-                        i = {
-                            ["<CR>"] = actions.select_tab,
-                        },
-                        n = {
-                            ["<CR>"] = actions.select_tab,
-                        },
-                    },
-                },
-                man_pages = {
-                    mappings = {
-                        i = {
-                            ["<CR>"] = actions.select_tab,
-                        },
-                        n = {
-                            ["<CR>"] = actions.select_tab,
-                        },
-                    },
-                },
+				help_tags = {
+					mappings = {
+						i = {
+							["<CR>"] = actions.select_tab,
+						},
+						n = {
+							["<CR>"] = actions.select_tab,
+						},
+					},
+				},
+				man_pages = {
+					mappings = {
+						i = {
+							["<CR>"] = actions.select_tab,
+						},
+						n = {
+							["<CR>"] = actions.select_tab,
+						},
+					},
+				},
 			},
 			extensions = {
 				file_browser = {
