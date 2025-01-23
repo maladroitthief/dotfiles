@@ -55,12 +55,12 @@ return {
 				local theme = colors.theme
 				local palette = colors.palette
 				return {
-					NormalFloat                    = { bg = theme.ui.float.bg },
-					FloatBorder                    = { fg = theme.ui.float.bg_border, bg = theme.ui.float.bg_border },
-					FloatTitle                     = { bg = theme.ui.float.bg },
+					-- NormalFloat                    = { bg = theme.ui.float.bg },
+					-- FloatBorder                    = { fg = theme.ui.float.bg_border, bg = theme.ui.float.bg_border },
+					-- FloatTitle                     = { bg = theme.ui.float.bg },
 					StatusLine = { bg = "none" },
 					StatusLineNC = { bg = "none" },
-					MasonNormal = { fg = theme.ui.float.fg, bg = theme.ui.float.bg },
+					-- MasonNormal = { fg = theme.ui.float.fg, bg = theme.ui.float.bg },
 					Pmenu = { fg = theme.ui.pmenu.fg, bg = theme.ui.pmenu.bg },
 					PmenuSel = { fg = theme.ui.pmenu.fg_sel, bg = theme.ui.pmenu.bg_sel },
 					PmenuSbar = { bg = theme.ui.pmenu.bg_sbar },

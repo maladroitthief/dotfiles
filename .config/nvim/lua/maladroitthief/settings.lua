@@ -78,5 +78,7 @@ vim.o.wildignore =
 vim.o.spell = true
 vim.o.spelllang = 'en_us'
 
+vim.diagnostic.enable(false)
+
 -- Filetypes
 -- vim.filetype.add({extension = {jai = "jai"}})

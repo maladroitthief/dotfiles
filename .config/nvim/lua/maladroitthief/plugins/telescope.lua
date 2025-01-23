@@ -10,7 +10,7 @@ return {
 		"ThePrimeagen/git-worktree.nvim",
 		"folke/todo-comments.nvim",
 		"MunifTanjim/nui.nvim",
-		"folke/noice.nvim",
+		-- "folke/noice.nvim",
 	},
 	config = function()
 		local builtin = require("telescope.builtin")
@@ -162,7 +162,7 @@ return {
 			{ desc = "telescope: git add worktree" }
 		)
 		vim.keymap.set("n", "<leader>to", "<cmd>TodoTelescope<cr>", { desc = "telescope: todo" })
-		vim.keymap.set("n", "<leader>tm", extensions.noice.noice, { desc = "telescope: noice" })
+		-- vim.keymap.set("n", "<leader>tm", extensions.noice.noice, { desc = "telescope: noice" })
 
 		require("telescope").setup({
 			defaults = {

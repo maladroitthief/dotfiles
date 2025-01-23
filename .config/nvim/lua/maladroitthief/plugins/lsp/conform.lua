@@ -31,6 +31,7 @@ return {
 			zig = { "zigfmt" },
 			json = { "jq" },
 			terraform = { "terraform_fmt" },
+			go = { "gofmt", "gci", "goimports"},
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
