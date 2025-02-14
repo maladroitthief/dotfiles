@@ -47,8 +47,9 @@ vim.filetype.add({
 	},
 })
 
+-- terminal mode
 vim.keymap.set("n", "<F8>", function()
-	vim.cmd("make")
+    vim.api.nvim_command("make")
 end, { desc = "nvim: make" })
 
 -- splits

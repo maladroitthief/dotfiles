@@ -1,0 +1,6 @@
+vim.api.nvim_set_hl(0, "qfFileName", { link = "Directory", default = true })
+vim.api.nvim_set_hl(0, "qfLineNr", { link = "LineNr", default = true })
+vim.api.nvim_set_hl(0, "qfError", { link = "DiagnosticError", default = true })
+vim.api.nvim_set_hl(0, "qfWarning", { link = "DiagnosticWarn", default = true })
+vim.api.nvim_set_hl(0, "qfInfo", { link = "DiagnosticInfo", default = true })
+vim.api.nvim_set_hl(0, "qfNote", { link = "DiagnosticHint", default = true })

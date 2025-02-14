@@ -130,6 +130,8 @@ return {
 				additional_args = { "-u" },
 			})
 		end, { desc = "telescope: grep files, no ignore" })
+
+        vim.keymap.set("n", "<leader>tq", builtin.quickfix, { desc = "telescope: quickfix" })
 		vim.keymap.set("n", "<leader>tb", builtin.buffers, { desc = "telescope: buffers" })
 		vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "telescope: git status" })
 		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "telescope: git branches" })
