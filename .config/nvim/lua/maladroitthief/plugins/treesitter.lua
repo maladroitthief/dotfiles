@@ -2,6 +2,9 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
 	build = ":TSUpdate",
+	-- build = function()
+	-- 	pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+	-- end,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-context",
 	},
@@ -49,6 +52,16 @@ return {
 				end,
 			},
 		})
+
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+		parser_config.jai = {
+			install_info = {
+				url = "https://github.com/constantitus/tree-sitter-jai",
+				files = { "src/parser.c", "src/scanner.c" },
+			},
+			filetype = "jai",
+		}
+		vim.filetype.add({ extension = { jai = "jai" } })
 
 		require("treesitter-context").setup({
 			enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
