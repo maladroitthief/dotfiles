@@ -84,12 +84,13 @@ return {
 					-- TelescopePromptBorder = { bg = "none" },
 					-- TelescopeResultsBorder = { bg = "none" },
 					-- TelescopePreviewBorder = { bg = "none" },
-					-- todo comments
-					DiagnosticSignOk = { fg = palette.oniViolet },
-					DiagnosticError = { fg = palette.autumnRed },
-					DiagnosticWarn = { fg = palette.autumnYellow },
-					DiagnosticInfo = { fg = palette.autumnGreen },
-					DiagnosticHint = { fg = palette.crystalBlue },
+
+					-- TODO comments
+					DiagnosticSignOk = { fg = palette.crystalBlue }, -- PERF:
+					DiagnosticError = { fg = palette.autumnRed }, -- FIX:
+					DiagnosticWarn = { fg = palette.autumnYellow }, -- WARN:
+					DiagnosticInfo = { fg = palette.autumnGreen }, -- NOTE:
+					DiagnosticHint = { fg = palette.surimiOrange }, -- TODO:
 					-- Treesitter
 					["@markup.link.label"] = { link = "SpecialChar" },
 					["@markup.link.label.symbol"] = { link = "Identifier" },
@@ -115,10 +116,10 @@ return {
 					["@markup.list.checked"] = { fg = colors.theme.syn.string },
 					["@markup.spell"] = { undercurl = true, underline = false, sp = theme.diag.error },
 					["@comment.warning"] = { bg = "none", fg = palette.autumnYellow },
-					["@comment.todo"] = { bg = "none", fg = palette.crystalBlue },
+					["@comment.todo"] = { bg = "none", fg = palette.surimiOrange },
 					["@comment.note"] = { bg = "none", fg = palette.autumnGreen },
 					["@comment.error"] = { bg = "none", fg = palette.autumnRed },
-					zshTodo = { bg = "none", fg = palette.crystalBlue },
+					zshTodo = { bg = "none", fg = palette.surimiOrange },
 					Search = { bg = "none", bold = true, fg = palette.autumnRed },
 					IncSearch = { bg = "none", bold = true, fg = palette.surimiOrange },
 					CurSearch = { bg = "none", bold = true, fg = palette.surimiOrange },
