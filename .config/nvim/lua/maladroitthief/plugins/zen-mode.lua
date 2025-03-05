@@ -85,16 +85,16 @@ return {
         end,
     },
     keys = {
-        {
-            "<leader>z",
-            function()
-                require("zen-mode").toggle({
-                    window = {
-                        width = 100,
-                    },
-                })
-            end,
-            desc = "ZenMode",
-        },
+        -- {
+        --     "<leader>z",
+        --     function()
+        --         require("zen-mode").toggle({
+        --             window = {
+        --                 -- width = 100,
+        --             },
+        --         })
+        --     end,
+        --     desc = "ZenMode",
+        -- },
     },
 }
