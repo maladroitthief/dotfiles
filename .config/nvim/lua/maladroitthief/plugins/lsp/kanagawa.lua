@@ -58,7 +58,7 @@ return {
 					-- NormalFloat                    = { bg = theme.ui.float.bg },
 					-- FloatBorder                    = { fg = theme.ui.float.bg_border, bg = theme.ui.float.bg_border },
 					-- FloatTitle                     = { bg = theme.ui.float.bg },
-					StatusLine = { bg = theme.ui.bg_p1 },
+					StatusLine = { fg = palette.roninYellow, bg = theme.ui.bg_p1 },
 					StatusLineNC = { bg = theme.ui.bg_dim },
 					MsgArea = { bg = theme.ui.bg_p1 },
 					-- MsgSeperator = { bg = theme.ui.fg_sel },
