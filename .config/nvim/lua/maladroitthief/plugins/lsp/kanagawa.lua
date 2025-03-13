@@ -120,9 +120,11 @@ return {
 					["@comment.note"] = { bg = "none", fg = palette.autumnGreen },
 					["@comment.error"] = { bg = "none", fg = palette.autumnRed },
 					zshTodo = { bg = "none", fg = palette.surimiOrange },
-					Search = { bg = "none", bold = true, fg = palette.autumnRed },
-					IncSearch = { bg = "none", bold = true, fg = palette.surimiOrange },
-					CurSearch = { bg = "none", bold = true, fg = palette.surimiOrange },
+
+					Search = { bg = "none", bold = true, fg = palette.roninYellow },
+					IncSearch = { bg = "none", bold = true, fg = palette.roninYellow },
+					CurSearch = { bg = palette.roninYellow, bold = true, fg = palette.sumiInk4 },
+
 					Folded = { fg = palette.springViolet2, bg = "none", underdashed = true },
 				}
 			end,
