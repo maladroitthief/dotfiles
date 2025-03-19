@@ -6,6 +6,8 @@ vim.o.history = 1000
 vim.o.dictionary = '/usr/share/dict/words'
 vim.o.startofline = true
 vim.o.clipboard = 'unnamedplus'
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 vim.o.guicursor = "n-v-c:block," ..
     "i-ci-ve:block," ..

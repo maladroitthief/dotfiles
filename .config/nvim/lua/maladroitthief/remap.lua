@@ -36,9 +36,9 @@ end, { desc = "nvim: remove highlights" })
 vim.keymap.set("n", "Q", "<nop>")
 
 -- source current file
-vim.keymap.set("n", "<leader>so", function()
-	vim.cmd("so")
-end, { desc = "nvim: source current file" })
+-- vim.keymap.set("n", "<leader>so", function()
+-- 	vim.cmd("so")
+-- end, { desc = "nvim: source current file" })
 
 -- overriding .tf filetype
 vim.filetype.add({

@@ -1,6 +1,7 @@
 return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
+    active = false,
     opts = {
         auto_close = false,      -- auto close when there are no items
         auto_open = false,       -- auto open when there are items
@@ -190,18 +191,18 @@ return {
         },
     },
     cmd = "Trouble",
-    keys = {
-        {
-            "<leader>xx",
-            function() require("trouble").toggle("diagnostics") end,
-            desc = "Trouble: Diagnostics",
-        },
-        { "<leader>xq",  function() require("trouble").toggle("quickfix") end,             desc = "Trouble: Quickfix", },
-        { "<leader>xl",  function() require("trouble").toggle("loclist") end,              desc = "Trouble: LocList", },
-        { "<leader>xds", function() require("trouble").toggle("lsp_document_symbols") end, desc = "Trouble: Symbols", },
-        { "<leader>xi",  function() require("trouble").toggle("lsp_incoming_calls") end,   desc = "Trouble: Incoming", },
-        { "<leader>xo",  function() require("trouble").toggle("lsp_outgoing_calls") end,   desc = "Trouble: Outgoing", },
-        { "<leader>xr",  function() require("trouble").toggle("lsp_references") end,       desc = "Trouble: References", },
-        { "<leader>xt",  function() require("trouble").toggle("telescope_files") end,      desc = "Trouble: Telescope", },
-    },
+    -- keys = {
+    --     {
+    --         "<leader>xx",
+    --         function() require("trouble").toggle("diagnostics") end,
+    --         desc = "Trouble: Diagnostics",
+    --     },
+    --     { "<leader>xq",  function() require("trouble").toggle("quickfix") end,             desc = "Trouble: Quickfix", },
+    --     { "<leader>xl",  function() require("trouble").toggle("loclist") end,              desc = "Trouble: LocList", },
+    --     { "<leader>xds", function() require("trouble").toggle("lsp_document_symbols") end, desc = "Trouble: Symbols", },
+    --     { "<leader>xi",  function() require("trouble").toggle("lsp_incoming_calls") end,   desc = "Trouble: Incoming", },
+    --     { "<leader>xo",  function() require("trouble").toggle("lsp_outgoing_calls") end,   desc = "Trouble: Outgoing", },
+    --     { "<leader>xr",  function() require("trouble").toggle("lsp_references") end,       desc = "Trouble: References", },
+    --     { "<leader>xt",  function() require("trouble").toggle("telescope_files") end,      desc = "Trouble: Telescope", },
+    -- },
 }
