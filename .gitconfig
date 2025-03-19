@@ -1,21 +1,24 @@
+[alias]
+    delete-local = "!git fetch && git branch --merged | egrep -v 'master|main|dev|staging'  | xargs git branch -d"
 [user]
-  name = Ian Weller
-  email = maladroitthief@gmail.com
+    name = Ian Weller
+    email = maladroitthief@gmail.com
 [core]
-  editor = nvim
-  excludesfile = ~/.gitignore
-  autocrlf = input
+    editor = nvim
+    excludesfile = ~/.gitignore
+    autocrlf = input
 [color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
 [init]
-  defaultBranch = main
+    defaultBranch = main
 [push]
-  default = simple
-  autoSetupRemote = true
+    default = simple
+	autoSetupRemote = true
 [pull]
-  rebase = true
+    rebase = true
+	autoSetupRemote = true
 [fetch]
-  prune = true
+    prune = true

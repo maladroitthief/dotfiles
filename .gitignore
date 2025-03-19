@@ -9,3 +9,5 @@ Thumbs.db
 .config/nvim/db_ui/connections.json
 *lazy-lock.json
 *.spl
+
+.config/zsh/work/*.zsh
