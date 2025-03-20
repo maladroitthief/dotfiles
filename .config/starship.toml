@@ -2,6 +2,7 @@
 
 add_newline = false
 right_format = "$time"
+command_timeout = 3600
 
 [time]
 disabled = false

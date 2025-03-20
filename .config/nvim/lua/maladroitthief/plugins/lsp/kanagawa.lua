@@ -122,7 +122,8 @@ return {
 					zshTodo = { bg = "none", fg = palette.surimiOrange },
 
 					Search = { bg = "none", bold = true, fg = palette.roninYellow },
-					IncSearch = { bg = "none", bold = true, fg = palette.roninYellow },
+					-- IncSearch = { bg = "none", bold = true, fg = palette.roninYellow },
+					IncSearch = { bg = palette.roninYellow, bold = true, fg = palette.sumiInk4 },
 					CurSearch = { bg = palette.roninYellow, bold = true, fg = palette.sumiInk4 },
 
 					Folded = { fg = palette.springViolet2, bg = "none", underdashed = true },
