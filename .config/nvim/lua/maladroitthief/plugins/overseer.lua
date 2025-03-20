@@ -1,6 +1,15 @@
 return {
 	"stevearc/overseer.nvim",
-	opts = {},
+	config = function()
+        require("overseer").setup({})
+		vim.api.nvim_create_autocmd("BufEnter", {
+			callback = function()
+				if vim.b.overseer_task then
+					vim.opt_local.wrap = true
+				end
+			end,
+		})
+	end,
 	keys = {
 		{
 			"<leader>xx",
