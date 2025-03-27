@@ -11,3 +11,4 @@ Thumbs.db
 *.spl
 
 .config/zsh/work/*.zsh
+!.config/zsh/work/keep.zsh

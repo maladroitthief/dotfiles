@@ -1,0 +1,1 @@
+export AMD_VULKAN_ICD="RADV"
