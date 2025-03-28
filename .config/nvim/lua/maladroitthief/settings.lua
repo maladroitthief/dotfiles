@@ -54,7 +54,7 @@ vim.o.wrap = false
 vim.o.formatoptions = 'qnj1'
 vim.o.list = true
 vim.opt.listchars = {
-    tab = '┃ ',
+    tab = '▸ ',
     lead = ' ',
     space = '·',
     trail = '·',
@@ -83,4 +83,9 @@ vim.o.spelllang = 'en_us'
 vim.diagnostic.enable(false)
 
 -- Filetypes
--- vim.filetype.add({extension = {jai = "jai"}})
+vim.filetype.add({
+	extension = {
+		tf = "terraform",
+	},
+})
+

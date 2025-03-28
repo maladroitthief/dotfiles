@@ -1,13 +1,11 @@
 vim.g.mapleader = " "
 
 -- file navigation
-vim.keymap.set("n", "<leader>pv", vim.cmd.Explore, { desc = "nvim: explore" })
 vim.keymap.set("n", "<Leader>er", vim.cmd.Explore, { desc = "nvim: explore" })
 vim.keymap.set("n", "<Leader>re", vim.cmd.Rexplore, { desc = "nvim: rexplore" })
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "nvim: previous buffer" })
 
 -- sorcery with moving blocks in visual mode
--- TODO replace with lua api
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "nvim: move visual block down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "nvim: move visual block up" })
 
@@ -35,21 +33,9 @@ end, { desc = "nvim: remove highlights" })
 -- unmaps
 vim.keymap.set("n", "Q", "<nop>")
 
--- source current file
--- vim.keymap.set("n", "<leader>so", function()
--- 	vim.cmd("so")
--- end, { desc = "nvim: source current file" })
-
--- overriding .tf filetype
-vim.filetype.add({
-	extension = {
-		tf = "terraform",
-	},
-})
-
 -- terminal mode
 vim.keymap.set("n", "<F8>", function()
-    vim.api.nvim_command("make")
+	vim.api.nvim_command("make")
 end, { desc = "nvim: make" })
 
 -- splits

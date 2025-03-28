@@ -199,6 +199,7 @@ return {
                 ["ini"] = { icon = replace },
                 ["ino"] = { icon = replace },
                 ["java"] = { icon = code },
+                ["jai"] = { icon = code },
                 ["jl"] = { icon = code },
                 ["jpeg"] = { icon = image },
                 ["jpg"] = { icon = image },

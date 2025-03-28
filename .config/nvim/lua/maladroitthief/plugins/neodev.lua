@@ -1,4 +1,3 @@
-
 -- TODO: replace this with lazydev -ian
 return {
     'folke/neodev.nvim',

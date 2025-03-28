@@ -15,12 +15,9 @@ return {
 	config = function()
 		local builtin = require("telescope.builtin")
 		local extensions = require("telescope").extensions
-		local trouble = require("trouble.sources.telescope")
 		local utils = require("telescope.utils")
 		local actions = require("telescope.actions")
 
-		local open_with_trouble = trouble.open
-		local add_to_trouble = trouble.add
 
 		local Layout = require("nui.layout")
 		local Popup = require("nui.popup")
@@ -168,16 +165,6 @@ return {
 
 		require("telescope").setup({
 			defaults = {
-				mappings = {
-					i = {
-						["<C-t>"] = open_with_trouble,
-						["<C-a>"] = add_to_trouble,
-					},
-					n = {
-						["<C-t>"] = open_with_trouble,
-						["<C-a>"] = add_to_trouble,
-					},
-				},
 				vimgrep_arguments = {
 					"rg",
 					"--color=never",
@@ -418,19 +405,6 @@ return {
 				},
 				live_grep = {
 					prompt_prefix = "󱎸  ",
-				},
-				buffers = {
-					mappings = {
-						i = {
-							["<C-t>"] = open_with_trouble,
-							["<C-a>"] = add_to_trouble,
-						},
-						n = {
-							["<C-t>"] = open_with_trouble,
-							["<C-a>"] = add_to_trouble,
-							["dd"] = "delete_buffer",
-						},
-					},
 				},
 				help_tags = {
 					mappings = {

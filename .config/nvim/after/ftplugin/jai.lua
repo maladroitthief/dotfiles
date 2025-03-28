@@ -1,1 +1,1 @@
-vim.o.spell = false
+vim.bo.commentstring = "// %s"

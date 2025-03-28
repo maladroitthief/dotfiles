@@ -20,3 +20,5 @@ font-size = 18
 background-opacity = 0.95
 
 theme = "Kanagawa Wave"
+
+app-notifications = no-clipboard-copy
