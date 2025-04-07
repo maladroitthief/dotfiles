@@ -55,9 +55,9 @@ return {
 				local theme = colors.theme
 				local palette = colors.palette
 				return {
-					-- NormalFloat                    = { bg = theme.ui.float.bg },
-					-- FloatBorder                    = { fg = theme.ui.float.bg_border, bg = theme.ui.float.bg_border },
-					-- FloatTitle                     = { bg = theme.ui.float.bg },
+					NormalFloat                    = { bg = "none" },
+					FloatBorder                    = { fg = theme.ui.float.fg_border, bg = "none" },
+					FloatTitle                     = { bg = "none" },
 					StatusLine = { fg = palette.roninYellow, bg = theme.ui.bg_p1 },
 					StatusLineNC = { bg = theme.ui.bg_dim },
 					MsgArea = { bg = theme.ui.bg_p1 },

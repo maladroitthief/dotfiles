@@ -71,37 +71,37 @@ return {
 			end, { expr = true, desc = "git: previous hunk" })
 
 			-- Actions
-			map("n", "<leader>g+", gs.stage_hunk, { desc = "git: stage hunk" })
-			map("n", "<leader>g=", gs.stage_hunk, { desc = "git: stage hunk" })
-			map("n", "<leader>g-", gs.undo_stage_hunk, { desc = "git: unstage hunk" })
-			map("v", "<leader>g+", function()
-				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-			end, { desc = "git: stage hunk" })
-			map("v", "<leader>g=", function()
-				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-			end, { desc = "git: stage hunk" })
-			map("v", "<leader>g-", function()
-				gs.undo_stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-			end, { desc = "git: unstage hunk" })
-
-			map("n", "<leader>gS", gs.stage_buffer, { desc = "git: stage buffer" })
-			map("n", "<leader>gu", gs.reset_buffer_index, { desc = "git: unstage buffer" })
-			map("n", "<leader>gU", gs.reset_buffer_index, { desc = "git: unstage buffer" })
-			map("n", "<leader>gr", gs.reset_hunk, { desc = "git: reset hunk" })
-			map("n", "<leader>gR", gs.reset_buffer, { desc = "git: reset buffer" })
-
-			map("n", "<leader>gd", gs.toggle_deleted, { desc = "git: toggle deleted" })
-			map("n", "<leader>gp", gs.preview_hunk, { desc = "git: preview hunk" })
-			map("n", "<leader>gdc", function()
-				gs.diffthis("~")
-			end, { desc = "git: diff" })
-
-			map("n", "<leader>gb", function()
-				gs.blame_line({ full = true })
-			end, { desc = "git: blame line" })
-
-			-- Text object
-			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+			-- map("n", "<leader>g+", gs.stage_hunk, { desc = "git: stage hunk" })
+			-- map("n", "<leader>g=", gs.stage_hunk, { desc = "git: stage hunk" })
+			-- map("n", "<leader>g-", gs.undo_stage_hunk, { desc = "git: unstage hunk" })
+			-- map("v", "<leader>g+", function()
+			-- 	gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+			-- end, { desc = "git: stage hunk" })
+			-- map("v", "<leader>g=", function()
+			-- 	gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+			-- end, { desc = "git: stage hunk" })
+			-- map("v", "<leader>g-", function()
+			-- 	gs.undo_stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+			-- end, { desc = "git: unstage hunk" })
+			--
+			-- map("n", "<leader>gS", gs.stage_buffer, { desc = "git: stage buffer" })
+			-- map("n", "<leader>gu", gs.reset_buffer_index, { desc = "git: unstage buffer" })
+			-- map("n", "<leader>gU", gs.reset_buffer_index, { desc = "git: unstage buffer" })
+			-- map("n", "<leader>gr", gs.reset_hunk, { desc = "git: reset hunk" })
+			-- map("n", "<leader>gR", gs.reset_buffer, { desc = "git: reset buffer" })
+			--
+			-- map("n", "<leader>gd", gs.toggle_deleted, { desc = "git: toggle deleted" })
+			-- map("n", "<leader>gp", gs.preview_hunk, { desc = "git: preview hunk" })
+			-- map("n", "<leader>gdc", function()
+			-- 	gs.diffthis("~")
+			-- end, { desc = "git: diff" })
+			--
+			-- map("n", "<leader>gb", function()
+			-- 	gs.blame_line({ full = true })
+			-- end, { desc = "git: blame line" })
+			--
+			-- -- Text object
+			-- map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 		end,
 	},
 }
