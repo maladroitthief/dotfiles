@@ -74,14 +74,6 @@ return {
 	},
 	keys = {
 		{
-			"<leader>g",
-			function()
-				require("snacks").lazygit.open({})
-			end,
-			mode = { "n" },
-			desc = "snacks: lazygit",
-		},
-		{
 			"<leader>p",
 			function()
 				require("snacks").profiler.toggle()
@@ -144,30 +136,46 @@ return {
 			mode = { "n" },
 			desc = "snacks: clip history",
 		},
-		-- {
-		-- 	"<leader>gs",
-		-- 	function()
-		-- 		require("snacks").picker.git_status({})
-		-- 	end,
-		-- 	mode = { "n" },
-		-- 	desc = "snacks: git status",
-		-- },
-		-- {
-		-- 	"<leader>gb",
-		-- 	function()
-		-- 		require("snacks").picker.git_branches({})
-		-- 	end,
-		-- 	mode = { "n" },
-		-- 	desc = "snacks: git branches",
-		-- },
-		-- {
-		-- 	"<leader>gl",
-		-- 	function()
-		-- 		require("snacks").picker.git_log({})
-		-- 	end,
-		-- 	mode = { "n" },
-		-- 	desc = "snacks: git log",
-		-- },
+		{
+			"<leader>gg",
+			function()
+				require("snacks").lazygit.open({})
+			end,
+			mode = { "n" },
+			desc = "snacks: lazygit",
+		},
+		{
+			"<leader>gs",
+			function()
+				require("snacks").picker.git_status({})
+			end,
+			mode = { "n" },
+			desc = "snacks: git status",
+		},
+		{
+			"<leader>gd",
+			function()
+				require("snacks").picker.git_diff({})
+			end,
+			mode = { "n" },
+			desc = "snacks: git diff",
+		},
+		{
+			"<leader>gb",
+			function()
+				require("snacks").picker.git_branches({})
+			end,
+			mode = { "n" },
+			desc = "snacks: git branches",
+		},
+		{
+			"<leader>gl",
+			function()
+				require("snacks").picker.git_log({})
+			end,
+			mode = { "n" },
+			desc = "snacks: git log",
+		},
 		{
 			"<leader>fh",
 			function()
@@ -241,9 +249,25 @@ return {
 			desc = "snacks: treesitter",
 		},
 		{
+			"<leader>fi",
+			function()
+				require("snacks").picker.icons({})
+			end,
+			mode = { "n" },
+			desc = "snacks: icons",
+		},
+		{
 			"<leader>fa",
 			function()
 				require("snacks").picker.pickers({})
+			end,
+			mode = { "n" },
+			desc = "snacks: pickers",
+		},
+		{
+			"<leader>fo",
+			function()
+				require("snacks").picker.todo_comments({})
 			end,
 			mode = { "n" },
 			desc = "snacks: pickers",
