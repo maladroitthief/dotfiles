@@ -107,6 +107,23 @@ return {
 			desc = "snacks: files",
 		},
 		{
+			"<leader>fif",
+			function()
+				require("snacks").picker.files({
+                    cwd = vim.fn.expand "%:p:h",
+					finder = "files",
+					format = "file",
+					show_empty = true,
+					hidden = true,
+					ignored = false,
+					follow = false,
+					supports_live = true,
+				})
+			end,
+			mode = { "n" },
+			desc = "snacks: local files",
+		},
+		{
 			"<leader>fg",
 			function()
 				require("snacks").picker.grep({
@@ -120,6 +137,22 @@ return {
 			end,
 			mode = { "n" },
 			desc = "snacks: grep",
+		},
+		{
+			"<leader>fig",
+			function()
+				require("snacks").picker.grep({
+                    cwd = vim.fn.expand "%:p:h",
+					finder = "grep",
+					regex = true,
+					format = "file",
+					show_empty = true,
+					live = true, -- live grep by default
+					supports_live = true,
+				})
+			end,
+			mode = { "n" },
+			desc = "snacks: local grep",
 		},
 		{
 			"<leader>fb",
