@@ -10,5 +10,8 @@ Thumbs.db
 *lazy-lock.json
 *.spl
 
-.config/zsh/work/*.zsh
-!.config/zsh/work/keep.zsh
+.config/zsh/secret/*.zsh
+!.config/zsh/secret/keep.zsh
+
+.aider*
+!.aider.conf.yml
