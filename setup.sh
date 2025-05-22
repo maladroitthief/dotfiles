@@ -32,6 +32,7 @@ main() {
   ln -sf $(pwd)/.config/tmux ~/.config
   ln -sf $(pwd)/.config/wezterm ~/.config
   ln -sf $(pwd)/.config/zsh ~/.config
+  ln -sf $(pwd)/.config/mpd ~/.config
 }
 
 main "$@"

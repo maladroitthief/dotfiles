@@ -45,3 +45,15 @@ end, { desc = "nvim: split" })
 vim.keymap.set("n", "<leader>v", function()
 	vim.cmd("vsplit")
 end, { desc = "nvim: vertical split" })
+
+-- registers
+local group = vim.api.nvim_create_augroup("global_macros", {})
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = group,
+    pattern = "*",
+    callback = function()
+        vim.fn.setreg("c", [[:'<,'>!column -t -o ' 'gv=]])
+        -- replaces surrounding " with {`
+        -- vim.fn.setreg("f", [[f"s{`;s`}]])
+    end,
+})
