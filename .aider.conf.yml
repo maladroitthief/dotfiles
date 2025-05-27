@@ -21,7 +21,12 @@
 # model: gemini/gemini-2.5-pro-exp-03-25
 # model: gemini/gemini-2.5-flash-preview-04-17
 # model: ollama_chat/qwen3:30b
-model: ollama_chat/gemma3:4b
+# model: ollama_chat/qwen3:8b
+# model: ollama_chat/gemma3:4b
+model: ollama_chat/gemma3:12b
+# model: ollama_chat/gemma3:27b-it-qat
+
+weak-model: ollama_chat/gemma3:4b
 
 ########################
 # API Keys and settings:
@@ -93,7 +98,6 @@ model: ollama_chat/gemma3:4b
 #auto-accept-architect: true
 
 ## Specify the model to use for commit messages and chat history summarization (default depends on --model)
-weak-model: gemini/gemini-2.5-flash-preview-04-17
 
 ## Specify the model to use for editor tasks (default depends on --model)
 #editor-model: xxx
