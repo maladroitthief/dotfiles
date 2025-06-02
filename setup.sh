@@ -33,6 +33,7 @@ main() {
   ln -sf $(pwd)/.config/wezterm ~/.config
   ln -sf $(pwd)/.config/zsh ~/.config
   ln -sf $(pwd)/.config/mpd ~/.config
+  ln -sf $(pwd)/.config/jj ~/.config
 }
 
 main "$@"
