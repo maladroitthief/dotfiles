@@ -5,7 +5,7 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
-        bufdelete = { enabled = true },
+		bufdelete = { enabled = true },
 		dashboard = {
 			sections = {
 				{ section = "header" },
@@ -42,7 +42,7 @@ return {
 		indent = { enabled = true },
 		-- NOTE: maybe try this? -ian
 		input = { enabled = false },
-        lazygit = { enabled = true },
+		-- lazygit = { enabled = true },
 		notifier = { enabled = true },
 		picker = { enabled = true },
 		profiler = { enabled = true },
@@ -127,7 +127,7 @@ return {
 				require("snacks").picker.files({
 					finder = "files",
 					format = "file",
-                    cwd = vim.fn.expand "%:p:h",
+					cwd = vim.fn.expand("%:p:h"),
 					show_empty = true,
 					hidden = true,
 					ignored = false,
@@ -143,7 +143,7 @@ return {
 			function()
 				require("snacks").picker.grep({
 					finder = "grep",
-                    cwd = vim.fn.expand "%:p:h",
+					cwd = vim.fn.expand("%:p:h"),
 					regex = true,
 					format = "file",
 					show_empty = true,
@@ -170,46 +170,46 @@ return {
 			mode = { "n" },
 			desc = "snacks: clip history",
 		},
-		{
-			"<leader>gg",
-			function()
-				require("snacks").lazygit.open({})
-			end,
-			mode = { "n" },
-			desc = "snacks: lazygit",
-		},
-		{
-			"<leader>gs",
-			function()
-				require("snacks").picker.git_status({})
-			end,
-			mode = { "n" },
-			desc = "snacks: git status",
-		},
-		{
-			"<leader>gd",
-			function()
-				require("snacks").picker.git_diff({})
-			end,
-			mode = { "n" },
-			desc = "snacks: git diff",
-		},
-		{
-			"<leader>gb",
-			function()
-				require("snacks").picker.git_branches({})
-			end,
-			mode = { "n" },
-			desc = "snacks: git branches",
-		},
-		{
-			"<leader>gl",
-			function()
-				require("snacks").picker.git_log({})
-			end,
-			mode = { "n" },
-			desc = "snacks: git log",
-		},
+		-- {
+		-- 	"<leader>gg",
+		-- 	function()
+		-- 		require("snacks").lazygit.open({})
+		-- 	end,
+		-- 	mode = { "n" },
+		-- 	desc = "snacks: lazygit",
+		-- },
+		-- {
+		-- 	"<leader>gs",
+		-- 	function()
+		-- 		require("snacks").picker.git_status({})
+		-- 	end,
+		-- 	mode = { "n" },
+		-- 	desc = "snacks: git status",
+		-- },
+		-- {
+		-- 	"<leader>gd",
+		-- 	function()
+		-- 		require("snacks").picker.git_diff({})
+		-- 	end,
+		-- 	mode = { "n" },
+		-- 	desc = "snacks: git diff",
+		-- },
+		-- {
+		-- 	"<leader>gb",
+		-- 	function()
+		-- 		require("snacks").picker.git_branches({})
+		-- 	end,
+		-- 	mode = { "n" },
+		-- 	desc = "snacks: git branches",
+		-- },
+		-- {
+		-- 	"<leader>gl",
+		-- 	function()
+		-- 		require("snacks").picker.git_log({})
+		-- 	end,
+		-- 	mode = { "n" },
+		-- 	desc = "snacks: git log",
+		-- },
 		{
 			"<leader>fh",
 			function()
@@ -296,7 +296,15 @@ return {
 				require("snacks").picker.todo_comments({})
 			end,
 			mode = { "n" },
-			desc = "snacks: pickers",
+			desc = "snacks: todo",
+		},
+		{
+			"<leader>js",
+			function()
+				require("maladroitthief.plugins.pickers.jj").status()
+			end,
+			mode = { "n" },
+			desc = "snacks: jj status",
 		},
 	},
 }
