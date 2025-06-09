@@ -24,11 +24,13 @@ function M.status()
           file = string.match(text, "{.-=>%s*(.-)}")
         end
 
+        local diff = vim.fn.system("jj diff "..file.." --no-pager --stat --git")
 				table.insert(files, {
 					text = text,
 					file = file,
           filename_hl = hl,
           state = state,
+          diff = diff,
 				})
 			end
 		end
@@ -44,8 +46,8 @@ function M.status()
 		format = "file",
 		title = "jj status",
 		preview = function(ctx)
-			if ctx.item.file and ctx.item.state ~= "D" then
-				Snacks.picker.preview.file(ctx)
+			if ctx.item.file then
+				Snacks.picker.preview.diff(ctx)
 			else
 				ctx.preview:reset()
 				ctx.preview:set_title("No preview")
