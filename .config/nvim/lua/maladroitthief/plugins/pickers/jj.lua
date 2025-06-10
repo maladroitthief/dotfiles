@@ -10,27 +10,27 @@ function M.status()
 			local state, text = string.match(status, "^(%a)%s(.+)$")
 
 			if state and text then
-        local file = text
+				local file = text
 
-        local hl = ""
-        if state == "A" then
-          hl = "SnacksPickerGitStatusAdded"
-        elseif state == "M" then
-          hl = "SnacksPickerGitStatusModified"
-        elseif state == "D" then
-          hl = "SnacksPickerGitStatusDeleted"
-        elseif state == "R" then
-          hl = "SnacksPickerGitStatusRenamed"
-          file = string.match(text, "{.-=>%s*(.-)}")
-        end
+				local hl = ""
+				if state == "A" then
+					hl = "SnacksPickerGitStatusAdded"
+				elseif state == "M" then
+					hl = "SnacksPickerGitStatusModified"
+				elseif state == "D" then
+					hl = "SnacksPickerGitStatusDeleted"
+				elseif state == "R" then
+					hl = "SnacksPickerGitStatusRenamed"
+					file = string.match(text, "{.-=>%s*(.-)}")
+				end
 
-        local diff = vim.fn.system("jj diff "..file.." --no-pager --stat --git")
+				local diff = vim.fn.system("jj diff " .. file .. " --no-pager --stat --git")
 				table.insert(files, {
 					text = text,
 					file = file,
-          filename_hl = hl,
-          state = state,
-          diff = diff,
+					filename_hl = hl,
+					state = state,
+					diff = diff,
 				})
 			end
 		end
