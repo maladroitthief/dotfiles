@@ -70,7 +70,13 @@ return {
 					and vim.bo[buf].buftype ~= "terminal"
 			end,
 		},
-		statuscolumn = { enabled = true },
+		statuscolumn = {
+			enabled = false,
+			git = {
+				-- patterns to match Git signs
+				patterns = { "GitSign", "MiniDiffSign" },
+			},
+		},
 		words = { enabled = true },
 	},
 	keys = {
@@ -178,14 +184,14 @@ return {
 		-- 	mode = { "n" },
 		-- 	desc = "snacks: lazygit",
 		-- },
-		-- {
-		-- 	"<leader>gs",
-		-- 	function()
-		-- 		require("snacks").picker.git_status({})
-		-- 	end,
-		-- 	mode = { "n" },
-		-- 	desc = "snacks: git status",
-		-- },
+		{
+			"<leader>gs",
+			function()
+				require("snacks").picker.git_status({})
+			end,
+			mode = { "n" },
+			desc = "snacks: git status",
+		},
 		-- {
 		-- 	"<leader>gd",
 		-- 	function()

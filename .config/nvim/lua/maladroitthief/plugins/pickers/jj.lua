@@ -3,7 +3,7 @@ local M = {}
 function M.status()
 	local function get_files()
 		local workspace_root = vim.fn.system("jj workspace root")
-		local status_raw = vim.fn.system("jj st --no-pager --quiet --color=never")
+		local status_raw = vim.fn.system("jj diff --no-pager --quiet --summary")
 		local files = {}
 
 		for status in status_raw:gmatch("[^\r\n]+") do
