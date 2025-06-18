@@ -312,5 +312,37 @@ return {
 			mode = { "n" },
 			desc = "snacks: jj status",
 		},
+		{
+			"<leader>fr",
+			function()
+				require("snacks").picker.registers({})
+			end,
+			mode = { "n" },
+			desc = "snacks: registers",
+		},
+		{
+			"<leader>fe",
+			function()
+				require("snacks").picker.icons({})
+			end,
+			mode = { "n" },
+			desc = "snacks: emojis",
+		},
+		{
+			"<leader>fe",
+			function()
+				require("snacks").picker.icons({})
+			end,
+			mode = { "n" },
+			desc = "snacks: emojis",
+		},
+		{
+			"<leader>fm",
+			function()
+				require("snacks").picker.marks({})
+			end,
+			mode = { "n" },
+			desc = "snacks: marks",
+		},
 	},
 }
