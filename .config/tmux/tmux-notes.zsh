@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 
 main() {
     # NOTE: This is for prettier to work
-    source ~/.config/zsh/nvm.zsh
+    # source ~/.config/zsh/nvm.zsh
     notes_dir="$HOME/workspace/notes.md"
 
     tmux neww -n "notes" nvim $notes_dir
