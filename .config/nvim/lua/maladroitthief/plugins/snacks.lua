@@ -1,5 +1,8 @@
 return {
 	"folke/snacks.nvim",
+	dependencies = {
+		"maladroitthief/jj-picker.nvim",
+  },
 	priority = 1000,
 	lazy = false,
 	---@type snacks.Config
@@ -307,7 +310,7 @@ return {
 		{
 			"<leader>js",
 			function()
-				require("maladroitthief.plugins.pickers.jj").status()
+				require("jj-picker").status()
 			end,
 			mode = { "n" },
 			desc = "snacks: jj status",
