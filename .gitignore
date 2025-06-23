@@ -15,3 +15,5 @@ Thumbs.db
 
 .aider*
 !.aider.conf.yml
+
+.jj/

@@ -1,3 +1,6 @@
 [user]
 name="Ian Weller"
 email="maladroitthief@gmail.com"
+
+[ui]
+default-command = "log"
