@@ -106,7 +106,7 @@ return {
 					finder = "files",
 					format = "file",
 					show_empty = true,
-					hidden = true,
+					hidden = false,
 					ignored = false,
 					follow = false,
 					supports_live = true,
@@ -123,6 +123,8 @@ return {
 					regex = true,
 					format = "file",
 					show_empty = true,
+					hidden = true,
+					ignored = true,
 					live = true, -- live grep by default
 					supports_live = true,
 				})
@@ -138,7 +140,7 @@ return {
 					format = "file",
 					cwd = vim.fn.expand("%:p:h"),
 					show_empty = true,
-					hidden = true,
+					hidden = false,
 					ignored = false,
 					follow = false,
 					supports_live = true,
@@ -156,6 +158,8 @@ return {
 					regex = true,
 					format = "file",
 					show_empty = true,
+					hidden = true,
+					ignored = true,
 					live = true, -- live grep by default
 					supports_live = true,
 				})
