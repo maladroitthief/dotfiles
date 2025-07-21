@@ -25,17 +25,18 @@ main() {
   ln -sf $(pwd)/.gitconfig ~
   ln -sf $(pwd)/.tmux.conf ~
   ln -sf $(pwd)/.gdbinit ~
-  ln -sf $(pwd)/.aider.conf.yml ~
   ln -sf $(pwd)/.config/ghostty ~/.config
   ln -sf $(pwd)/.config/nvim ~/.config
   ln -sf $(pwd)/.config/starship.toml ~/.config
   ln -sf $(pwd)/.config/tmux ~/.config
-  ln -sf $(pwd)/.config/wezterm ~/.config
   ln -sf $(pwd)/.config/zsh ~/.config
   ln -sf $(pwd)/.config/jj ~/.config
   ln -sf $(pwd)/.config/mpd ~/.config
   ln -sf $(pwd)/.config/beets ~/.config
   ln -sf $(pwd)/.config/rmpc ~/.config
+  ln -sf $(pwd)/.config/hypr ~/.config
+  ln -sf $(pwd)/.config/waybar ~/.config
+  ln -sf $(pwd)/.config/rofi ~/.config
 }
 
 main "$@"

@@ -74,7 +74,7 @@ return {
 			end,
 		},
 		statuscolumn = {
-			enabled = false,
+			enabled = true,
 			git = {
 				-- patterns to match Git signs
 				patterns = { "GitSign", "MiniDiffSign" },
