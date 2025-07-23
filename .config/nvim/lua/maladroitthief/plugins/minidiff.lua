@@ -7,6 +7,15 @@ return {
 	config = function()
 		local M = require("mini.diff")
 
+	  vim.keymap.set(
+      "n",
+      "<leader>dp",
+      function()
+        M.toggle_overlay()
+      end,
+      { desc = "mini.diff: overlay" }
+    )
+
 		M.setup({
 			source = {
         M.gen_source.git(),
@@ -21,5 +30,6 @@ return {
 				},
 			},
 		})
+
 	end,
 }

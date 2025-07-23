@@ -32,6 +32,7 @@ return {
 			json = { "jq" },
 			terraform = { "terraform_fmt" },
 			go = { "gofmt", "gci", "goimports"},
+      jai = { "ast-grep" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
