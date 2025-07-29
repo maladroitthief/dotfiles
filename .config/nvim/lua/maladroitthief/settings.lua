@@ -50,7 +50,8 @@ vim.o.softtabstop = 0
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
-vim.o.cinoptions = "s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,gs,hs,N0,E0,ps,ts,is,+s,c3,C0,/0,(1s,us,U0,w0,W0,k0,m1,j1,J1,)20,*70,#0,P0"
+vim.o.cinoptions =
+	"s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,gs,hs,N0,E0,ps,ts,is,+s,c3,C0,/0,(1s,us,U0,w0,W0,k0,m1,j1,J1,)20,*70,#0,P0"
 vim.o.wrap = false
 vim.o.formatoptions = "qnj1"
 vim.o.list = true
@@ -88,4 +89,11 @@ vim.filetype.add({
 	extension = {
 		tf = "terraform",
 	},
+})
+
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = "*.conf.template",
+  callback = function()
+    vim.cmd("set filetype=nginx")
+  end,
 })
