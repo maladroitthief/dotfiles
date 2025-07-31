@@ -1,5 +1,5 @@
 * {
-  font-family: Fira Code;
+  font-family: "Fira Code", "FiraCode Nerd Font";
   font-size: 20px;
   min-height: 0;
   padding-right: 2px;
@@ -36,7 +36,6 @@
   border-radius: 5px;
 }
 
-#custom-music,
 #tray,
 #backlight,
 #clock,
@@ -46,6 +45,8 @@
 #cpu,
 #memory,
 #custom-lock,
+#custom-music,
+#custom-notification,
 #custom-power {
   background-color: #16161d;
   padding: 0.5rem 1rem;
@@ -110,4 +111,8 @@
   margin-right: 1rem;
   margin-left: 1rem;
   border-radius: 5px;
+}
+
+#custom-notification {
+  font-family: "FiraCode Nerd Font";
 }
