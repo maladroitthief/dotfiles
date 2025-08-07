@@ -1,3 +1,5 @@
 return {
+	{
     "vuciv/golf"
+	}
 }
