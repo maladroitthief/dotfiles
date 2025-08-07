@@ -1,0 +1,20 @@
+---
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    state: "link"
+
+- name: "config files"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/zsh"
+    dest: "{{ ansible_env.HOME }}/.config/zsh"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - zsh
+    state: present
+    update_cache: yes

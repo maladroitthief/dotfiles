@@ -1,0 +1,40 @@
+---
+- name: "install dependencies"
+  become: true
+  community.general.pacman:
+    name:
+      - base-devel
+      - cmake
+      - ninja
+      - curl
+      - ttf-fira-code
+      - ttf-nerd-fonts-symbols
+    state: "present"
+    update_cache: true
+
+- name: "clone"
+  ansible.builtin.git:
+    repo: https://github.com/neovim/neovim.git
+    dest: "{{ ansible_env.HOME }}/workspace/tools/neovim"
+    version: "{{ version }}"
+  register: clone
+
+- name: "build"
+  community.general.make:
+    chdir: "{{ ansible_env.HOME }}/workspace/tools/neovim"
+    params:
+      CMAKE_BUILD_TYPE: "Release"
+  when: clone.changed
+
+- name: "install"
+  become: true
+  community.general.make:
+    chdir: "{{ ansible_env.HOME }}/workspace/tools/neovim"
+    target: "install"
+  when: clone.changed
+
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/nvim"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    state: "link"

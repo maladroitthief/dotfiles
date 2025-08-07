@@ -1,0 +1,26 @@
+---
+- name: "ignore"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.ignore"
+    dest: "{{ ansible_env.HOME }}/.ignore"
+    state: "link"
+
+- name: "gitignore"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.gitignore"
+    dest: "{{ ansible_env.HOME }}/.gitignore"
+    state: "link"
+
+- name: "gitconfig"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.gitconfig"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - git
+    state: present
+    update_cache: yes

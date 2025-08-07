@@ -1,0 +1,14 @@
+---
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/ghostty"
+    dest: "{{ ansible_env.HOME }}/.config/ghostty"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - ghostty
+    state: present
+    update_cache: yes

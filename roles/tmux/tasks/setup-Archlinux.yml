@@ -1,0 +1,33 @@
+---
+- name: "dependencies"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - fzf
+    state: present
+    update_cache: yes
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - tmux
+    state: present
+    update_cache: yes
+
+- name: "plugin manager"
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    state: "link"
+
+- name: "config files"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/tmux"
+    dest: "{{ ansible_env.HOME }}/.config/tmux"
+    state: "link"

@@ -1,0 +1,26 @@
+---
+- name: "ignore"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.ignore"
+    dest: "{{ ansible_env.HOME }}/.ignore"
+    state: "link"
+
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.jjconfig.toml"
+    dest: "{{ ansible_env.HOME }}/.jjconfig.toml"
+    state: "link"
+
+- name: "config files"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/jj"
+    dest: "{{ ansible_env.HOME }}/.config/jj"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - jujutsu
+    state: present
+    update_cache: yes

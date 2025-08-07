@@ -1,0 +1,14 @@
+---
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.gdbinit"
+    dest: "{{ ansible_env.HOME }}/.gdbinit"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - gdb
+    state: present
+    update_cache: yes

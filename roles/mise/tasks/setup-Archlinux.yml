@@ -1,0 +1,14 @@
+---
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/mise"
+    dest: "{{ ansible_env.HOME }}/.config/mise"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - mise
+    state: present
+    update_cache: yes

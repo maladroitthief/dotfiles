@@ -1,0 +1,56 @@
+---
+- name: dotfile install playbook
+  connection: local
+  hosts: localhost
+
+  roles:
+    - role: roles/go
+      tags:
+        - go
+        - install
+
+    - role: roles/neovim
+      tags:
+        - nvim
+        - install
+
+    - role: roles/tmux
+      tags:
+        - tmux
+        - install
+
+    - role: roles/ghostty
+      tags:
+        - ghostty
+        - install
+
+    - role: roles/gdb
+      tags:
+        - gdb
+        - install
+
+    - role: roles/git
+      tags:
+        - git
+        - install
+
+    - role: roles/jj
+      tags:
+        - jj
+        - install
+
+    - role: roles/zsh
+      tags:
+        - zsh
+        - install
+
+    - role: roles/mise
+      tags:
+        - mise
+        - install
+
+    - role: roles/starship
+      tags:
+        - starship
+        - install
+

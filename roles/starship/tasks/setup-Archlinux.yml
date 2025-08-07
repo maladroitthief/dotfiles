@@ -1,0 +1,6 @@
+---
+- name: "config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/starship.toml"
+    dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+    state: "link"
