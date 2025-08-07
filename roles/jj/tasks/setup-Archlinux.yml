@@ -17,6 +17,14 @@
     dest: "{{ ansible_env.HOME }}/.config/jj"
     state: "link"
 
+- name: "dependencies"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - less
+    state: present
+    update_cache: yes
+
 - name: "install"
   become: true
   ansible.builtin.pacman:
