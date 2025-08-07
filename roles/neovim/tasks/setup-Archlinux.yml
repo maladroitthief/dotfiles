@@ -9,13 +9,27 @@
       - curl
       - ttf-fira-code
       - ttf-nerd-fonts-symbols
+      - luarocks
+      - ripgrep
+      - fd
+      - wget
+      - tree-sitter
+      - tectonic
+
+
     state: "present"
     update_cache: true
+
+- name: install mermaid 
+  community.general.npm:
+    name: mermaid.cli
+    global: true
 
 - name: "clone"
   ansible.builtin.git:
     repo: https://github.com/neovim/neovim.git
     dest: "{{ ansible_env.HOME }}/workspace/tools/neovim"
+    force: true
     version: "{{ version }}"
   register: clone
 

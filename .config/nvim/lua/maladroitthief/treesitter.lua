@@ -3,37 +3,41 @@
 local M = {}
 
 M.setup = function()
-  local group = vim.api.nvim_create_augroup("custom-treesitter", { clear = true })
+	local group = vim.api.nvim_create_augroup("custom-treesitter", { clear = true })
 
-  require("nvim-treesitter").setup {
-    ensure_install = {
-      "core",
-      "stable",
-    },
-  }
+	require("nvim-treesitter").setup({
+		ensure_install = {
+			"core",
+			"stable",
+		},
+	})
 
-  vim.api.nvim_create_autocmd("FileType", {
-    group = group,
-    callback = function(args)
-      local bufnr = args.buf
-      local ok, parser = pcall(vim.treesitter.get_parser, bufnr)
-      if not ok or not parser then
-        return
-      end
-      pcall(vim.treesitter.start)
+	local syntax_on = {
+		go = true,
+	}
 
-      local ft = vim.bo[bufnr].filetype
-      if syntax_on[ft] then
-        vim.bo[bufnr].syntax = "on"
-      end
-    end,
-  })
+	vim.api.nvim_create_autocmd("FileType", {
+		group = group,
+		callback = function(args)
+			local bufnr = args.buf
+			local ok, parser = pcall(vim.treesitter.get_parser, bufnr)
+			if not ok or not parser then
+				return
+			end
+			pcall(vim.treesitter.start)
 
-  vim.api.nvim_create_autocmd("User", {
-    group = group,
-    pattern = "TSUpdate",
-    callback = function()
-      local parsers = require "nvim-treesitter.parsers"
+			local ft = vim.bo[bufnr].filetype
+			if syntax_on[ft] then
+				vim.bo[bufnr].syntax = "on"
+			end
+		end,
+	})
+
+	vim.api.nvim_create_autocmd("User", {
+		group = group,
+		pattern = "TSUpdate",
+		callback = function()
+			local parsers = require("nvim-treesitter.parsers")
 
 			parsers.jai = {
 				install_info = {
@@ -42,8 +46,8 @@ M.setup = function()
 				},
 				filetype = "jai",
 			}
-    end,
-  })
+		end,
+	})
 end
 
 -- M.setup()
