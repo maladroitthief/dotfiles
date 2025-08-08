@@ -4,7 +4,6 @@ Thumbs.db
 .bundle
 
 # nvim plugins
-.config/nvim/plugin
 .config/nvim/spell/*
 .config/nvim/db_ui/connections.json
 *lazy-lock.json
