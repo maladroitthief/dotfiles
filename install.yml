@@ -54,3 +54,12 @@
         - starship
         - install
 
+    - role: roles/hypr
+      tags:
+        - hypr
+        - install
+
+    - role: roles/mpd
+      tags:
+        - mpd
+        - install

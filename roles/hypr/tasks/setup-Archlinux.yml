@@ -1,0 +1,35 @@
+---
+- name: "hypr config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/hypr"
+    dest: "{{ ansible_env.HOME }}/.config/hypr"
+    state: "link"
+
+- name: "waybar config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/waybar"
+    dest: "{{ ansible_env.HOME }}/.config/waybar"
+    state: "link"
+
+- name: "rofi config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/rofi"
+    dest: "{{ ansible_env.HOME }}/.config/rofi"
+    state: "link"
+
+- name: "swaync config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/swaync"
+    dest: "{{ ansible_env.HOME }}/.config/swaync"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - hyprland
+      - waybar
+      - rofi
+      - swaync
+    state: present
+    update_cache: yes

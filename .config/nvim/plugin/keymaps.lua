@@ -53,3 +53,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		vim.fn.setreg("s", [[0%i%a:s/,\s*/,\r/gj=%]])
 	end,
 })
+
+-- goto file
+vim.keymap.set("n", "gf", "<C-W>gF", { desc = "nvim: goto file" })

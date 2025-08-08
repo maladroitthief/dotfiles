@@ -35,27 +35,33 @@ return {
 				return
 			end
 
-			local extend = function(name, key, values)
-				local mod = require(string.format("lspconfig.configs.%s", name))
-				local default = mod.default_config
-				local keys = vim.split(key, ".", { plain = true })
-				while #keys > 0 do
-					local item = table.remove(keys, 1)
-					default = default[item]
-				end
+			local signs = {
+				Error = "",
+				Warn = "",
+				Hint = "",
+				Info = "",
+			}
+			for type, icon in pairs(signs) do
+				local hl = "DiagnosticSign" .. type
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+			end
 
-				if vim.islist(default) then
-					for _, value in ipairs(default) do
-						table.insert(values, value)
-					end
-				else
-					for item, value in pairs(default) do
-						if not vim.tbl_contains(values, item) then
-							values[item] = value
-						end
-					end
-				end
-				return values
+			local border = {
+				{ "🭽", "FloatBorder" },
+				{ "▔", "FloatBorder" },
+				{ "🭾", "FloatBorder" },
+				{ "▕", "FloatBorder" },
+				{ "🭿", "FloatBorder" },
+				{ "▁", "FloatBorder" },
+				{ "🭼", "FloatBorder" },
+				{ "▏", "FloatBorder" },
+			}
+			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+				opts = opts or {}
+				opts.border = opts.border or border
+				opts.max_width = opts.max_width or 100
+				return orig_util_open_floating_preview(contents, syntax, opts, ...)
 			end
 
 			local capabilities = nil
@@ -152,6 +158,8 @@ return {
 				terraformls = true,
 				zls = true,
 			}
+
+			vim.lsp.enable("jails")
 
 			local servers_to_install = vim.tbl_filter(function(key)
 				local t = servers[key]
@@ -255,7 +263,14 @@ return {
 			require("maladroitthief.autoformat").setup()
 
 			require("lsp_lines").setup()
-			vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
+			vim.diagnostic.config({
+				virtual_text = true,
+				virtual_lines = false,
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+			})
 		end,
 	},
 }

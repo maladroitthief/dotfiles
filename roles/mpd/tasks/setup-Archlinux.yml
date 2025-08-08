@@ -1,0 +1,28 @@
+---
+- name: "mpd config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/mpd"
+    dest: "{{ ansible_env.HOME }}/.config/mpd"
+    state: "link"
+
+- name: "beets config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/beets"
+    dest: "{{ ansible_env.HOME }}/.config/beets"
+    state: "link"
+
+- name: "rmpc config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/.config/rmpc"
+    dest: "{{ ansible_env.HOME }}/.config/rmpc"
+    state: "link"
+
+- name: "install"
+  become: true
+  ansible.builtin.pacman:
+    pkg:
+      - mpd
+      - rmpc
+      - beets
+    state: present
+    update_cache: yes
