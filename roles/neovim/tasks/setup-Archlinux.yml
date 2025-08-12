@@ -9,13 +9,15 @@
       - curl
       - ttf-fira-code
       - ttf-nerd-fonts-symbols
+      - noto-fonts-cjk
+      - noto-fonts-emoji
       - luarocks
       - ripgrep
       - fd
       - wget
       - tree-sitter
       - tectonic
-
+      - jq
 
     state: "present"
     update_cache: true

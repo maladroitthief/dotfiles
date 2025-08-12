@@ -16,7 +16,7 @@ local setup = function()
 			zig = { "zigfmt" },
 			json = { "jq" },
 			terraform = { "terraform_fmt" },
-			go = { "goimports", "gofumpt" },
+			go = { "goimports", "gofmt" },
 			jai = { "ast-grep" },
 		},
 	})

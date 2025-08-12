@@ -71,7 +71,7 @@ return {
 					manual_install = true,
 					settings = {
 						gopls = {
-							gofumpt = true,
+							gofmt = true,
 							codelenses = {
 								gc_details = false,
 								generate = true,
