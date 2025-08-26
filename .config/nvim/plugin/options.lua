@@ -38,6 +38,7 @@ opt.titlestring = '%t%( %M%)%( (%{expand("%:~:h")})%)%a (nvim)'
 opt.undofile = true
 
 opt.termguicolors = true
+opt.list = true
 opt.listchars = {
 	tab = "▸ ",
 	lead = " ",

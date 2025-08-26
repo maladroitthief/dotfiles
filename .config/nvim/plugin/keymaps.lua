@@ -49,8 +49,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	group = group,
 	pattern = "*",
 	callback = function()
-		vim.fn.setreg("c", [[:'<,'>!column -t -o ' 'gv=]])
-		vim.fn.setreg("s", [[0%i%a:s/,\s*/,\r/gj=%]])
+		vim.fn.setreg("c", [[:'<,'>!column -t -o ' 'gv=]])
+		vim.fn.setreg("s", [[0%i%a:s/,\s*/,\r/gj=%]])
 	end,
 })
 

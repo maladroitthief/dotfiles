@@ -1,9 +1,27 @@
+local DEV_MODE = true
+
+local REMOTE = {
+	{
+		"maladroitthief/jj-picker.nvim",
+	},
+}
+
+local LOCAL = {
+	enable = false,
+	dir = "~/workspace/maladroitthief/jj-picker.nvim",
+	opts = {},
+	config = function()
+		require("jj-picker")
+	end,
+	keys = {},
+}
+
 local M = {}
 
--- M.enable = false
--- M.dir = "~/workspace/maladroitthief/jj-picker.nvim"
--- M.config = function()
---   -- require("jj-picker")
--- end
+if DEV_MODE then
+	M = LOCAL
+else
+	M = REMOTE
+end
 
 return M
