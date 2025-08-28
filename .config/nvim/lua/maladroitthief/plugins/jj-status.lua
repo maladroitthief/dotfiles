@@ -1,4 +1,4 @@
-local DEV_MODE = true
+local DEV_MODE = false
 
 local REMOTE = {
 	{

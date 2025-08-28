@@ -1,3 +1,63 @@
+local snacks_prefix = "<leader>f"
+local git_prefix = "<leader>g"
+local jj_prefix = "<leader>j"
+
+-- TODO: move this into it's own repo -ian
+local M = {}
+
+function M.status()
+	local function normalize_list(t)
+		local normalized = {}
+		for _, v in pairs(t) do
+			if v ~= nil then
+				table.insert(normalized, v)
+			end
+		end
+		return normalized
+	end
+
+	local harpoon = require("harpoon")
+
+	Snacks.picker({
+		finder = function()
+			local file_paths = {}
+			local list = normalize_list(harpoon:list().items)
+
+			for _, item in ipairs(list) do
+				-- print(vim.inspect(item))
+				local pos = { 1, 0 }
+				if item.context ~= nil then
+					pos = { item.context.row, item.context.col }
+				end
+
+				table.insert(file_paths, {
+					text = item.value,
+					file = item.value,
+					pos = pos,
+				})
+			end
+
+			return file_paths
+		end,
+		win = {
+			input = {
+				keys = { ["dd"] = { "harpoon_delete", mode = { "n", "x" } } },
+			},
+			list = {
+				keys = { ["dd"] = { "harpoon_delete", mode = { "n", "x" } } },
+			},
+		},
+		actions = {
+			harpoon_delete = function(picker, item)
+				local to_remove = item or picker:selected()
+				harpoon:list():remove({ value = to_remove.text })
+				harpoon:list().items = normalize_list(harpoon:list().items)
+				picker:find({ refresh = true })
+			end,
+		},
+	})
+end
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -52,7 +112,44 @@ return {
 			input = { enabled = false },
 			-- lazygit = { enabled = true },
 			notifier = { enabled = true },
-			picker = { enabled = true },
+			picker = {
+				win = {
+					input = {
+						keys = {
+							["<c-h>"] = { "harpoon", mode = { "i", "n" } },
+						},
+					},
+					list = {
+						keys = {
+							["<c-h>"] = { "harpoon", mode = { "i", "n" } },
+						},
+					},
+				},
+				actions = {
+					harpoon = function(picker)
+						picker:close()
+						local sel = picker:selected()
+						local items = #sel > 0 and sel or picker:items()
+						local harpoon = require("harpoon")
+						for _, item in ipairs(items) do
+							local pos = { 1, 0 }
+							if item.pos ~= nil then
+								pos = item.pos
+							end
+
+							local harpoon_list_item = {
+								value = item.file,
+								context = {
+									row = pos[1],
+									col = pos[2],
+								},
+							}
+
+							harpoon:list():add(harpoon_list_item)
+						end
+					end,
+				},
+			},
 			profiler = { enabled = true },
 			quickfile = { enabled = false },
 			scope = { enabled = true },
@@ -89,7 +186,7 @@ return {
 		},
 		keys = {
 			{
-				"<leader>p",
+				snacks_prefix .. "`",
 				function()
 					require("snacks").profiler.toggle()
 				end,
@@ -97,7 +194,7 @@ return {
 				desc = "snacks: profile",
 			},
 			{
-				"<leader>fp",
+				snacks_prefix .. "p",
 				function()
 					require("snacks").picker.projects()
 				end,
@@ -105,7 +202,7 @@ return {
 				desc = "snacks: projects",
 			},
 			{
-				"<leader>ff",
+				snacks_prefix .. "f",
 				function()
 					require("snacks").picker.files({
 						finder = "files",
@@ -121,7 +218,7 @@ return {
 				desc = "snacks: files",
 			},
 			{
-				"<leader>fg",
+				snacks_prefix .. "g",
 				function()
 					require("snacks").picker.grep({
 						finder = "grep",
@@ -138,7 +235,7 @@ return {
 				desc = "snacks: grep",
 			},
 			{
-				"<leader>fif",
+				snacks_prefix .. "if",
 				function()
 					require("snacks").picker.files({
 						finder = "files",
@@ -155,7 +252,7 @@ return {
 				desc = "snacks: inner files",
 			},
 			{
-				"<leader>fig",
+				snacks_prefix .. "ig",
 				function()
 					require("snacks").picker.grep({
 						finder = "grep",
@@ -173,7 +270,7 @@ return {
 				desc = "snacks: inner grep",
 			},
 			{
-				"<leader>fb",
+				snacks_prefix .. "b",
 				function()
 					require("snacks").picker.buffers({})
 				end,
@@ -181,55 +278,23 @@ return {
 				desc = "snacks: buffers",
 			},
 			{
-				"<leader>fy",
+				snacks_prefix .. "y",
 				function()
 					require("snacks").picker.cliphist({})
 				end,
 				mode = { "n" },
 				desc = "snacks: clip history",
 			},
-			-- {
-			-- 	"<leader>gg",
-			-- 	function()
-			-- 		require("snacks").lazygit.open({})
-			-- 	end,
-			-- 	mode = { "n" },
-			-- 	desc = "snacks: lazygit",
-			-- },
 			{
-				"<leader>gs",
+				git_prefix .. "s",
 				function()
 					require("snacks").picker.git_status({})
 				end,
 				mode = { "n" },
 				desc = "snacks: git status",
 			},
-			-- {
-			-- 	"<leader>gd",
-			-- 	function()
-			-- 		require("snacks").picker.git_diff({})
-			-- 	end,
-			-- 	mode = { "n" },
-			-- 	desc = "snacks: git diff",
-			-- },
-			-- {
-			-- 	"<leader>gb",
-			-- 	function()
-			-- 		require("snacks").picker.git_branches({})
-			-- 	end,
-			-- 	mode = { "n" },
-			-- 	desc = "snacks: git branches",
-			-- },
-			-- {
-			-- 	"<leader>gl",
-			-- 	function()
-			-- 		require("snacks").picker.git_log({})
-			-- 	end,
-			-- 	mode = { "n" },
-			-- 	desc = "snacks: git log",
-			-- },
 			{
-				"<leader>fh",
+				snacks_prefix .. "h",
 				function()
 					require("snacks").picker.help({})
 				end,
@@ -237,7 +302,7 @@ return {
 				desc = "snacks: help",
 			},
 			{
-				"<leader>fj",
+				snacks_prefix .. "j",
 				function()
 					require("snacks").picker.jumps({})
 				end,
@@ -245,7 +310,7 @@ return {
 				desc = "snacks: jumps",
 			},
 			{
-				"<leader>f?",
+				snacks_prefix .. "?",
 				function()
 					require("snacks").picker.keymaps({})
 				end,
@@ -253,7 +318,7 @@ return {
 				desc = "snacks: keymaps",
 			},
 			{
-				"<leader>fds",
+				snacks_prefix .. "ds",
 				function()
 					require("snacks").picker.lsp_symbols({})
 				end,
@@ -261,7 +326,7 @@ return {
 				desc = "snacks: symbols",
 			},
 			{
-				"<leader>fws",
+				snacks_prefix .. "ws",
 				function()
 					require("snacks").picker.lsp_workspace_symbols({})
 				end,
@@ -285,7 +350,7 @@ return {
 				desc = "snacks: lsp definitions",
 			},
 			{
-				"<leader>fs",
+				snacks_prefix .. "s",
 				function()
 					require("snacks").picker.spelling({})
 				end,
@@ -293,7 +358,7 @@ return {
 				desc = "snacks: spelling",
 			},
 			{
-				"<leader>ft",
+				snacks_prefix .. "t",
 				function()
 					require("snacks").picker.treesitter({})
 				end,
@@ -301,7 +366,7 @@ return {
 				desc = "snacks: treesitter",
 			},
 			{
-				"<leader>fa",
+				snacks_prefix .. "a",
 				function()
 					require("snacks").picker.pickers({})
 				end,
@@ -309,7 +374,7 @@ return {
 				desc = "snacks: pickers",
 			},
 			{
-				"<leader>fo",
+				snacks_prefix .. "o",
 				function()
 					require("snacks").picker.todo_comments({})
 				end,
@@ -317,7 +382,7 @@ return {
 				desc = "snacks: todo",
 			},
 			{
-				"<leader>js",
+				jj_prefix .. "s",
 				function()
 					require("jj-picker").status()
 				end,
@@ -325,7 +390,7 @@ return {
 				desc = "snacks: jj status",
 			},
 			{
-				"<leader>fr",
+				snacks_prefix .. "r",
 				function()
 					require("snacks").picker.registers({})
 				end,
@@ -333,7 +398,7 @@ return {
 				desc = "snacks: registers",
 			},
 			{
-				"<leader>fe",
+				snacks_prefix .. "e",
 				function()
 					require("snacks").picker.icons({})
 				end,
@@ -341,7 +406,7 @@ return {
 				desc = "snacks: emojis",
 			},
 			{
-				"<leader>fe",
+				snacks_prefix .. "e",
 				function()
 					require("snacks").picker.icons({})
 				end,
@@ -349,12 +414,20 @@ return {
 				desc = "snacks: emojis",
 			},
 			{
-				"<leader>fm",
+				snacks_prefix .. "m",
 				function()
 					require("snacks").picker.marks({})
 				end,
 				mode = { "n" },
 				desc = "snacks: marks",
+			},
+			{
+				snacks_prefix .. "q",
+				function()
+					M.status()
+				end,
+				mode = { "n" },
+				desc = "snacks: harpoon",
 			},
 		},
 	},

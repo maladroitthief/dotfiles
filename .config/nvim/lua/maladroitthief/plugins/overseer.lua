@@ -1,3 +1,5 @@
+local overseer_prefix = "<leader>o"
+
 return {
 	{
 		"stevearc/overseer.nvim",
@@ -13,36 +15,37 @@ return {
 		end,
 		keys = {
 			{
-				"<leader>xx",
+				overseer_prefix .. "x",
 				function()
 					vim.api.nvim_command("OverseerToggle!")
 				end,
 				desc = "Overseer: Toggle",
 			},
 			{
-				"<leader>xc",
+				overseer_prefix .. "c",
 				function()
 					vim.api.nvim_command("OverseerRunCmd")
 				end,
 				desc = "Overseer: Run Cmd",
 			},
 			{
-				"<leader>xt",
+				overseer_prefix .. "t",
 				function()
 					vim.api.nvim_command("OverseerTaskAction")
 				end,
 				desc = "Overseer: Task Action",
 			},
 			{
-				"<leader>x1",
+				overseer_prefix .. "1",
 				function()
-					overseer = require("overseer")
+					-- TODO: This should find the buffer if it already exists -ian
+					local overseer = require("overseer")
 
 					vim.cmd("only")
 					local main = vim.api.nvim_get_current_win()
-									local side = vim.api.nvim_open_win(0, true, {
-										split = 'left',
-									})
+					local side = vim.api.nvim_open_win(0, true, {
+						split = "left",
+					})
 
 					overseer.run_template({ name = "make" }, function(task)
 						if task then
@@ -56,5 +59,5 @@ return {
 				desc = "Overseer: build layout",
 			},
 		},
-	}
+	},
 }

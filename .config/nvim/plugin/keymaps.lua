@@ -1,6 +1,7 @@
+local nvim_prefix = "<leader>n"
+
 -- file navigation
-vim.keymap.set("n", "<Leader>er", vim.cmd.Explore, { desc = "nvim: explore" })
-vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "nvim: previous buffer" })
+vim.keymap.set("n", "<leader><leader>", "<c-^>", { desc = "nvim: previous buffer" })
 
 -- sorcery with moving blocks in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "nvim: move visual block down" })
@@ -36,23 +37,19 @@ vim.keymap.set("n", "<F8>", function()
 end, { desc = "nvim: make" })
 
 -- splits
-vim.keymap.set("n", "<leader>s", function()
+vim.keymap.set("n", nvim_prefix .. "s", function()
 	vim.cmd("split")
 end, { desc = "nvim: split" })
-vim.keymap.set("n", "<leader>v", function()
+vim.keymap.set("n", nvim_prefix .. "v", function()
 	vim.cmd("vsplit")
 end, { desc = "nvim: vertical split" })
 
--- registers
-local group = vim.api.nvim_create_augroup("global_macros", {})
-vim.api.nvim_create_autocmd("BufEnter", {
-	group = group,
-	pattern = "*",
-	callback = function()
-		vim.fn.setreg("c", [[:'<,'>!column -t -o ' 'gv=]])
-		vim.fn.setreg("s", [[0%i%a:s/,\s*/,\r/gj=%]])
-	end,
-})
-
 -- goto file
-vim.keymap.set("n", "gf", "<C-W>gF", { desc = "nvim: goto file" })
+vim.keymap.set("n", nvim_prefix .. "f", "<C-W>gF", { desc = "nvim: goto file" })
+
+-- format
+vim.keymap.set("n", nvim_prefix .. "c", function()
+	-- viB
+	-- !column -t -o ' '
+	-- gv=
+end, { desc = "nvim: format columns" })

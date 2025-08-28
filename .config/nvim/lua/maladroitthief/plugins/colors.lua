@@ -1,14 +1,15 @@
+local colorizer_prefix = "<leader>c"
+
 return {
 	{
 		"norcalli/nvim-colorizer.lua",
-		opts = {
-		},
+		opts = {},
 		keys = {
 			{
-				"<leader>c",
+				colorizer_prefix .. "c",
 				":ColorizerToggle<CR>",
 				desc = "colorizer: toggle",
 			},
 		},
-	}
+	},
 }

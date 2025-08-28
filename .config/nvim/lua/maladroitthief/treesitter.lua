@@ -1,5 +1,3 @@
--- local treesitter = require "nvim-treesitter"
-
 local M = {}
 
 M.setup = function()
@@ -50,6 +48,6 @@ M.setup = function()
 	})
 end
 
--- M.setup()
+M.setup()
 
 return M
