@@ -155,7 +155,6 @@ return {
 				dockerls = true,
 				ansiblels = true,
 				ts_ls = true,
-				terraformls = true,
 				zls = true,
 			}
 

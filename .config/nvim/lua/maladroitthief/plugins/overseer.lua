@@ -15,25 +15,75 @@ return {
 		end,
 		keys = {
 			{
-				overseer_prefix .. "x",
+				overseer_prefix .. "e",
 				function()
 					vim.api.nvim_command("OverseerToggle!")
 				end,
-				desc = "Overseer: Toggle",
+				desc = "overseer: toggle",
 			},
 			{
 				overseer_prefix .. "c",
 				function()
 					vim.api.nvim_command("OverseerRunCmd")
 				end,
-				desc = "Overseer: Run Cmd",
+				desc = "overseer: run command",
 			},
 			{
-				overseer_prefix .. "t",
+				overseer_prefix .. "a",
 				function()
 					vim.api.nvim_command("OverseerTaskAction")
 				end,
-				desc = "Overseer: Task Action",
+				desc = "overseer: task action",
+			},
+			{
+				overseer_prefix .. "o",
+				function()
+					local overseer = require("overseer")
+					local tasks = overseer.list_tasks({ recent_first = true })
+					if vim.tbl_isempty(tasks) then
+						vim.notify("No tasks found", vim.log.levels.WARN)
+					else
+						overseer.run_action(tasks[1], "open")
+					end
+				end,
+				desc = "overseer: restart last command",
+			},
+			{
+				overseer_prefix .. "r",
+				function()
+					local overseer = require("overseer")
+					local tasks = overseer.list_tasks({ recent_first = true })
+					if vim.tbl_isempty(tasks) then
+						vim.notify("No tasks found", vim.log.levels.WARN)
+					else
+						overseer.run_action(tasks[1], "restart")
+					end
+				end,
+				desc = "overseer: restart last command",
+			},
+			{
+				overseer_prefix .. "tp",
+				function()
+					local overseer = require("overseer")
+					local task = overseer.new_task({
+						cmd = "terraform plan",
+						cwd = vim.fn.expand("%:p:h"),
+					})
+					task:start()
+				end,
+				desc = "overseer: terraform plan",
+			},
+			{
+				overseer_prefix .. "ti",
+				function()
+					local overseer = require("overseer")
+					local task = overseer.new_task({
+						cmd = "terraform init",
+						cwd = vim.fn.expand("%:p:h"),
+					})
+					task:start()
+				end,
+				desc = "overseer: terraform init",
 			},
 			{
 				overseer_prefix .. "1",
@@ -56,7 +106,7 @@ return {
 
 					vim.api.nvim_set_current_win(main)
 				end,
-				desc = "Overseer: build layout",
+				desc = "overseer: build layout",
 			},
 		},
 	},

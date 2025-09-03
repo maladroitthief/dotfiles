@@ -2,6 +2,7 @@ local nvim_prefix = "<leader>n"
 
 -- file navigation
 vim.keymap.set("n", "<leader><leader>", "<c-^>", { desc = "nvim: previous buffer" })
+vim.keymap.set("n", "<leader>er", vim.cmd.Explore, { desc = "nvim: explore" })
 
 -- sorcery with moving blocks in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "nvim: move visual block down" })
@@ -37,10 +38,10 @@ vim.keymap.set("n", "<F8>", function()
 end, { desc = "nvim: make" })
 
 -- splits
-vim.keymap.set("n", nvim_prefix .. "s", function()
+vim.keymap.set("n", "<leader>s", function()
 	vim.cmd("split")
 end, { desc = "nvim: split" })
-vim.keymap.set("n", nvim_prefix .. "v", function()
+vim.keymap.set("n", "<leader>v", function()
 	vim.cmd("vsplit")
 end, { desc = "nvim: vertical split" })
 
