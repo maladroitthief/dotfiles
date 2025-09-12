@@ -6,25 +6,13 @@ return {
 		sign_priority = 8, -- sign priority
 		-- keywords recognized as todo comments
 		keywords = {
-			FIX = {
-				icon = " ", -- icon used for the sign, and in search results
-				color = "error", -- can be a hex color, or a named color (see below)
-				alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "fix", "bug", "fixme", "issue", "fixit" }, -- a set of other keywords that all map to this FIX keywords
-				-- signs = false, -- configure signs for some keywords individually
-			},
-			TODO = { icon = " ", color = "hint", alt = { "todo" } },
-			HACK = { icon = " ", color = "warning", alt = { "hack" } },
-			WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX", "warn", "warning", "xxx" } },
-			PERF = {
-				icon = "󰔛 ",
-				alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "perf", "optim", "performance", "optimize" },
-			},
-			NOTE = { icon = " ", color = "info", alt = { "INFO", "info" } },
-			TEST = {
-				icon = "󰂓 ",
-				color = "test",
-				alt = { "TESTING", "PASSED", "FAILED", "test", "testing", "passed", "failed" },
-			},
+			FIX = { icon = " ", color = "fix", alt = { "fix" } },
+			TODO = { icon = " ", color = "todo", alt = { "todo" } },
+			HACK = { icon = " ", color = "hack", alt = { "hack" } },
+			WARN = { icon = " ", color = "warning", alt = { "warn" } },
+			PERF = { icon = "󰔛 ", color = "performance", alt = { "perf" } },
+			NOTE = { icon = " ", color = "info", alt = { "note" } },
+			TEST = { icon = "󰂓 ", color = "test", alt = { "test" } },
 		},
 		gui_style = {
 			fg = "BOLD", -- The gui style to use for the fg highlight group.
@@ -42,7 +30,9 @@ return {
 			before = "", -- "fg" or "bg" or empty
 			keyword = "wide_fg", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
 			after = "fg", -- "fg" or "bg" or empty
-			pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
+			pattern = {
+				[[.*<(KEYWORDS)\s*:]],
+			}, -- pattern or table of patterns, used for highlighting (vim regex)
 			comments_only = true, -- uses treesitter to match keywords in comments only
 			max_line_len = 400, -- ignore lines longer than this
 			exclude = {}, -- list of file types to exclude highlighting
@@ -50,12 +40,13 @@ return {
 		-- list of named colors where we try to extract the guifg from the
 		-- list of highlight groups or use the hex color if hl not found as a fallback
 		colors = {
-			error = { "DiagnosticError" }, -- FIX: error
-			warning = { "DiagnosticWarn" }, -- WARN: warning
-			info = { "DiagnosticInfo" }, -- NOTE: note
-			hint = { "DiagnosticHint" }, -- TODO: todo
-			default = { "DiagnosticSignOk" }, -- PERF: default
-			test = { "#FFA066" }, -- TEST: test
+			fix = { "#E82424" }, -- FIX: error
+			todo = { "#FF9E3B" }, -- TODO: todo
+			warning = { "#DCA561" }, -- WARN: warning
+			hack = { "#D27E99" }, -- HACK: warning
+			performance = { "#957FB8" }, -- PERF: default
+			info = { "#7E9CD8" }, -- NOTE: note
+			test = { "#98BB6C" }, -- TEST: test
 		},
 		search = {
 			command = "rg",
