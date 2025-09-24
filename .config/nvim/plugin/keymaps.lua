@@ -46,6 +46,7 @@ vim.keymap.set("n", "<leader>v", function()
 end, { desc = "nvim: vertical split" })
 
 -- goto file
+vim.keymap.set("n", "gf", "gF", { desc = "nvim: goto file" })
 vim.keymap.set("n", nvim_prefix .. "f", "<C-W>gF", { desc = "nvim: goto file" })
 
 -- format
