@@ -1,5 +1,5 @@
 return {
-	cmd = { "jails", "-jai_path", "$(which jai)" },
+	cmd = { "jails" },
 	filetypes = { "jai" },
 	root_markers = { "jails.json", ".git", "build.jai" },
 }
