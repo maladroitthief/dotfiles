@@ -30,40 +30,49 @@ local setup = function()
 		},
 	}
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = vim.api.nvim_create_augroup("custom-conform", { clear = true }),
-		callback = function(args)
-			local ft = vim.bo.filetype
-			if ft == "blade" then
-				require("conform").format({
-					bufnr = args.buf,
-					lsp_fallback = false,
-					quiet = true,
-					async = true,
-				})
+	vim.keymap.set("n", "<F5>", function()
+		local buf = vim.api.nvim_get_current_buf()
+		require("conform").format({
+			bufnr = buf,
+			lsp_fallback = true,
+			quiet = true,
+		})
+	end, { desc = "LSP: format" })
 
-				return
-			end
-
-			if ft == "ocaml.mlx" then
-				-- Hmmm... this is a little weird,
-				-- it seems like it should be automatic, but that's OK
-				require("conform").format({
-					bufnr = args.buf,
-					formatters = { "ocamlformat_mlx" },
-					lsp_fallback = false,
-				})
-
-				return
-			end
-
-			require("conform").format({
-				bufnr = args.buf,
-				lsp_fallback = true,
-				quiet = true,
-			})
-		end,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	group = vim.api.nvim_create_augroup("custom-conform", { clear = true }),
+	-- 	callback = function(args)
+	-- 		local ft = vim.bo.filetype
+	-- 		if ft == "blade" then
+	-- 			require("conform").format({
+	-- 				bufnr = args.buf,
+	-- 				lsp_fallback = false,
+	-- 				quiet = true,
+	-- 				async = true,
+	-- 			})
+	--
+	-- 			return
+	-- 		end
+	--
+	-- 		if ft == "ocaml.mlx" then
+	-- 			-- Hmmm... this is a little weird,
+	-- 			-- it seems like it should be automatic, but that's OK
+	-- 			require("conform").format({
+	-- 				bufnr = args.buf,
+	-- 				formatters = { "ocamlformat_mlx" },
+	-- 				lsp_fallback = false,
+	-- 			})
+	--
+	-- 			return
+	-- 		end
+	--
+	-- 		require("conform").format({
+	-- 			bufnr = args.buf,
+	-- 			lsp_fallback = true,
+	-- 			quiet = true,
+	-- 		})
+	-- 	end,
+	-- })
 end
 
 setup()

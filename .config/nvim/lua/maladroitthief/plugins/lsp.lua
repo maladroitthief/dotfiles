@@ -69,8 +69,6 @@ return {
 				capabilities = require("cmp_nvim_lsp").default_capabilities()
 			end
 
-			local lspconfig = require("lspconfig")
-
 			local servers = {
 				bashls = true,
 				gopls = {
@@ -183,11 +181,13 @@ return {
 				if config == true then
 					config = {}
 				end
+
 				config = vim.tbl_deep_extend("force", {}, {
 					capabilities = capabilities,
 				}, config)
 
-				lspconfig[name].setup(config)
+				vim.lsp.config(name, config)
+				vim.lsp.enable(name)
 			end
 
 			local disable_semantic_tokens = {
@@ -226,9 +226,13 @@ return {
 						vim.diagnostic.open_float()
 					end, { buffer = args.buf, desc = "LSP: open float" })
 
-					vim.keymap.set("n", "<F5>", function()
-						require("conform").format({ async = true, lsp_format = "fallback" })
-					end, { buffer = args.buf, desc = "LSP: format" })
+					-- vim.keymap.set("n", "<F5>", function()
+					-- 	require("conform").format({
+					-- 		bufnr = args.buf,
+					-- 		lsp_fallback = true,
+					-- 		quiet = true,
+					-- 	})
+					-- end, { buffer = args.buf, desc = "LSP: format" })
 
 					if client:supports_method("codeActionProvider") then
 						vim.keymap.set("n", "<F6>", function()

@@ -22,9 +22,9 @@
     state: "present"
     update_cache: true
 
-- name: install mermaid 
+- name: install mermaid
   community.general.npm:
-    name: mermaid.cli
+    name: "@mermaid-js/mermaid-cli"
     global: true
 
 - name: "clone"
