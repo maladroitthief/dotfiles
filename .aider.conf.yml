@@ -1,6 +1,6 @@
 ---
-model: "ollama_chat/gemma3:12b"
-weak-model: "ollama_chat/gemma3:4b"
+model: "ollama_chat/gpt-oss:20b"
+weak-model: "ollama_chat/gpt-oss:20b"
 
 auto-commits: false
 no-auto-commits: true

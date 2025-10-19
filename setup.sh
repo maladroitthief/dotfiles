@@ -39,6 +39,7 @@ main() {
   ln -sf $(pwd)/.config/waybar ~/.config
   ln -sf $(pwd)/.config/rofi ~/.config
   ln -sf $(pwd)/.config/swaync ~/.config
+  ln -sf $(pwd)/.config/zed ~/.config
 }
 
 main "$@"
