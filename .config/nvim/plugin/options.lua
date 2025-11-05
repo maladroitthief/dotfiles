@@ -52,3 +52,5 @@ opt.listchars = {
 
 opt.spell = true
 opt.spelllang = "en_us"
+
+opt.guicursor = "n-v-i-c:block-Cursor"
