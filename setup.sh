@@ -27,6 +27,7 @@ main() {
   ln -sf $(pwd)/.gdbinit ~
   ln -sf $(pwd)/.jjconfig.toml ~
   ln -sf $(pwd)/.config/ghostty ~/.config
+  ln -sf $(pwd)/.config/wezterm ~/.config
   ln -sf $(pwd)/.config/nvim ~/.config
   ln -sf $(pwd)/.config/starship.toml ~/.config
   ln -sf $(pwd)/.config/tmux ~/.config

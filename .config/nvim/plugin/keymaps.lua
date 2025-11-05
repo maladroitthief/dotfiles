@@ -19,10 +19,10 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "nvim: center on jump last" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "nvim: merge lines" })
 
 -- tmux movements
-vim.keymap.set("n", "<C-J>", "<C-W><C-J>", { desc = "nvim: tmux down" })
-vim.keymap.set("n", "<C-K>", "<C-W><C-K>", { desc = "nvim: tmux up" })
-vim.keymap.set("n", "<C-L>", "<C-W><C-L>", { desc = "nvim: tmux right" })
-vim.keymap.set("n", "<C-H>", "<C-W><C-H>", { desc = "nvim: tmux left" })
+-- vim.keymap.set("n", "<C-J>", "<C-W><C-J>", { desc = "nvim: tmux down" })
+-- vim.keymap.set("n", "<C-K>", "<C-W><C-K>", { desc = "nvim: tmux up" })
+-- vim.keymap.set("n", "<C-L>", "<C-W><C-L>", { desc = "nvim: tmux right" })
+-- vim.keymap.set("n", "<C-H>", "<C-W><C-H>", { desc = "nvim: tmux left" })
 
 -- remove find highlights
 vim.keymap.set("n", "<ESC>", function()
