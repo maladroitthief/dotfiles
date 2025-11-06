@@ -31,7 +31,12 @@ M.toggle = function(w, window, pane)
 					w.log_info("Cancelled")
 				else
 					w.log_info("Selected " .. label)
-					win:perform_action(w.action.SwitchToWorkspace({ name = id, spawn = { cwd = label } }), pane)
+					local current_workspace = window:active_workspace()
+
+					win:perform_action(
+						w.action.SwitchToWorkspace({ name = id, spawn = { cwd = label } }), pane)
+
+					w.GLOBAL.previous_workspace = current_workspace
 				end
 			end),
 			fuzzy = true,
@@ -40,6 +45,25 @@ M.toggle = function(w, window, pane)
 		}),
 		pane
 	)
+end
+
+M.previous = function(w, window, pane)
+	local current_workspace = window:active_workspace()
+	local workspace = w.GLOBAL.previous_workspace
+
+	if current_workspace == workspace or w.GLOBAL.previous_workspace == nil then
+		w.log_info("Cancelled")
+		return
+	end
+
+	window:perform_action(
+		w.action.SwitchToWorkspace({
+			name = workspace,
+		}),
+		pane
+	)
+
+	w.GLOBAL.previous_workspace = current_workspace
 end
 
 return M

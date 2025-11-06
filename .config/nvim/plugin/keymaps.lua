@@ -53,6 +53,8 @@ vim.keymap.set("n", nvim_prefix .. "f", "<C-W>gF", { desc = "nvim: goto file" })
 vim.keymap.set("n", nvim_prefix .. "c", "viB:!column -t -o ' '<CR>>iB", { desc = "nvim: format columns" })
 vim.keymap.set("v", nvim_prefix .. "c", ":!column -t -o ' '<CR>gv>", { desc = "nvim: format columns" })
 
+vim.keymap.set("n", nvim_prefix .. "w", ":set wrap!<CR>", { desc = "nvim: toggle wrap" })
+
 -- camel case to snake case
 vim.keymap.set("n", nvim_prefix .. "s", function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))

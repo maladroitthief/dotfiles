@@ -37,7 +37,7 @@ config.visual_bell = {
 	fade_out_duration_ms = 0,
 }
 
-config.font_size = 15.0
+config.font_size = 14.0
 config.freetype_load_target = "HorizontalLcd"
 config.font = wezterm.font({
 	family = "Fira Code",
@@ -56,7 +56,7 @@ config.font = wezterm.font({
 })
 
 
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.90
 colors.kanagawa(config)
 keymaps.setup(wezterm, config)
 
