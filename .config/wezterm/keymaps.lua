@@ -82,6 +82,15 @@ function M.setup(w, config)
 				end),
 			}),
 		},
+		{
+			mods = "LEADER",
+			key = "t",
+			action = w.action.SpawnCommandInNewTab({
+				label = "notes",
+				args = { "nvim", w.home_dir .. "/workspace/notes.md" },
+				domain = "CurrentPaneDomain",
+			}),
+		},
 	}
 end
 
