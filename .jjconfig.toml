@@ -3,7 +3,7 @@ name = "Ian Weller"
 email = "maladroitthief@gmail.com"
 
 [git]
-auto-local-bookmark = true
+auto-track-bookmarks = "glob:*"
 
 [snapshot]
 max-new-file-size = "50MiB"

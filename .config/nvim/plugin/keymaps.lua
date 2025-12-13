@@ -14,6 +14,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "nvim: center on jump down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "nvim: center on jump up" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "nvim: center on jump next" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "nvim: center on jump last" })
+vim.keymap.set("n", "{", "{zz", { desc = "nvim: center on jump" })
+vim.keymap.set("n", "}", "}zz", { desc = "nvim: center on jump" })
+vim.keymap.set("n", "[[", "[[zz", { desc = "nvim: center on jump" })
+vim.keymap.set("n", "]]", "]]zz", { desc = "nvim: center on jump" })
 
 -- merge lines
 vim.keymap.set("n", "J", "mzJ`z", { desc = "nvim: merge lines" })
