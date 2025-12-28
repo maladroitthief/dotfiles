@@ -41,6 +41,7 @@ main() {
   ln -sf $(pwd)/.config/rofi ~/.config
   ln -sf $(pwd)/.config/swaync ~/.config
   ln -sf $(pwd)/.config/zed ~/.config
+  ln -sf $(pwd)/.config/opencode ~/.config
 }
 
 main "$@"

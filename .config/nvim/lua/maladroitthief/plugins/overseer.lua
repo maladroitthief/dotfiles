@@ -25,7 +25,7 @@ return {
 		end,
 		keys = {
 			{
-				overseer_prefix .. "e",
+				overseer_prefix .. "o",
 				function()
 					vim.api.nvim_command("OverseerToggle!")
 				end,
@@ -35,7 +35,7 @@ return {
 				overseer_prefix .. "c",
 				function()
 					local overseer = require("overseer")
-					overseer.run_template({
+					overseer.run_task({
 						name = "shell",
 					})
 				end,
@@ -45,7 +45,7 @@ return {
 				overseer_prefix .. "C",
 				function()
 					local overseer = require("overseer")
-					overseer.run_template({
+					overseer.run_task({
 						name = "shell",
 						cwd = vim.fn.expand("%:p:h"),
 					})
@@ -58,19 +58,6 @@ return {
 					vim.api.nvim_command("OverseerTaskAction")
 				end,
 				desc = "overseer: task action",
-			},
-			{
-				overseer_prefix .. "o",
-				function()
-					local overseer = require("overseer")
-					local tasks = overseer.list_tasks({ recent_first = true })
-					if vim.tbl_isempty(tasks) then
-						vim.notify("No tasks found", vim.log.levels.WARN)
-					else
-						overseer.run_action(tasks[1], "open")
-					end
-				end,
-				desc = "overseer: restart last command",
 			},
 			{
 				overseer_prefix .. "r",
@@ -86,51 +73,14 @@ return {
 				desc = "overseer: restart last command",
 			},
 			{
-				overseer_prefix .. "w",
-				function()
-					local overseer = require("overseer")
-					local tasks = overseer.list_tasks({ recent_first = true })
-					if vim.tbl_isempty(tasks) then
-						vim.notify("No tasks found", vim.log.levels.WARN)
-					else
-						overseer.run_action(tasks[1], "watch")
-					end
-				end,
-				desc = "overseer: watch last command",
-			},
-			{
 				overseer_prefix .. "m",
 				function()
 					local overseer = require("overseer")
-					overseer.run_template({
+					overseer.run_task({
 						name = "make",
 					})
 				end,
 				desc = "overseer: make",
-			},
-			{
-				overseer_prefix .. "tp",
-				function()
-					local overseer = require("overseer")
-					local task = overseer.new_task({
-						cmd = "terraform plan",
-						cwd = vim.fn.expand("%:p:h"),
-					})
-					task:start()
-				end,
-				desc = "overseer: terraform plan",
-			},
-			{
-				overseer_prefix .. "ti",
-				function()
-					local overseer = require("overseer")
-					local task = overseer.new_task({
-						cmd = "terraform init",
-						cwd = vim.fn.expand("%:p:h"),
-					})
-					task:start()
-				end,
-				desc = "overseer: terraform init",
 			},
 		},
 	},

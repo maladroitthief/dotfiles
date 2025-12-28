@@ -438,6 +438,14 @@ return {
 				desc = "snacks: marks",
 			},
 			{
+				snacks_prefix .. "n",
+				function()
+					require("snacks").picker.notifications({})
+				end,
+				mode = { "n" },
+				desc = "snacks: notifications",
+			},
+			{
 				snacks_prefix .. "q",
 				function()
 					M.status()

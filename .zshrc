@@ -14,3 +14,6 @@ for config (~/.config/zsh/secret/*.zsh) source $config
 
 # must be at the end
 eval "$(starship init zsh)"
+
+# opencode
+export PATH=/home/iweller/.opencode/bin:$PATH
