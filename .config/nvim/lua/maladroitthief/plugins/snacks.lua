@@ -242,7 +242,7 @@ return {
 						format = "file",
 						show_empty = true,
 						hidden = true,
-						ignored = true,
+						ignored = false,
 						live = true, -- live grep by default
 						supports_live = true,
 					})
