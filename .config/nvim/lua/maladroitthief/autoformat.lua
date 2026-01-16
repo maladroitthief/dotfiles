@@ -4,7 +4,10 @@ local setup = function()
 	conform.setup({
 		formatters = {
 			prettier = {
-				prepend_args = { "--prose-wrap", "always" },
+				prepend_args = {
+					"--prose-wrap",
+					"always",
+				},
 			},
 		},
 		formatters_by_ft = {

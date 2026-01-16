@@ -26,6 +26,7 @@ main() {
   ln -sf $(pwd)/.tmux.conf ~
   ln -sf $(pwd)/.gdbinit ~
   ln -sf $(pwd)/.jjconfig.toml ~
+  ln -sf $(pwd)/.gemini/settings.json ~/.gemini
   ln -sf $(pwd)/.config/ghostty ~/.config
   ln -sf $(pwd)/.config/wezterm ~/.config
   ln -sf $(pwd)/.config/nvim ~/.config

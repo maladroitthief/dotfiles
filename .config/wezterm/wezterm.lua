@@ -11,7 +11,9 @@ config.unix_domains = {
 	},
 }
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
+config.front_end = "OpenGL"
+-- config.window_decorations = "RESIZE"
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
