@@ -16,3 +16,4 @@ Thumbs.db
 !.aider.conf.yml
 
 .jj/
+.config/jj/repos/*
