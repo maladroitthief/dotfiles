@@ -3,9 +3,5 @@
     "auth": {
       "selectedType": "oauth-personal"
     }
-  },
-  "tools": {
-    "sandbox": "docker",
-		"approvalMode": "auto_edit"
   }
 }

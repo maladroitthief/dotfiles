@@ -1,5 +1,6 @@
 local M = {}
 
+local gdb = require("gdb")
 local sessionizer = require("sessionizer")
 local split_nav = require("split_nav")
 
@@ -90,6 +91,16 @@ function M.setup(w, config)
 				args = { "nvim", w.home_dir .. "/workspace/notes.md" },
 				domain = "CurrentPaneDomain",
 			}),
+		},
+		{
+			key = "F8",
+			action = w.action_callback(function(window, pane, _)
+				gdb.dashboard(w, window, pane)
+			end),
+		},
+		{
+			key = "F1",
+			action = w.action.ShowDebugOverlay,
 		},
 	}
 end
