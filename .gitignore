@@ -17,3 +17,4 @@ Thumbs.db
 
 .jj/
 .config/jj/repos/**
+.gdb_history
