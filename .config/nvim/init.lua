@@ -26,7 +26,7 @@ require("lazy").setup({
 	spec = {
 		import = "maladroitthief/plugins",
 	},
-	install = { colorscheme = { "kanagawa" } },
+	install = { colorscheme = { "monoglow" } },
 	checker = { enabled = true },
 	change_detection = {
 		notify = false,

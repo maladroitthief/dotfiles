@@ -38,15 +38,14 @@ M.setup = function()
 			local parsers = require("nvim-treesitter.parsers")
 
 			parsers.jai = {
-        tier = 0,
-
-        ---@diagnostic disable-next-line: missing-fields
-        install_info = {
-          path = "~/workspace/maladroitthief/tree-sitter-jai",
-          files = { "src/parser.c", "src/scanner.c" },
-        },
+				tier = 0,
+				install_info = {
+					url = "https://github.com/constantitus/tree-sitter-jai",
+					branch = "master",
+					files = { "src/parser.c", "src/scanner.c" },
+				},
 				filetype = "jai",
-      }
+			}
 		end,
 	})
 end

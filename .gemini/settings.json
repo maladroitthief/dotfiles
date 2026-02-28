@@ -3,5 +3,14 @@
     "auth": {
       "selectedType": "oauth-personal"
     }
+  },
+  "general": {
+    "previewFeatures": true,
+    "vimMode": false,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "30d"
+    }
   }
 }
