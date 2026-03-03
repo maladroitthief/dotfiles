@@ -10,6 +10,8 @@ return {
 				colors.blue1 = "#9CABCA"
 				colors.blue2 = "#7E9CD8"
 				colors.bg_popup = "none"
+
+				-- colors.visual = "#1bfd9c"
 			end,
 		})
 

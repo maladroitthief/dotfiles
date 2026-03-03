@@ -58,7 +58,7 @@ config.font = wezterm.font({
 })
 
 
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.95
 colors.kanagawa(config)
 keymaps.setup(wezterm, config)
 
