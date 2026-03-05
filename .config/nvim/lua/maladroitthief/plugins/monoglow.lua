@@ -15,6 +15,6 @@ return {
 			end,
 		})
 
-		vim.cmd.colorscheme("monoglow")
+		-- vim.cmd.colorscheme("monoglow")
 	end,
 }
