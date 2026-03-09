@@ -89,6 +89,18 @@ return {
 					local overseer = require("overseer")
 					local task = overseer.new_task({
 						cmd = { "make" },
+						components = { { "on_output_quickfix", open = false }, "default" },
+					})
+					task:start()
+				end,
+				desc = "overseer: make",
+			},
+			{
+				overseer_prefix .. "M",
+				function()
+					local overseer = require("overseer")
+					local task = overseer.new_task({
+						cmd = { "make" },
 						components = { { "on_output_quickfix", open = true }, "default" },
 					})
 					task:start()
