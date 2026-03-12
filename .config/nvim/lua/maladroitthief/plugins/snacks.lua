@@ -89,9 +89,10 @@ return {
 					{ section = "startup" },
 				},
 			},
+			debug = { enabled = true },
 			dim = { enabled = true },
 			explorer = { enabled = false },
-			image = { enabled = true },
+			image = { enabled = false },
 			indent = { enabled = true },
 			-- NOTE: maybe try this? -ian
 			input = { enabled = false },

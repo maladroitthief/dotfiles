@@ -98,10 +98,6 @@ function M.setup(w, config)
 				gdb.dashboard(w, window, pane)
 			end),
 		},
-		{
-			key = "F1",
-			action = w.action.ShowDebugOverlay,
-		},
 	}
 end
 

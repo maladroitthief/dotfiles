@@ -7,10 +7,11 @@ autoload -Uz +X bashcompinit && bashcompinit
 
 # must happen first
 eval "$(/usr/bin/mise activate zsh)"
-
 # Keep zshrc clean
 for config (~/.config/zsh/*.zsh) source $config
 for config (~/.config/zsh/secret/*.zsh) source $config
+
+export PATH="$HOME/.local/bin:$PATH"
 
 # must be at the end
 eval "$(starship init zsh)"
