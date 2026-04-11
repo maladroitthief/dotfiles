@@ -114,6 +114,10 @@ return {
 					--   semanticTokensProvider = vim.NIL,
 					-- },
 				},
+				marksman = {
+					cmd = { "marksman", "server" },
+					filetypes = { "md", "markdown" },
+				},
 				rust_analyzer = true,
 				ruff = { manual_install = true },
 				jsonls = {
