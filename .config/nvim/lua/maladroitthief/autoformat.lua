@@ -1,3 +1,5 @@
+local nvim_prefix = "<leader>n"
+
 local setup = function()
 	-- Autoformatting Setup
 	local conform = require("conform")

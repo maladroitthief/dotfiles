@@ -19,6 +19,16 @@ vim.keymap.set("n", "}", "}zz", { desc = "nvim: center on jump" })
 vim.keymap.set("n", "[[", "[[zz", { desc = "nvim: center on jump" })
 vim.keymap.set("n", "]]", "]]zz", { desc = "nvim: center on jump" })
 
+-- centering on mark jumps
+
+local marks = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+for i = 1, #marks do
+	local char = marks:sub(i, i)
+
+	vim.keymap.set("n", "`" .. char, "`" .. char .. "zz", { desc = "nvim: center on mark" })
+	vim.keymap.set("n", "'" .. char, "'" .. char .. "zz", { desc = "nvim: center on mark line" })
+end
+
 -- merge lines
 vim.keymap.set("n", "J", "mzJ`z", { desc = "nvim: merge lines" })
 

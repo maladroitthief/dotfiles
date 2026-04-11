@@ -4,11 +4,25 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"thehamsta/nvim-dap-virtual-text",
-		"leoluz/nvim-dap-go",
 		"igorlfs/nvim-dap-view",
+		"leoluz/nvim-dap-go",
 	},
 	config = function()
 		require("nvim-dap-virtual-text").setup()
+
+		local sign = vim.fn.sign_define
+
+		sign("DapStopped", { text = vim.g.vinux_diagnostics_signs_warning, texthl = "DiagnosticWarn" })
+		sign("DapBreakpointRejected", { text = vim.g.vinux_diagnostics_signs_error, texthl = "DiagnosticError" })
+
+		-- todo: I don't know why I am defining these twice
+		sign("DapBreakpoint", { text = vim.g.vinux_diagnostics_signs_info, texthl = "DiagnosticInfo" })
+		sign("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo" })
+		sign("DapLogPoint", { text = ".>", texthl = "DiagnosticInfo" })
+
+		sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+		sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+		sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 	end,
 	keys = {
 		{
@@ -36,7 +50,8 @@ return {
 			desc = "dap: watch",
 		},
 		{
-			dap_prefix .. "n",
+			-- dap_prefix .. "n",
+			"<F10>",
 			function()
 				require("dap").step_over()
 			end,
@@ -44,7 +59,7 @@ return {
 			desc = "dap: step over",
 		},
 		{
-			dap_prefix .. "s",
+			"<F11>",
 			function()
 				require("dap").step_into()
 			end,
@@ -52,6 +67,7 @@ return {
 			desc = "dap: step into",
 		},
 		{
+			"<S-F11>",
 			dap_prefix .. "o",
 			function()
 				require("dap").step_out()

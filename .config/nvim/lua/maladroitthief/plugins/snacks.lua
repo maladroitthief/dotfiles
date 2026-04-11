@@ -351,7 +351,7 @@ return {
 				desc = "snacks: workspace symbols",
 			},
 			{
-				"<F11>",
+				snacks_prefix .. "lr",
 				function()
 					require("snacks").picker.lsp_references({})
 				end,
@@ -359,7 +359,7 @@ return {
 				desc = "snacks: lsp references",
 			},
 			{
-				"<F12>",
+				snacks_prefix .. "ld",
 				function()
 					require("snacks").picker.lsp_definitions({})
 				end,
