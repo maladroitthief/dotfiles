@@ -1,22 +1,29 @@
 {
   "$schema": "https://opencode.ai/config.json",
+	"model": "Ollama/gemma4:e4b-32k",
+	"default_agent": "plan",
+	"compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 8192
+  },
 	"provider": {
 		"ollama": {
+      "name": "Ollama",
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama ",
       "options": {
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3.5:9b": {
-          "name": "qwen3.5:9b",
-					"attachment": true,
-					"reasoning": false,
-					"temperature": true,
+				"gemma4:e4b-32k": {
+          "name": "gemma4:e4b-32k",
+          "id": "gemma4:e4b-32k",
 					"tool_call": true,
+					"attachment": false, // handling non-textual prompts
+					"reasoning": false, // thinking about the prompt
+					"temperature": true, // low is logical, high is creative
 					"options": {
-						"temperature": 0.45,
-						"num_ctx": 81920
+						"temperature": 0.10,
 					},
 					"limit": {
 						"context": 81920,

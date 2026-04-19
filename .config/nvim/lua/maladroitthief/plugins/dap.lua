@@ -107,5 +107,13 @@ return {
 			mode = { "n", "v" },
 			desc = "dap: preview",
 		},
+		{
+			dap_prefix .. "x",
+			function()
+				require("dap").terminate()
+			end,
+			mode = { "n", "v" },
+			desc = "dap: terminate",
+		},
 	},
 }
