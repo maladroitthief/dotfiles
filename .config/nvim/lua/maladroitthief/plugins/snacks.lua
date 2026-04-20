@@ -313,7 +313,18 @@ return {
 			{
 				snacks_prefix .. "h",
 				function()
-					require("snacks").picker.help({})
+					require("snacks").picker.help({
+						previewers = {
+							file = { ft = "help" },
+						},
+						win = {
+							input = {
+								keys = {
+									["<CR>"] = { "tab", mode = { "n", "i" } },
+								},
+							},
+						},
+					})
 				end,
 				mode = { "n" },
 				desc = "snacks: help",
@@ -423,14 +434,6 @@ return {
 				desc = "snacks: emojis",
 			},
 			{
-				snacks_prefix .. "e",
-				function()
-					require("snacks").picker.icons({})
-				end,
-				mode = { "n" },
-				desc = "snacks: emojis",
-			},
-			{
 				snacks_prefix .. "m",
 				function()
 					require("snacks").picker.marks({})
@@ -445,14 +448,6 @@ return {
 				end,
 				mode = { "n" },
 				desc = "snacks: notifications",
-			},
-			{
-				snacks_prefix .. "q",
-				function()
-					M.status()
-				end,
-				mode = { "n" },
-				desc = "snacks: harpoon",
 			},
 		},
 	},
