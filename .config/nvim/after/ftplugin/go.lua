@@ -10,45 +10,9 @@ _G.go_env_set = _G.go_env_set
 			return true
 		end
 
-		-- todo: verify if this shit works
-		dap.adapters.delve = function(callback, config)
-			if config.mode == "remote" and config.request == "attach" then
-				callback({
-					type = "server",
-					host = config.host or "127.0.0.1",
-					port = config.port or "38697",
-				})
-			else
-				callback({
-					type = "server",
-					port = "${port}",
-					executable = {
-						command = "dlv",
-						args = { "dap", "-l", "127.0.0.1:${port}", "--log", "--log-output=dap" },
-						detached = vim.fn.has("win32") == 0,
-					},
-				})
-			end
-		end
-
-		dap.configurations.go = {
-			{
-				name = "[go] Attach Delve to A Web Server",
-				type = "delve",
-				request = "attach",
-				mode = "local",
-
-				processId = function()
-					return require("dap.utils").pick_process({ filter = "webserver" })
-				end,
-			},
-			{
-				name = "[go] Attach to Delve",
-				type = "delve",
-				request = "attach",
-				mode = "remote",
-			},
-		}
+		vim.keymap.set("n", "<leader>dt", function()
+			require("dap-go").debug_test()
+		end, { desc = "dap: debug test" })
 
 		return true
 	end)()

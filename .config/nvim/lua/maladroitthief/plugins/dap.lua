@@ -2,12 +2,19 @@ local dap_prefix = "<leader>d"
 
 return {
 	"mfussenegger/nvim-dap",
+	lazy = true,
 	dependencies = {
 		"thehamsta/nvim-dap-virtual-text",
 		"igorlfs/nvim-dap-view",
 		"leoluz/nvim-dap-go",
+		"ravsii/nvim-dap-envfile",
 	},
 	config = function()
+  	local dap = require('dap')
+		dap.defaults.fallback.terminal_win_cmd = "tabnew"
+
+		require('dap-go').setup()
+		require("nvim-dap-envfile").setup({})
 		require("nvim-dap-virtual-text").setup({
 			enabled = true,
 			enable_commands = true,
@@ -54,6 +61,14 @@ return {
 			end,
 			mode = { "n" },
 			desc = "dap: continue",
+		},
+		{
+			dap_prefix .. "C",
+			function()
+				require("dap").run_to_cursor()
+			end,
+			mode = { "n" },
+			desc = "dap: run to cursor",
 		},
 		{
 			dap_prefix .. "w",
