@@ -10,8 +10,9 @@ return {
 		"ravsii/nvim-dap-envfile",
 	},
 	config = function()
-  	local dap = require('dap')
+		local dap = require('dap')
 		dap.defaults.fallback.terminal_win_cmd = "tabnew"
+		dap.defaults.fallback.focus_terminal = true
 
 		require('dap-go').setup()
 		require("nvim-dap-envfile").setup({})
