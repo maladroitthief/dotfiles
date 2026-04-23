@@ -1,5 +1,7 @@
 _G.go_env_set = _G.go_env_set
 	or (function()
+		vim.opt.spell = false
+
 		if vim.fn.executable("gopls") == 1 then
 			vim.lsp.enable("gopls")
 		end

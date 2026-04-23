@@ -69,19 +69,4 @@ vim.keymap.set("v", nvim_prefix .. "c", ":!column -t -o ' '<CR>gv>", { desc = "n
 
 vim.keymap.set("n", nvim_prefix .. "w", ":set wrap!<CR>", { desc = "nvim: toggle wrap" })
 
--- camel case to snake case
-vim.keymap.set("n", nvim_prefix .. "s", function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	local word = vim.fn.expand("<cword>")
-	local word_start = vim.fn.matchstrpos(vim.fn.getline("."), "\\k*\\%" .. (col + 1) .. "c\\k*")[2]
-
-	if word:find("[a-z][A-Z]") then
-		local snake_case_word = word:gsub("([a-z])([A-Z])", "%1_%2"):lower()
-		vim.api.nvim_buf_set_text(0, line - 1, word_start, line - 1, word_start + #word, { snake_case_word })
-	elseif word:find("_[a-z]") then
-		local camel_case_word = word:gsub("(_)([a-z])", function(_, l)
-			return l:upper()
-		end)
-		vim.api.nvim_buf_set_text(0, line - 1, word_start, line - 1, word_start + #word, { camel_case_word })
-	end
-end, { desc = "nvim: camel to snake" })
+vim.keymap.set("n", nvim_prefix .. "s", ":set invspell<CR>", { desc = "nvim: toggle spell" })
