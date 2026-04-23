@@ -147,10 +147,27 @@ return {
 					theme = {
 						wave = {
 							ui = {
-								bg_gutter = "none",
+								fg = palette.fujiWhite,
+								fg_dim = palette.oldWhite,
 								fg_reverse = highlight,
+
+								bg_dim = palette.sumiInk1,
+								bg_gutter = "none",
+
+								bg_m3 = palette.sumiInk0,
+								bg_m2 = palette.sumiInk1,
+								bg_m1 = palette.sumiInk2,
+								bg = palette.sumiInk3,
+								bg_p1 = palette.sumiInk4,
+								bg_p2 = palette.sumiInk5,
+
+								special = palette.springViolet1,
+								nontext = palette.fujiGray,
+								whitespace = palette.sumiInk6,
+
 								bg_search = highlight,
 								bg_visual = palette.waveBlue2,
+
 								pmenu = {
 									fg = palette.fujiWhite,
 									fg_sel = "none",
@@ -158,6 +175,12 @@ return {
 									bg_thumb = highlight,
 									bg = palette.waveBlue2,
 									bg_sbar = palette.waveBlue2,
+								},
+								float = {
+									fg = palette.oldWhite,
+									bg = palette.sumiInk0,
+									fg_border = palette.sumiInk6,
+									bg_border = palette.sumiInk0,
 								},
 							},
 							syn = {
