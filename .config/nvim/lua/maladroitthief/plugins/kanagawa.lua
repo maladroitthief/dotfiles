@@ -121,7 +121,24 @@ local palette = {
 	lotusTeal3 = "#5a7785",
 	lotusCyan = "#d7e3d8",
 }
-local highlight = palette.peachRed
+
+local highlight = "#1bfd9c"
+
+-- local dim       = palette.lotusGray3
+-- local fade0     = palette.lotusWhite0
+-- local fade1     = palette.lotusWhite1
+-- local fade2     = palette.lotusWhite2
+-- local fade3     = palette.lotusWhite3
+-- local fade4     = palette.lotusWhite4
+-- local fade5     = palette.lotusWhite5
+
+local dim       = palette.fujiGray
+local fade0     = palette.lotusInk2
+local fade1     = palette.sumiInk6
+local fade2     = palette.lotusViolet2
+local fade3     = palette.oniViolet
+local fade4     = palette.springViolet1
+local fade5     = palette.oniViolet2
 
 return {
 	{
@@ -147,8 +164,8 @@ return {
 					theme = {
 						wave = {
 							ui = {
-								fg = palette.fujiWhite,
-								fg_dim = palette.oldWhite,
+								fg = fade5,
+								fg_dim = fade3,
 								fg_reverse = highlight,
 
 								bg_dim = palette.sumiInk1,
@@ -162,14 +179,14 @@ return {
 								bg_p2 = palette.sumiInk5,
 
 								special = palette.springViolet1,
-								nontext = palette.fujiGray,
+								nontext = dim,
 								whitespace = palette.sumiInk6,
 
 								bg_search = highlight,
 								bg_visual = palette.waveBlue2,
 
 								pmenu = {
-									fg = palette.fujiWhite,
+									fg = fade5,
 									fg_sel = "none",
 									bg_sel = highlight,
 									bg_thumb = highlight,
@@ -177,7 +194,7 @@ return {
 									bg_sbar = palette.waveBlue2,
 								},
 								float = {
-									fg = palette.oldWhite,
+									fg = fade5,
 									bg = palette.sumiInk0,
 									fg_border = palette.sumiInk6,
 									bg_border = palette.sumiInk0,
@@ -189,20 +206,20 @@ return {
 								preproc = highlight,
 								regex = highlight,
 								string = highlight,
-								deprecated = palette.lotusGray3,
-								comment = palette.lotusGray3,
-								special2 = palette.lotusWhite5,
-								punct = palette.lotusWhite5,
-								fun = palette.lotusWhite5,
-								type = palette.lotusWhite4,
-								keyword = palette.lotusWhite4,
-								constant = palette.lotusWhite3,
-								special1 = palette.lotusWhite3,
-								variable = palette.lotusWhite2,
-								statement = palette.lotusWhite2,
-								identifier = palette.lotusWhite1,
-								parameter = palette.lotusWhite1,
-								special3 = palette.lotusWhite0,
+								deprecated = dim,
+								comment = dim,
+								special2 = fade5,
+								punct = fade5,
+								fun = fade5,
+								type = fade4,
+								keyword = fade4,
+								constant = fade3,
+								special1 = fade3,
+								variable = fade2,
+								statement = fade2,
+								identifier = fade1,
+								parameter = fade1,
+								special3 = fade0,
 							},
 						},
 					},
