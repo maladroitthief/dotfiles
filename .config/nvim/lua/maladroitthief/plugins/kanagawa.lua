@@ -123,23 +123,14 @@ local palette = {
 }
 
 local highlight = "#1bfd9c"
-
--- local dim       = palette.lotusGray3
--- local fade0     = palette.lotusWhite0
--- local fade1     = palette.lotusWhite1
--- local fade2     = palette.lotusWhite2
--- local fade3     = palette.lotusWhite3
--- local fade4     = palette.lotusWhite4
--- local fade5     = palette.lotusWhite5
-
 local dim       = palette.fujiGray
-local fade0     = palette.lotusInk2
-local fade1     = palette.sumiInk6
-local fade2     = palette.lotusViolet2
-local fade3     = palette.oniViolet
-local fade4     = palette.springViolet1
-local fade5     = palette.oniViolet2
 
+local fade0     = palette.sumiInk6
+local fade1     = palette.lotusViolet2
+local fade2     = palette.oniViolet
+local fade3     = palette.springViolet1
+local fade4     = palette.oniViolet2
+local fade5     = palette.dragonPink
 return {
 	{
 		"rebelot/kanagawa.nvim",
@@ -229,7 +220,7 @@ return {
 						NormalFloat = { bg = "none" },
 						FloatBorder = { fg = colors.theme.ui.float.fg_border, bg = "none" },
 						FloatTitle = { bg = "none" },
-						StatusLine = { fg = colors.theme.ui.special, bg = colors.theme.ui.bg_p1 },
+						StatusLine = { fg = highlight, bg = colors.theme.ui.bg_p1 },
 						StatusLineNC = { bg = colors.theme.ui.bg_dim },
 						MsgArea = { bg = colors.theme.ui.bg_p1 },
 						Pmenu = { fg = colors.theme.ui.pmenu.fg, bg = colors.theme.ui.pmenu.bg },
@@ -270,8 +261,8 @@ return {
 						["@comment.error"] = { bg = "none", fg = colors.theme.diag.error },
 						zshTodo = { bg = "none", fg = colors.theme.diag.hint },
 						Search = { bg = "none", bold = true, fg = colors.theme.ui.bg_search },
-						IncSearch = { bg = colors.theme.ui.bg_search, bold = true, fg = colors.theme.ui.fg },
-						CurSearch = { bg = colors.theme.ui.bg_search, bold = true, fg = colors.theme.ui.fg },
+						IncSearch = { bg = colors.theme.ui.bg_search, bold = true, fg = fade0 },
+						CurSearch = { bg = colors.theme.ui.bg_search, bold = true, fg = fade0 },
 						Folded = { fg = colors.theme.ui.special, bg = "none", underdashed = true },
 					}
 				end,
