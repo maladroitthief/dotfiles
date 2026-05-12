@@ -10,11 +10,11 @@ return {
 		"ravsii/nvim-dap-envfile",
 	},
 	config = function()
-		local dap = require('dap')
+		local dap = require("dap")
 		dap.defaults.fallback.terminal_win_cmd = "tabnew"
 		dap.defaults.fallback.focus_terminal = true
 
-		require('dap-go').setup()
+		require("dap-go").setup()
 		require("nvim-dap-envfile").setup({})
 		require("nvim-dap-virtual-text").setup({
 			enabled = true,
@@ -30,6 +30,42 @@ return {
 			all_frames = false,
 			virt_lines = false,
 			virt_text_win_col = nil,
+		})
+
+		require("dap-view").setup({
+			windows = {
+				-- `prev` is the last used position, might be nil
+				position = function(prev)
+					local wins = vim.api.nvim_tabpage_list_wins(0)
+
+					-- Restores previous position if terminal is visible
+					if vim.iter(wins):find(function(win)
+						return vim.w[win].dapview_win_term
+					end) then
+						return prev
+					end
+
+					return vim.tbl_count(vim.iter(wins)
+						:filter(function(win)
+							local buf = vim.api.nvim_win_get_buf(win)
+							local valid_buftype =
+								vim.tbl_contains({ "", "help", "prompt", "quickfix", "terminal" }, vim.bo[buf].buftype)
+							local dapview_win = vim.w[win].dapview_win or vim.w[win].dapview_win_term
+							return valid_buftype and not dapview_win
+						end)
+						:totable()) > 1 and "below" or "right"
+				end,
+				size = function(pos)
+					return pos == "below" and 0.25 or 0.5
+				end,
+				terminal = {
+					-- `pos` is the position for the regular window
+					position = function(pos)
+						return pos == "below" and "right" or "below"
+					end,
+					size = 0.5,
+				},
+			},
 		})
 
 		local sign = vim.fn.sign_define
