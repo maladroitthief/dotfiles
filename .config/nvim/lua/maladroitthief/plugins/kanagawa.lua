@@ -200,7 +200,7 @@ return {
 								deprecated = dim,
 								comment = dim,
 								special2 = fade5,
-								punct = fade5,
+								punct = highlight,
 								fun = fade5,
 								type = fade4,
 								keyword = fade4,
