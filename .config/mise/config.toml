@@ -6,6 +6,7 @@ aws-cli = 'latest'
 aws-sso = 'latest'
 ruby = '3.4.5'
 kubectl = 'latest'
+bazelisk = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["terraform"]

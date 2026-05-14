@@ -120,6 +120,7 @@ return {
 				},
 				rust_analyzer = true,
 				ruff = { manual_install = true },
+				ty = true,
 				jsonls = {
 					server_capabilities = {
 						documentFormattingProvider = false,
