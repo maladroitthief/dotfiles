@@ -92,7 +92,8 @@ return {
 			desc = "dap: toggle",
 		},
 		{
-			dap_prefix .. "c",
+			-- dap_prefix .. "c",
+			"<Home>",
 			function()
 				require("dap").continue()
 			end,
@@ -100,12 +101,13 @@ return {
 			desc = "dap: continue",
 		},
 		{
-			dap_prefix .. "C",
+			-- dap_prefix .. "x",
+			"<End>",
 			function()
-				require("dap").run_to_cursor()
+				require("dap").terminate()
 			end,
-			mode = { "n" },
-			desc = "dap: run to cursor",
+			mode = { "n", "v" },
+			desc = "dap: terminate",
 		},
 		{
 			dap_prefix .. "w",
@@ -117,7 +119,8 @@ return {
 		},
 		{
 			-- dap_prefix .. "n",
-			"<F10>",
+			-- "<F10>",
+			"<Down>",
 			function()
 				require("dap").step_over()
 			end,
@@ -125,7 +128,8 @@ return {
 			desc = "dap: step over",
 		},
 		{
-			"<F11>",
+			-- "<F11>",
+			"<Right>",
 			function()
 				require("dap").step_into()
 			end,
@@ -133,13 +137,24 @@ return {
 			desc = "dap: step into",
 		},
 		{
-			"<S-F11>",
-			dap_prefix .. "o",
+			-- "<S-F11>",
+			-- dap_prefix .. "o",
+			"<Left>",
 			function()
 				require("dap").step_out()
 			end,
 			mode = { "n" },
 			desc = "dap: step out",
+		},
+		{
+			-- "<S-F11>",
+			-- dap_prefix .. "o",
+			"<Up>",
+			function()
+				require("dap").step_back()
+			end,
+			mode = { "n" },
+			desc = "dap: step back",
 		},
 		{
 			dap_prefix .. "b",
@@ -172,14 +187,6 @@ return {
 			end,
 			mode = { "n", "v" },
 			desc = "dap: preview",
-		},
-		{
-			dap_prefix .. "x",
-			function()
-				require("dap").terminate()
-			end,
-			mode = { "n", "v" },
-			desc = "dap: terminate",
 		},
 	},
 }

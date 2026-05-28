@@ -346,7 +346,7 @@ return {
 				desc = "snacks: keymaps",
 			},
 			{
-				snacks_prefix .. "ds",
+				snacks_prefix .. "d",
 				function()
 					require("snacks").picker.lsp_symbols({})
 				end,
@@ -354,7 +354,7 @@ return {
 				desc = "snacks: symbols",
 			},
 			{
-				snacks_prefix .. "ws",
+				snacks_prefix .. "w",
 				function()
 					require("snacks").picker.lsp_workspace_symbols({})
 				end,
@@ -362,7 +362,8 @@ return {
 				desc = "snacks: workspace symbols",
 			},
 			{
-				snacks_prefix .. "lr",
+				-- snacks_prefix .. "lr",
+				"<F11>",
 				function()
 					require("snacks").picker.lsp_references({})
 				end,
@@ -370,7 +371,8 @@ return {
 				desc = "snacks: lsp references",
 			},
 			{
-				snacks_prefix .. "ld",
+				-- snacks_prefix .. "ld",
+				"<F12>",
 				function()
 					require("snacks").picker.lsp_definitions({})
 				end,
