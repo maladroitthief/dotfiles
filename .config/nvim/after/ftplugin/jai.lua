@@ -12,6 +12,7 @@ _G.jai_env_set = _G.jai_env_set
 		dap.adapters.codelldb = {
 			type = "server",
 			port = "${port}",
+			name = "lldb",
 			executable = {
 				command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
 				args = { "--port", "${port}" },
@@ -28,6 +29,9 @@ _G.jai_env_set = _G.jai_env_set
 				end,
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
+				initCommands = {
+					"command script import " .. vim.fn.stdpath("config") .. "/scripts/jai_lldb.py",
+				},
 			},
 			{
 				name = "[jai] Launch codelldb",

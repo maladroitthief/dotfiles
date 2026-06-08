@@ -131,6 +131,24 @@ local fade2     = palette.oniViolet
 local fade3     = palette.springViolet1
 local fade4     = palette.oniViolet2
 local fade5     = palette.dragonPink
+
+-- local highlight = palette.surimiOrange
+-- local dim       = palette.fujiGray
+--
+-- -- lotusBlue4 = "#4d699b",
+-- -- lotusTeal2 = "#6693bf",
+-- -- springBlue = "#7FB4CA",
+-- -- lotusBlue3 = "#9fb5c9",
+-- -- lotusBlue2 = "#b5cbd2",
+-- -- lotusBlue1 = "#c7d7e0",
+--
+-- local fade0     = palette.lotusBlue4
+-- local fade1     = palette.lotusTeal2
+-- local fade2     = palette.springBlue
+-- local fade3     = palette.lotusBlue3
+-- local fade4     = palette.lotusBlue2
+-- local fade5     = palette.lotusBlue1
+
 return {
 	{
 		"rebelot/kanagawa.nvim",
