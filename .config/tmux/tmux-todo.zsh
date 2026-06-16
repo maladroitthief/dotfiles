@@ -10,9 +10,7 @@ fi
 cd "$(dirname "$0")"
 
 main() {
-	notes_dir="$HOME/workspace/notes.md"
-
-	tmux neww -n "notes" nvim $notes_dir
+	tmux neww -n "todo" tuxedo
 }
 
 main "$@"
