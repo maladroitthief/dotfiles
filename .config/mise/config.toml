@@ -7,6 +7,7 @@ aws-sso = 'latest'
 kubectl = 'latest'
 rust = 'latest'
 go = 'latest'
+granted = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["terraform"]
