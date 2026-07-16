@@ -6,7 +6,7 @@ autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
 # must happen first
-eval "$(/usr/bin/mise activate zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
 # Keep zshrc clean
 for config (~/.config/zsh/*.zsh) source $config
 for config (~/.config/zsh/secret/*.zsh) source $config
