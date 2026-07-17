@@ -2,7 +2,6 @@ local nvim_prefix = "<leader>n"
 
 -- file navigation
 vim.keymap.set("n", "<leader><leader>", "<c-^>", { desc = "nvim: previous buffer" })
-vim.keymap.set("n", "<leader>er", vim.cmd.Explore, { desc = "nvim: explore" })
 
 -- sorcery with moving blocks in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "nvim: move visual block down" })
