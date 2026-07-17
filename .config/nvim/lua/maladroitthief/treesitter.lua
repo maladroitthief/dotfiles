@@ -42,7 +42,8 @@ M.setup = function()
 				install_info = {
 					url = "https://github.com/constantitus/tree-sitter-jai",
 					branch = "master",
-					files = { "src/parser.c", "src/scanner.c" },
+					-- files = { "src/parser.c", "src/scanner.c" },
+					queries = "queries",
 				},
 				filetype = "jai",
 			}
