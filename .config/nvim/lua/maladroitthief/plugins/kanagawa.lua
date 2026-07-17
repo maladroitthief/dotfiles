@@ -123,14 +123,14 @@ local palette = {
 }
 
 local highlight = "#1bfd9c"
-local dim       = palette.fujiGray
+local dim = palette.fujiGray
 
-local fade0     = palette.sumiInk6
-local fade1     = palette.lotusViolet2
-local fade2     = palette.oniViolet
-local fade3     = palette.springViolet1
-local fade4     = palette.oniViolet2
-local fade5     = palette.dragonPink
+local fade0 = palette.sumiInk6
+local fade1 = palette.lotusViolet2
+local fade2 = palette.oniViolet
+local fade3 = palette.springViolet1
+local fade4 = palette.oniViolet2
+local fade5 = palette.dragonPink
 
 -- local highlight = palette.surimiOrange
 -- local dim       = palette.fujiGray
@@ -152,6 +152,7 @@ local fade5     = palette.dragonPink
 return {
 	{
 		"rebelot/kanagawa.nvim",
+		enabled = false,
 		config = function()
 			require("kanagawa").setup({
 				compile = false, -- enable compiling the colorscheme
@@ -287,7 +288,7 @@ return {
 			})
 
 			-- setup must be called before loading
-			vim.cmd("colorscheme kanagawa")
+			-- vim.cmd("colorscheme kanagawa")
 		end,
 	},
 }

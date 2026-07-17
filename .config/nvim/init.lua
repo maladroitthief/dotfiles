@@ -26,7 +26,7 @@ require("lazy").setup({
 	spec = {
 		import = "maladroitthief/plugins",
 	},
-	install = { colorscheme = { "kanagawa" } },
+	install = { colorscheme = { "srcery" } },
 	checker = { enabled = true },
 	change_detection = {
 		notify = false,
