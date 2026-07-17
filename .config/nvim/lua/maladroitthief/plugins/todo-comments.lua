@@ -1,6 +1,6 @@
 return {
 	"folke/todo-comments.nvim",
-	dependencies = { "nvim-lua/plenary.nvim", "rebelot/kanagawa.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		signs = true, -- show icons in the signs column
 		sign_priority = 8, -- sign priority
@@ -40,13 +40,13 @@ return {
 		-- list of named colors where we try to extract the guifg from the
 		-- list of highlight groups or use the hex color if hl not found as a fallback
 		colors = {
-			fix = { "#E82424" }, -- FIX: error
-			todo = { "#FF9E3B" }, -- TODO: todo
-			warning = { "#DCA561" }, -- WARN: warning
-			hack = { "#D27E99" }, -- HACK: warning
-			performance = { "#957FB8" }, -- PERF: default
-			info = { "#7E9CD8" }, -- NOTE: note
-			test = { "#98BB6C" }, -- TEST: test
+			fix = { "DiagnosticError", "ErrorMsg", "#E82424" }, -- FIX: fix
+			hack = { "DiagnosticError", "#D27E99" }, -- HACK: hack
+			todo = { "DiagnosticWarn", "#FF9E3B" }, -- TODO: todo
+			warning = { "DiagnosticWarn", "WarningMsg", "#DCA561" }, -- WARN: warning
+			info = { "DiagnosticInfo", "#7E9CD8" }, -- NOTE: note
+			performance = { "DiagnosticInfo", "#957FB8" }, -- PERF: perf
+			test = { "DiagnosticOk", "#98BB6C" }, -- TEST: test
 		},
 		search = {
 			command = "rg",

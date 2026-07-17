@@ -1,10 +1,12 @@
 [tools]
-terraform = '1.12.2'
-node = '22'
-python = '3.13'
+terraform = 'latest'
+node = 'latest'
+python = 'latest'
 aws-cli = 'latest'
 aws-sso = 'latest'
 kubectl = 'latest'
+rust = 'latest'
+go = 'latest'
 
 [settings]
 idiomatic_version_file_enable_tools = ["terraform"]

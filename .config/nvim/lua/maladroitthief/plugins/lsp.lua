@@ -153,7 +153,6 @@ return {
 
 					filetypes = { "c" },
 				},
-				solargraph = true,
 				sqlls = true,
 				dockerls = true,
 				ansiblels = true,

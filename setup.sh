@@ -43,6 +43,7 @@ main() {
   ln -sf $(pwd)/.config/swaync ~/.config
   ln -sf $(pwd)/.config/zed ~/.config
   ln -sf $(pwd)/.config/opencode ~/.config
+  ln -sf $(pwd)/.config/mise ~/.config
 }
 
 main "$@"
