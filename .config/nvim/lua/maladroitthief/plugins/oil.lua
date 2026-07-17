@@ -18,6 +18,7 @@ return {
 		config = function()
 			require("oil").setup({
 				default_file_explorer = true,
+				use_default_keymaps = false,
 				columns = {
 					"icon",
 				},
@@ -26,6 +27,12 @@ return {
 				},
 				win_options = {
 					winbar = "%!v:lua.get_oil_winbar()",
+				},
+				keymaps = {
+					[oil_prefix .. "?"] = { "actions.show_help", mode = "n" },
+					["<CR>"] = "actions.select",
+					[oil_prefix .. "."] = { "actions.toggle_hidden", mode = "n" },
+					[oil_prefix .. "\\"] = { "actions.toggle_trash", mode = "n" },
 				},
 			})
 		end,
@@ -49,6 +56,10 @@ return {
 				end,
 				desc = "oil: toggle file details",
 			},
+			{ "<C-H>", false },
+			{ "<C-J>", false },
+			{ "<C-K>", false },
+			{ "<C-L>", false },
 		},
 	},
 }
