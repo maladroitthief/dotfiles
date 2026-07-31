@@ -68,6 +68,39 @@ return {
 			},
 		})
 
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			name = "lldb",
+			executable = {
+				command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+				args = { "--port", "${port}" },
+			},
+		}
+
+		dap.configurations.jai = {
+			{
+				name = "[jai] Launch wildflowers",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.getcwd() .. "/bin/wildflowers"
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+			},
+			{
+				name = "[jai] Launch codelldb",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+			},
+		}
+
 		local sign = vim.fn.sign_define
 
 		sign("DapStopped", { text = vim.g.vinux_diagnostics_signs_warning, texthl = "DiagnosticWarn" })
