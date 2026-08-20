@@ -2,6 +2,9 @@ local snacks_prefix = "<leader>f"
 local git_prefix = "<leader>g"
 local jj_prefix = "<leader>j"
 
+local file_history = ""
+local grep_history = ""
+
 -- TODO: move this into it's own repo -ian
 local M = {}
 
@@ -229,6 +232,10 @@ return {
 						ignored = false,
 						follow = false,
 						supports_live = true,
+						pattern = file_history,
+						on_close = function(picker)
+							file_history = picker:filter().pattern
+						end,
 					})
 				end,
 				mode = { "n" },
@@ -246,6 +253,10 @@ return {
 						ignored = false,
 						live = true, -- live grep by default
 						supports_live = true,
+						search = grep_history,
+						on_close = function(picker)
+							grep_history = picker:filter().search
+						end,
 					})
 				end,
 				mode = { "n" },
@@ -263,6 +274,9 @@ return {
 						ignored = false,
 						follow = false,
 						supports_live = true,
+						on_close = function(picker)
+							file_history = picker:filter().pattern
+						end,
 					})
 				end,
 				mode = { "n" },
@@ -281,6 +295,9 @@ return {
 						ignored = true,
 						live = true, -- live grep by default
 						supports_live = true,
+						on_close = function(picker)
+							grep_history = picker:filter().search
+						end,
 					})
 				end,
 				mode = { "n" },
@@ -426,14 +443,6 @@ return {
 				end,
 				mode = { "n" },
 				desc = "snacks: registers",
-			},
-			{
-				snacks_prefix .. "e",
-				function()
-					require("snacks").picker.icons({})
-				end,
-				mode = { "n" },
-				desc = "snacks: emojis",
 			},
 			{
 				snacks_prefix .. "m",

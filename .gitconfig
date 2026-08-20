@@ -21,4 +21,6 @@
     rebase = true
 	autoSetupRemote = true
 [fetch]
-    prune = true
+	prune = true
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
