@@ -5,6 +5,7 @@ return {
 	lazy = true,
 	dependencies = {
 		"thehamsta/nvim-dap-virtual-text",
+		"Jorenar/nvim-dap-disasm",
 		"igorlfs/nvim-dap-view",
 		"leoluz/nvim-dap-go",
 		"ravsii/nvim-dap-envfile",
@@ -66,7 +67,20 @@ return {
 					size = 0.5,
 				},
 			},
+			winbar = {
+				sections = {
+					"watches",
+					"scopes",
+					"exceptions",
+					"breakpoints",
+					"threads",
+					"disassembly",
+					"repl",
+				},
+			},
 		})
+
+		require("dap-disasm").setup({})
 
 		dap.adapters.codelldb = {
 			type = "server",
@@ -78,28 +92,28 @@ return {
 			},
 		}
 
-		dap.configurations.jai = {
-			{
-				name = "[jai] Launch wildflowers",
-				type = "codelldb",
-				request = "launch",
-				program = function()
-					return vim.fn.getcwd() .. "/bin/wildflowers"
-				end,
-				cwd = "${workspaceFolder}",
-				stopOnEntry = false,
-			},
-			{
-				name = "[jai] Launch codelldb",
-				type = "codelldb",
-				request = "launch",
-				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-				end,
-				cwd = "${workspaceFolder}",
-				stopOnEntry = false,
-			},
-		}
+		-- dap.configurations.jai = {
+		-- 	{
+		-- 		name = "[jai] Launch wildflowers",
+		-- 		type = "codelldb",
+		-- 		request = "launch",
+		-- 		program = function()
+		-- 			return vim.fn.getcwd() .. "/bin/wildflowers"
+		-- 		end,
+		-- 		cwd = "${workspaceFolder}",
+		-- 		stopOnEntry = false,
+		-- 	},
+		-- 	{
+		-- 		name = "[jai] Launch codelldb",
+		-- 		type = "codelldb",
+		-- 		request = "launch",
+		-- 		program = function()
+		-- 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		-- 		end,
+		-- 		cwd = "${workspaceFolder}",
+		-- 		stopOnEntry = false,
+		-- 	},
+		-- }
 
 		local sign = vim.fn.sign_define
 
