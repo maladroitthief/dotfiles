@@ -460,6 +460,22 @@ return {
 				mode = { "n" },
 				desc = "snacks: notifications",
 			},
+			{
+				snacks_prefix .. "e",
+				function()
+					require("snacks").picker.explorer({})
+				end,
+				mode = { "n" },
+				desc = "snacks: explorer",
+			},
+			{
+				"<leader>er",
+				function()
+					require("snacks").picker.explorer({})
+				end,
+				mode = { "n" },
+				desc = "snacks: explorer",
+			},
 		},
 	},
 }
