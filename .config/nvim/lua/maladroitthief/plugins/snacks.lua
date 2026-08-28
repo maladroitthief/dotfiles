@@ -461,17 +461,38 @@ return {
 				desc = "snacks: notifications",
 			},
 			{
-				snacks_prefix .. "e",
-				function()
-					require("snacks").picker.explorer({})
-				end,
-				mode = { "n" },
-				desc = "snacks: explorer",
-			},
-			{
 				"<leader>er",
 				function()
-					require("snacks").picker.explorer({})
+					require("snacks").picker.explorer({
+						finder = "explorer",
+						sort = { fields = { "sort" } },
+						supports_live = true,
+						tree = true,
+						watch = true,
+						hidden = true,
+						ignored = false,
+						diagnostics = true,
+						diagnostics_open = false,
+						git_status = true,
+						git_status_open = false,
+						git_untracked = true,
+						follow_file = true,
+						focus = "list",
+						auto_close = true,
+						jump = { close = true },
+						layout = { preset = "default", preview = true },
+						-- to show the explorer to the right, add the below to
+						-- your config under `opts.picker.sources.explorer`
+						-- layout = { layout = { position = "right" } },
+						formatters = {
+							file = { filename_only = true },
+							severity = { pos = "right" },
+						},
+						matcher = { sort_empty = false, fuzzy = false },
+						config = function(opts)
+							return require("snacks.picker.source.explorer").setup(opts)
+						end,
+					})
 				end,
 				mode = { "n" },
 				desc = "snacks: explorer",
