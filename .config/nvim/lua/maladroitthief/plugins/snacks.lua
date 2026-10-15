@@ -61,6 +61,15 @@ function M.status()
 	})
 end
 
+local function get_visual_select()
+	local mode = vim.api.nvim_get_mode().mode
+	local opts = (mode == "v" or mode == "V" or mode == "\22") and { type = mode } or {}
+
+	local lines = vim.fn.getregion(vim.fn.getpos("."), vim.fn.getpos("v"), opts)
+
+	return table.concat(lines, "\r")
+end
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -221,6 +230,9 @@ return {
 				mode = { "n" },
 				desc = "snacks: projects",
 			},
+			--
+			-- NORMAL MODE
+			--
 			{
 				snacks_prefix .. "f",
 				function()
@@ -274,6 +286,7 @@ return {
 						ignored = false,
 						follow = false,
 						supports_live = true,
+						pattern = file_history,
 						on_close = function(picker)
 							file_history = picker:filter().pattern
 						end,
@@ -295,12 +308,100 @@ return {
 						ignored = true,
 						live = true, -- live grep by default
 						supports_live = true,
+						search = grep_history,
 						on_close = function(picker)
 							grep_history = picker:filter().search
 						end,
 					})
 				end,
 				mode = { "n" },
+				desc = "snacks: inner grep",
+			},
+			--
+			-- VISUAL MODE
+			--
+			{
+				snacks_prefix .. "f",
+				function()
+					require("snacks").picker.files({
+						finder = "files",
+						format = "file",
+						show_empty = true,
+						hidden = true,
+						ignored = false,
+						follow = false,
+						supports_live = true,
+						pattern = get_visual_select(),
+						on_close = function(picker)
+							file_history = picker:filter().pattern
+						end,
+					})
+				end,
+				mode = { "v" },
+				desc = "snacks: files",
+			},
+			{
+				snacks_prefix .. "g",
+				function()
+					require("snacks").picker.grep({
+						finder = "grep",
+						regex = true,
+						format = "file",
+						show_empty = true,
+						hidden = true,
+						ignored = false,
+						live = true, -- live grep by default
+						supports_live = true,
+						search = get_visual_select(),
+						on_close = function(picker)
+							grep_history = picker:filter().search
+						end,
+					})
+				end,
+				mode = { "v" },
+				desc = "snacks: grep",
+			},
+			{
+				snacks_prefix .. "if",
+				function()
+					require("snacks").picker.files({
+						finder = "files",
+						format = "file",
+						cwd = vim.fn.expand("%:p:h"),
+						show_empty = true,
+						hidden = false,
+						ignored = false,
+						follow = false,
+						supports_live = true,
+						pattern = get_visual_select(),
+						on_close = function(picker)
+							file_history = picker:filter().pattern
+						end,
+					})
+				end,
+				mode = { "v" },
+				desc = "snacks: inner files",
+			},
+			{
+				snacks_prefix .. "ig",
+				function()
+					require("snacks").picker.grep({
+						finder = "grep",
+						cwd = vim.fn.expand("%:p:h"),
+						regex = true,
+						format = "file",
+						show_empty = true,
+						hidden = true,
+						ignored = true,
+						live = true, -- live grep by default
+						supports_live = true,
+						search = get_visual_select(),
+						on_close = function(picker)
+							grep_history = picker:filter().search
+						end,
+					})
+				end,
+				mode = { "v" },
 				desc = "snacks: inner grep",
 			},
 			{
