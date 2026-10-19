@@ -3,5 +3,6 @@ vim.filetype.add({
 		h = "c",
 		jai = "jai",
 		tf = "terraform",
+		j2 = "jinja",
 	},
 })
