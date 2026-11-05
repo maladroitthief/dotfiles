@@ -6,13 +6,11 @@ return {
 		sign_priority = 8, -- sign priority
 		-- keywords recognized as todo comments
 		keywords = {
-			FIX = { icon = " ", color = "fix", alt = { "fix" } },
+			FIX = { icon = " ", color = "fix", alt = { "fix" } },
 			TODO = { icon = " ", color = "todo", alt = { "todo" } },
-			HACK = { icon = " ", color = "hack", alt = { "hack" } },
 			WARN = { icon = " ", color = "warning", alt = { "warn" } },
 			PERF = { icon = "󰔛 ", color = "performance", alt = { "perf" } },
 			NOTE = { icon = " ", color = "info", alt = { "note" } },
-			TEST = { icon = "󰂓 ", color = "test", alt = { "test" } },
 		},
 		gui_style = {
 			fg = "BOLD", -- The gui style to use for the fg highlight group.
@@ -26,7 +24,7 @@ return {
 		highlight = {
 			multiline = true, -- enable multine todo comments
 			multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
-			multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
+			multiline_context = 30, -- extra lines that will be re-evaluated when changing a line
 			before = "", -- "fg" or "bg" or empty
 			keyword = "wide_fg", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
 			after = "fg", -- "fg" or "bg" or empty
@@ -40,13 +38,11 @@ return {
 		-- list of named colors where we try to extract the guifg from the
 		-- list of highlight groups or use the hex color if hl not found as a fallback
 		colors = {
-			fix = { "DiagnosticError", "ErrorMsg", "#E82424" }, -- FIX: fix
-			hack = { "DiagnosticError", "#D27E99" }, -- HACK: hack
-			todo = { "DiagnosticWarn", "#FF9E3B" }, -- TODO: todo
-			warning = { "DiagnosticWarn", "WarningMsg", "#DCA561" }, -- WARN: warning
-			info = { "DiagnosticInfo", "#7E9CD8" }, -- NOTE: note
-			performance = { "DiagnosticInfo", "#957FB8" }, -- PERF: perf
-			test = { "DiagnosticOk", "#98BB6C" }, -- TEST: test
+			fix = { "DiagnosticError" }, -- FIX: fix
+			warning = { "DiagnosticWarn" }, -- WARN: warning
+			info = { "DiagnosticInfo" }, -- NOTE: note
+			todo = { "DiagnosticHint" }, -- TODO: todo
+			performance = { "DiagnosticOk" }, -- PERF: perf
 		},
 		search = {
 			command = "rg",
