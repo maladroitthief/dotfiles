@@ -27,7 +27,6 @@ main() {
   ln -sf $(pwd)/.gdbinit ~
   ln -sf $(pwd)/.jjconfig.toml ~
   ln -sf $(pwd)/.local/bin/nvim-open ~/.local/bin
-  ln -sf $(pwd)/.local/bin/nvim-wait ~/.local/bin
   ln -sf $(pwd)/.gemini/settings.json ~/.gemini
   ln -sf $(pwd)/.config/ghostty ~/.config
   ln -sf $(pwd)/.config/wezterm ~/.config
