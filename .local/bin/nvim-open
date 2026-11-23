@@ -1,0 +1,94 @@
+#!/usr/bin/env -S nvim -l
+
+local args = arg or {}
+local wait = false
+if args[1] == "--wait" then
+  wait = true
+  table.remove(args, 1)
+end
+
+local dir = vim.env.XDG_RUNTIME_DIR or "/tmp"
+
+local function to_sock(s)
+  return string.format("%s/nvim-%s.sock", dir, s:gsub("[^a-zA-Z0-9_]", "_"))
+end
+
+local function run(cmd)
+  local ok, p = pcall(vim.system, cmd, { text = true })
+  local res = ok and p:wait() or nil
+  return (res and res.code == 0) and vim.trim(res.stdout or "") or nil
+end
+
+local function is_alive(sock)
+  local st = vim.uv.fs_stat(sock)
+  return st ~= nil
+    and st.type == "socket"
+    and run({ "nvim", "--server", sock, "--remote-expr", "1" }) ~= nil
+end
+
+local function find_socket()
+  -- 1. Nested Neovim terminal
+  if (vim.env.NVIM or "") ~= "" then
+    return vim.env.NVIM
+  end
+
+  -- 2. Current tmux session
+  if (vim.env.TMUX or "") ~= "" then
+    local sess = run({ "tmux", "display-message", "-p", "#S" })
+    if sess and sess ~= "" then
+      return to_sock(sess)
+    end
+  end
+
+  -- 3. External app: most recently active tmux session
+  local clients = run({ "tmux", "list-clients", "-F", "#{client_activity} #{session_name}" })
+  if clients and clients ~= "" then
+    local list = vim.split(clients, "\n", { trimempty = true })
+    table.sort(list, function(a, b)
+      return (tonumber(a:match("^%d+")) or 0) > (tonumber(b:match("^%d+")) or 0)
+    end)
+    for _, item in ipairs(list) do
+      local sock = to_sock(item:match("^%d+%s+(.+)$") or "")
+      if is_alive(sock) then
+        return sock
+      end
+    end
+  end
+
+  -- 4. Fallback outside tmux
+  return dir .. "/nvim-default.sock"
+end
+
+local function exec_nvim(argv)
+  local escaped = vim.tbl_map(vim.fn.shellescape, vim.list_extend({ "nvim" }, argv))
+  os.exit(os.execute("exec " .. table.concat(escaped, " ")) == 0 and 0 or 1)
+end
+
+local sock = find_socket()
+local file = args[1] and vim.fs.normalize(vim.fn.fnamemodify(args[1], ":p")) or nil
+local line = tonumber(args[2])
+
+if is_alive(sock) then
+  if not file then
+    os.exit(0)
+  end
+  if wait then
+    exec_nvim({ "--server", sock, "--remote-wait", file })
+  end
+
+  local expr = string.format("execute('edit ' . fnameescape('%s'))", file:gsub("'", "''"))
+  run({ "nvim", "--server", sock, "--remote-expr", expr })
+  if line then
+    run({ "nvim", "--server", sock, "--remote-expr", string.format("cursor(%d, 1)", line) })
+  end
+  os.exit(0)
+end
+
+os.remove(sock)
+if file and line then
+  exec_nvim({ "--listen", sock, "+" .. line, file })
+elseif file then
+  exec_nvim({ "--listen", sock, file })
+else
+  exec_nvim({ "--listen", sock })
+end

@@ -18,3 +18,7 @@ eval "$(starship init zsh)"
 
 # opencode
 export PATH=/home/iweller/.opencode/bin:$PATH
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/iweller/.local/bin:$PATH"
