@@ -1,6 +1,6 @@
 export PATH="$PATH:$HOME/.local/share/nvim/mason/bin:$HOME/.local/bin"
-export EDITOR="nvim-wait"
-export VISUAL="nvim-wait"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 nvim() {
   if [ -n "$NVIM" ] && [ $# -eq 0 ]; then
